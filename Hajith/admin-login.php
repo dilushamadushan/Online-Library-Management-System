@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Log-IN</title>
-    <link rel="stylesheet" href="admin-login.css">
+    <link rel="stylesheet" href="../assets/css/admin-login.css">
 </head>
 <body>
     <div class="admin-log-in-interface">
         <div class="admin-image">
-            <img src="admin.png" alt="admin">
+            <img src="../assets/media/home-main/admin.png" alt="admin">
         </div>
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">

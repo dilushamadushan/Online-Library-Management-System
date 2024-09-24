@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+}
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.admin-log-in-interface{
+    display: flex;
+    background: #2cebf9;
+    height: 40%;
+    width: 90%;
+    border-radius: 20px;
+}
+.admin-log-in-interface .admin-image{
+    padding: 10px;
+    height: 100%;
+    width: 30%;
+}
+.admin-log-in-interface .admin-image img{
+    height: 250px;
+    width: 70%;
+}
+.admin-log-in-interface .admin-login-pannal{
+    height: 100%;
+    width: 70%;
+    display: flex;
+}
+.admin-log-in-interface .admin-login-pannal #form{
+    height: fit-content;
+    padding: 10px;
+    background-color: #2cebf9;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+}
+.admin-log-in-interface .admin-login-pannal #form h1{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #333;
+}
+.admin-log-in-interface .admin-login-pannal #form input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    margin: 8px 0;
+    background: #2cebf9;
+    border-radius: 5px;
+    border: black solid 1px;
+}
+.admin-log-in-interface .admin-login-pannal #form #btn{
+    background-color: rgb(65, 62, 62);
+    color: #eee;
+    font-size: 20px;
+    cursor: pointer; 
+}
+.admin-log-in-interface .admin-login-pannal #form #btn:hover{
+    background-color: #eee;
+    color: rgb(65, 62, 62);
+    border: 2px solid rgb(65, 62, 62);
+}

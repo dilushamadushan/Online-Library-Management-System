@@ -14,6 +14,7 @@
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">
                 <h1>Admin Login</h1>
+                <div class="error"></div>
                 <input type="text" name="user" id="user" placeholder="User Name">
                 <input type="password" name="pwd" id="pwd" placeholder="Password">
                 <input type="submit" name="btn" id="btn" value="Login">

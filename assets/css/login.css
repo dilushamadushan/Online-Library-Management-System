@@ -20,20 +20,20 @@ html, body {
     height: 43%;
     width: 90%;
     border-radius: 20px;
-    background:  #A52A2A ;
+    background:  #943030 ;
     box-shadow: 10px 10px 10px black;
 }
 .admin-log-in-interface .admin-image{
     padding: 10px;
     height: 100%;
     width: 30%;
-    background:  #A52A2A ;
+    background:  #943030 ;
     border-radius: 20px;
 }
 .admin-log-in-interface .admin-image img{
     margin: 20px;
     height: 250px;
-    width: 70%;
+    width: 80%;
 }
 .admin-log-in-interface .admin-login-pannal{
     height: 100%;
@@ -41,7 +41,7 @@ html, body {
     display: flex;
 }
 .admin-log-in-interface .admin-login-pannal #form{
-    background:  #A52A2A ;
+    background:  #943030  ;
     height: fit-content;
     padding: 10px;
     border-radius: 20px;
@@ -94,4 +94,17 @@ html, body {
     width: 35px;
     height: 25px;
     cursor: pointer;
+}
+ p{
+    color: #eee;
+    font-size: 20px;
+    font-weight: bold;
+}
+p a{
+    color: #3d3939;
+    font-weight: bold;
+    font-size: 20px;
+}
+p a:hover{
+    font-style: italic;
 }

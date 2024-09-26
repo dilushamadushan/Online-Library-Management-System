@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Log-IN</title>
     <link rel="stylesheet" href="../assets/css/admin-login.css">
+    <script defer src="../assets/js/admin-login.js"></script>
 </head>
 <body>
     <div class="admin-log-in-interface">
         <div class="admin-image">
-            <img src="../assets/media/home-main/admin.png" alt="admin">
+            <img src="../assets/media/admin-page/admin.png" alt="admin">
         </div>
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">
                 <h1>Admin Login</h1>
-                <div class="error"></div>
+                <div class="error">hgjvjgfghgfhgf jgfghf</div>
                 <input type="text" name="user" id="user" placeholder="User Name">
-                <input type="password" name="pwd" id="pwd" placeholder="Password">
+                <div class="pwd-icon">
+                    <input type="password" name="pwd" id="pwd" placeholder="Password">
+                    <img src="../assets/media/admin-page/eye-close.png" alt="eye-close" id="icon-pwd">
+                </div>
                 <input type="submit" name="btn" id="btn" value="Login">
             </form>
         </div>

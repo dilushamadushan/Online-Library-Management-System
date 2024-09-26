@@ -17,15 +17,16 @@ html, body {
 
 .admin-log-in-interface{
     display: flex;
-    background: #2cebf9;
     height: 40%;
     width: 90%;
     border-radius: 20px;
+    background:  #A52A2A ;
 }
 .admin-log-in-interface .admin-image{
     padding: 10px;
     height: 100%;
     width: 30%;
+    background:  #A52A2A ;
 }
 .admin-log-in-interface .admin-image img{
     height: 250px;
@@ -37,9 +38,9 @@ html, body {
     display: flex;
 }
 .admin-log-in-interface .admin-login-pannal #form{
+    background:  #A52A2A ;
     height: fit-content;
     padding: 10px;
-    background-color: #2cebf9;
     border-radius: 20px;
     text-align: center;
     width: 100%;
@@ -51,11 +52,11 @@ html, body {
     color: #333;
 }
 .admin-log-in-interface .admin-login-pannal #form input{
+    background-color:  #A52A2A ;
     width: 100%;
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background: #2cebf9;
     border-radius: 5px;
     border: black solid 1px;
 }

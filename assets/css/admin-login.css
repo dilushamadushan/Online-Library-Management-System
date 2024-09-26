@@ -52,7 +52,6 @@ html, body {
     color: #333;
 }
 .admin-log-in-interface .admin-login-pannal #form input{
-    background-color:  #A52A2A ;
     width: 100%;
     padding: 10px 15px;
     font-size: 17px;
@@ -80,4 +79,18 @@ html, body {
     border-radius: 5px;
     color: white;
     display: none;
+}
+.pwd-icon{
+    display: flex;
+    align-items: center;
+    background-color:white;
+    height: 45px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.pwd-icon img{
+    margin-right: 10px;
+    width: 35px;
+    height: 25px;
+    cursor: pointer;
 }

@@ -17,18 +17,21 @@ html, body {
 
 .admin-log-in-interface{
     display: flex;
-    height: 40%;
+    height: 43%;
     width: 90%;
     border-radius: 20px;
     background:  #A52A2A ;
+    box-shadow: 10px 10px 10px black;
 }
 .admin-log-in-interface .admin-image{
     padding: 10px;
     height: 100%;
     width: 30%;
     background:  #A52A2A ;
+    border-radius: 20px;
 }
 .admin-log-in-interface .admin-image img{
+    margin: 20px;
     height: 250px;
     width: 70%;
 }
@@ -49,7 +52,7 @@ html, body {
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    color: #333;
+    color: #eee;
 }
 .admin-log-in-interface .admin-login-pannal #form input{
     width: 100%;
@@ -57,7 +60,6 @@ html, body {
     font-size: 17px;
     margin: 8px 0;
     border-radius: 5px;
-    border: black solid 1px;
 }
 .admin-log-in-interface .admin-login-pannal #form #btn{
     background-color: rgb(65, 62, 62);
@@ -68,16 +70,15 @@ html, body {
 .admin-log-in-interface .admin-login-pannal #form #btn:hover{
     background-color: #eee;
     color: rgb(65, 62, 62);
-    border: 2px solid rgb(65, 62, 62);
 }
 .admin-log-in-interface .admin-login-pannal #form .error{
     width: 100%;
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background-color:red;
     border-radius: 5px;
-    color: white;
+    color:red;
+    background: #eee;
     display: none;
 }
 .pwd-icon{

@@ -1,6 +1,7 @@
 const form=document.querySelector("#form")
 const user=document.querySelector("#user")
 const pwd=document.querySelector("#pwd")
+const icon=document.querySelector("#icon-pwd")
 
 form.addEventListener("submit",(e)=>{
     if(validateForm()){
@@ -10,8 +11,6 @@ form.addEventListener("submit",(e)=>{
         e.preventDefault()
     }
 })
-
-
 function validateForm(){
     let isValid=true
     const userVal=user.value.trim()
@@ -21,12 +20,26 @@ function validateForm(){
         setError("Two feilds must be filled!")
         isValid=false
     }
-
-    return isValid
-    
+    else{
+        setError("")
+    }
+    return isValid   
 }
 
 const setError=function(message){
     const error=document.querySelector(".error")
+    error.style.display="block"
     error.innerHTML=message;
 }
+
+icon.addEventListener("click",()=>{
+    if(pwd.type=="password"){
+        pwd.type="text"
+        icon.src="../assets/media/admin-page/eye-open.png"
+    }
+    else{
+        pwd.type="password"
+        icon.src="../assets/media/admin-page/eye-close.png"
+    }
+})
+    

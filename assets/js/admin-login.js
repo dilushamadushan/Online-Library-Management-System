@@ -20,8 +20,13 @@ function validateForm(){
         setError("Two feilds must be filled!")
         isValid=false
     }
+    else if(pwdVal.length < 10||!/[a-z]/.test(pwdVal)||!/[A-Z]/.test(pwdVal)||!/[0-9]/.test(pwdVal)||!/[^a-zA-Z0-9]/.test(pwdVal)){
+        setError("Invalid Password!")
+        isValid=false
+    }
+    
     else{
-        setError("")
+        setError("")   
     }
     return isValid   
 }

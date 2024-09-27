@@ -47,7 +47,7 @@ body {
 }
 
 #sidebar{
-    width: 5%;
+    width: 8%;
     min-width: 5%;
     z-index: 1000;
     transition: all .25s ease-in-out;
@@ -145,4 +145,27 @@ a.sidebar-link:hover {
 #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
     transform: rotate(45deg);
     transition: all .2s ease-out;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 20%; /* Adjust this if needed */
+        min-width: 20%;
+    }
+    #sidebar.expand{
+        width: 40%;
+        min-width: 40%;
+    }
+    .sidebar-logo a {
+        font-size: 12px; /* Smaller font size */
+    }
+
+    a.sidebar-link  {
+        font-size: 12px; /* Smaller font for better fit */
+    }
+
+    .show-details {
+        margin-left: 100px; /* Adjust according to sidebar width */
+    }
+    
 }

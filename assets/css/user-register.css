@@ -7,13 +7,16 @@
    outline: none; border:none;
    text-decoration: none;
 }
+body{
+    background-color: #eee;
+}
 
 .container-form{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 25px;
     padding-bottom: 60px;
     background: #fff
 }

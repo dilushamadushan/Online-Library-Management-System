@@ -1,4 +1,5 @@
-<?php include("./header.php") ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +73,7 @@
                     </a>
                 </div>
             </aside>
-            <div class="show-details p-3">
+            <div class="show-details p-4">
                 <div class="profile-info">
                     <h1>Personal Information</h1>
                     <h2>Admin Name:</h2>
@@ -90,4 +91,3 @@
         </div>
 </body>
 </html>
-<?php include("./footer") ?>

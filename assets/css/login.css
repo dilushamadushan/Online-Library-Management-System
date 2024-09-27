@@ -20,16 +20,14 @@ html, body {
     height: 43%;
     width: 90%;
     border-radius: 20px;
-    background:  #943030 ;
-    background:  #943030;
+    background:  rgb(70, 2, 2) ;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 .admin-log-in-interface .admin-image{
     padding: 10px;
     height: 100%;
     width: 30%;
-    background:  #943030 ;
-    background:  #943030;
+    background:  rgb(70, 2, 2) ;
     border-radius: 20px;
 }
 .admin-log-in-interface .admin-image img{
@@ -44,8 +42,7 @@ html, body {
     display: flex;
 }
 .admin-log-in-interface .admin-login-pannal #form{
-    background:  #943030  ;
-    background:  #943030;
+    background:  rgb(70, 2, 2)  ;
     height: fit-content;
     border-radius: 20px;
     text-align: center;

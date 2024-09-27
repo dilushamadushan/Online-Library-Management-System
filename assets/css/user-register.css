@@ -20,7 +20,7 @@
 
 .container-form #form{
     padding: 10px;
-    background-color: #943030;
+    background-color: rgb(70, 2, 2);
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     text-align: center;

@@ -1,4 +1,4 @@
-<?php include("header.php") ?>
+<?php include("./header.php") ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,4 +33,4 @@
 </body>
 </html>
 
-<?php include("footer.php") ?>
+<?php include("./footer") ?>

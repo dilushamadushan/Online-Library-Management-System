@@ -13,7 +13,7 @@
 <body>
     <div class="admin-log-in-interface">
         <div class="admin-image">
-            <img src="../assets/media/admin-page/admin.png" alt="admin">
+            <img src="../assets/media/admin-page/admin1.png" alt="admin">
         </div>
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">

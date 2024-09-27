@@ -1,2 +1,2 @@
-<?php include("includes/header.php") ?>
-<?php include("includes/footer.php") ?>
+<?php include("header.php") ?>
+<?php include("footer.php") ?>

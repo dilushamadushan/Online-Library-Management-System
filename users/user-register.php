@@ -16,7 +16,7 @@
             <input type="text" name="mail" id="mail" placeholder="Enter Your Email" >
             <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
             <input type="text" name="addr" id="addr" placeholder="Enter Your Address" >
-            <input type="file" name="profile" id="profile" placeholder="Enter Your Email"accept="image/*">
+            <input type="file" name="profile" id="profile" accept="image/*">
             <div class="pwd-icon">
                 <input type="password" name="pwd" id="pwd" placeholder="Enter Your User Password">
                 <img src="../assets/media/admin-page/eye-close.png" alt="eye-open" id="icon-pwd">

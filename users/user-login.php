@@ -23,7 +23,7 @@
                 </div>
                 <input type="submit" name="btn" id="btn" value="Login">
 
-                <p>Don't You Have an account <a href="#">Register</a></p>
+                <p>Don't You Have an account <a href="../users/user-register.php">Register</a></p>
             </form>
         </div>
     </div>

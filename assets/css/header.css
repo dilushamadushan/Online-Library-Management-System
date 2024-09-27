@@ -1,0 +1,70 @@
+header ul li {
+    margin-left: 20px;
+    font-weight: bold;
+}
+header ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+header ul li a:hover::after {
+    transform: scaleX(1);
+}
+header {
+    padding: 15px;
+    display: flex;
+    background-color: rgb(70, 2, 2); 
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 2px 2px rgb(190, 241, 6);
+}
+
+.logo_img img {
+    width: 100px;
+    height: 40px;
+}
+.dropdown-menu {
+    background-color: rgb(70, 2, 2);
+    width: 200px;
+}
+.dropdown-item {
+    width: 90%;
+    border-radius: 8px;
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(255, 217, 0);
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+}
+.nav-item.dropdown {
+    position: relative;
+}
+.login-btn {
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.login-btn:active {
+    transform: scale(0.95);
+}

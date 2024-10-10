@@ -9,8 +9,10 @@ body{
 }
 .admin-pannel-container{
     height: 50%;
-    width: 75%;
+    width: 60%;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    display: flex; /* Make the container flexbox */
+    flex-direction: row; /* Ensure the child elements are in a row */
 }
 ::after,
 ::before {
@@ -38,17 +40,10 @@ body {
 .menues-admin{
     display: flex;
 }
-.show-details{
-    min-height: 80vh;
-    width: 100%;
-    overflow: hidden;
-    transition: all 0.35s ease-in-out;
-    background-color: #eee;
-}
 
 #sidebar{
-    width: 8%;
-    min-width: 5%;
+    width: 100%;
+    min-width: 100%;
     z-index: 1000;
     transition: all .25s ease-in-out;
     display: flex;
@@ -56,8 +51,8 @@ body {
     background-color:rgb(70, 2, 2);
 }
 #sidebar.expand{
-    width: 23%;
-    min-width: 23%;
+    width: 100%;
+    min-width: 100%;
 }
 .toggle-btn{
     background-color: transparent;
@@ -146,26 +141,98 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+.show-details {
+    margin-left: 0; /* Remove extra margin */
+    width: 100%; /* Occupy the remaining space */
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.profile-info {
+    padding: 10px;
+    width: 100%; /* Make sure the profile section uses full width of the show-details div */
+    display: flex;
+    flex-direction: column;
+   
+}
+.profile-info h1{
+    font-size: xx-large;
+    text-align: center;
+}
+.profile-info h2{
+    font-size: larger;
+    margin:10px 10px;
+    
+}
+.profile-info input{
+    width: 100%;
+    border-radius: 20px;
+    height: 45px;
+    padding: 0 10px;
+    font-size: medium;
+}
+.profile-info #btn{
+    margin-top: 10px;
+    background-color: rgb(70, 2, 2);
+    color: #eee;
+    font-weight: bold;
+    font-size: 18px;
+    width: 75%;
+    left: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.profile-info #btn:hover{
+    background-color: #eee;
+    color: rgb(70, 2, 2);
+}
+.profile-info #bookbtn{
+    height: 150px;
+}
+#books {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 20px; /* Space between buttons */
+}
+
+/* Button styles */
+#bookbtn {
+    background-color: transparent; /* No background */
+    border: none; /* Remove default border */
+    cursor: pointer;
+    font-size: 2rem; /* Size of the icons */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+/* Hover effect for buttons */
+#bookbtn:hover {
+    transform: scale(1.2); /* Enlarge icon slightly on hover */
+}
+
+/* Icon colors */
+#bookbtn i {
+    color: #460202; /* Consistent color for icons */
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 768px) {
+    #books {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        align-items: center;
+    }
+}
 
 @media (max-width: 768px) {
-    #sidebar {
-        width: 20%; /* Adjust this if needed */
-        min-width: 20%;
+    .admin-pannel-container {
+        flex-direction: column; /* Stack elements on top of each other on smaller screens */
     }
-    #sidebar.expand{
-        width: 40%;
-        min-width: 40%;
+    .menues-admin {
+        width: 100%; /* Sidebar will take the full width */
     }
-    .sidebar-logo a {
-        font-size: 12px; /* Smaller font size */
-    }
-
-    a.sidebar-link  {
-        font-size: 12px; /* Smaller font for better fit */
-    }
-
     .show-details {
-        margin-left: 100px; /* Adjust according to sidebar width */
+        width: 100%; /* Profile section will also take the full width */
+        margin-left: 0;
     }
-    
 }

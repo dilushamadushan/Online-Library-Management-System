@@ -1,5 +1,5 @@
 
-<?php include("../header.php") ?>
+
 
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Pannel</title>
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/admin-pannel.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script defer src="../assets/js/admin-pannel.js"></script>
@@ -74,8 +74,11 @@
                     </a>
                 </div>
             </aside>
-            <div class="show-details p-4">
-                <div class="profile-info">
+        </div>
+
+            <div class="show-details ">
+
+                <div class="profile-info" id="personal">
                     <h1>Personal Information</h1>
                     <h2>Admin Name:</h2>
                     <input type="text" name="name" id="name" value="Hajith">
@@ -85,12 +88,22 @@
                     <input type="text" name="mobile" id="mobile" value="0740523954">
                     <h2>Adsress:</h2>
                     <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
-                    <input type="button" value="Ubdate" name="btn">
+                    <input type="button" value="Ubdate" name="btn" id="btn">
                 </div>
+                <div class="profile-info" id="books">
+                    <h1>Book Information</h1>
+                    <button id="bookbtn" type="button"><i class="fa-light fa-book fa-fade" style="color: #460202;"></i></button1>
+                    <button id="bookbtn" type="button"><i class="fa-solid fa-bars" style="color: #460202;"></i></button2>
+                    <button id="bookbtn" type="button"><i class="fa-solid fa-recycle" style="color: #460202;"></i></button3>
+                    <button id="bookbtn" type="button"><i class="fa-solid fa-user" style="color: #460202;"></i></button4>
+                    <button id="bookbtn" type="button"><i class="fa-solid fa-list" style="color: #460202;"></i></button5>
+                </div>
+
+
+                
             </div>
-        </div>
         </div>
 </body>
 </html>
-<?php include("../footer.php") ?>
+
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body{
+    background-image: url(../media/home-main/img3.jpg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,6 +149,7 @@ a.sidebar-link:hover {
     padding: 20px;
     align-items: center;
     justify-content: center;
+    background-color: #eee;
 }
 .profile-info {
     padding: 10px;

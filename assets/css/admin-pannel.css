@@ -201,7 +201,7 @@ a.sidebar-link:hover {
     height: 250px;
     width: 250px;
 }
-.book-info {
+.book-info, .user-info {
     display:flex;
     flex-wrap: wrap;
     justify-content: space-evenly; 
@@ -211,7 +211,7 @@ a.sidebar-link:hover {
 
 
 .books{
-    display: block;
+    display:none;
 }
 .book-info .bookbtn,.user-info .userbtn{
     width: 30%;
@@ -228,10 +228,13 @@ a.sidebar-link:hover {
 .book-info .bookbtn:hover,.user-info .userbtn:hover{
     box-shadow:10px 10px 10px rgb(43, 15, 15);
 }
-.book-info .bookbtn i,
-.user-info .userbtn i{
+.book-info .bookbtn i{
     font-size: 2em;
     margin: auto;
+}
+.user-info .userbtn i{
+    font-size: 3em;
+    padding-top:10px ;
 }
 .book-info .bookbtn p,
 .user-info .userbtn p
@@ -239,4 +242,7 @@ a.sidebar-link:hover {
     font-size: 1em;
     font-weight: bold;
 }
+.users{
+    display: none;
+} 
 

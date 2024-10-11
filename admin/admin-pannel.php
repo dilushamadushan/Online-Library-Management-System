@@ -27,38 +27,38 @@
                     </div>
                 </div>
                 <ul class="sidebar-nav">
-                    <li class="sidebar-item" id="profile">
-                        <a href="#" class="sidebar-link">
+                    <li class="sidebar-item" >
+                        <a href="#" class="sidebar-link" onclick="showMenues(1)">
                             <i id="sidebar-i" class="lni lni-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" id="users" >
+                    <li class="sidebar-item" onclick="showMenues(2)" >
                         <a href="#" class="sidebar-link">
                         <i class="fa-regular fa-user"></i>
                             <span>Users</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" id="book">
+                    <li class="sidebar-item" onclick="showMenues(3)">
                         <a href="#" class="sidebar-link ">
                             <i class="lni lni-book"></i>
                             <span>Books</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" id="resources">
+                    <li class="sidebar-item" onclick="showMenues(4)">
                         <a href="#" class="sidebar-link">
                             <i id="sidebar-ai1" class="lni lni-layout"></i>
                             <span>E-resources</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" id="Past-papers">
+                    <li class="sidebar-item" onclick="showMenues(5)">
                         <a href="#" class="sidebar-link">
                             <i id="sidebar-ai2" class="lni lni-popup"></i>
                             <span>Past Paper</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link" id="articles">
+                        <a href="#" class="sidebar-link" onclick="showMenues(6)">
                         <i class="fa-regular fa-newspaper"></i>
                             <span>Articles and Megacine</span>
                         </a>
@@ -73,7 +73,7 @@
             </aside>
         </div>
             <div class="show-details ">
-                <div class="profile-info" id="personal">
+                <div class="profile-info" id="menue1">
                     <h1>Personal Information</h1>
                     <div class="profile-image">
                     <img src="../assets/media/admin-page/avatar.png" alt="avatar">
@@ -88,7 +88,7 @@
                     <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
                     <input type="button" value="Ubdate" name="btn" id="btn">
                 </div>
-                <div class="users">
+                <div class="users" id="menue2">
                     <h1>Users' Informations</h1>
                     <div class="user-info">
                         <div class="userbtn">
@@ -105,7 +105,7 @@
                         </div>
                     </div> 
                 </div>
-                <div class="books" >
+                <div class="books" id="menue3">
                     <h1>Book Information</h1>
                     <div class="book-info" id="books">
                         <div class="bookbtn">
@@ -144,4 +144,26 @@
 </body>
 </html>
 
+<script>
+    const showMenues = function (num) {
+        const allMenus = document.querySelectorAll('[id^="menue"]');
+        
+        allMenus.forEach(menu => {
+            menu.style.display = "none";
+        });
 
+        const menue = document.querySelector(`#menue${num}`);
+        if (menue) {
+            if (num == 1) {
+                menue.style.display = "flex";
+            } else {
+                menue.style.display = "block";
+            }
+        } else {
+            console.error(`Menu #menue${num} not found`);
+        }
+    };
+    window.onload = function() {
+        showMenues(1);
+    };
+</script>

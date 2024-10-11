@@ -18,9 +18,10 @@ html, body {
 .admin-log-in-interface{
     display: flex;
     height: 43%;
-    width: 90%;
+    width: 91%;
     border-radius: 20px;
     background:  rgb(70, 2, 2) ;
+    padding: 10px;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 .admin-log-in-interface .admin-image{

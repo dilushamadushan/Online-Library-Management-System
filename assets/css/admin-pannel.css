@@ -12,7 +12,7 @@ body{
     width: 60%;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
     display: flex; /* Make the container flexbox */
-    flex-direction: row; /* Ensure the child elements are in a row */
+    flex-direction: row; 
 }
 ::after,
 ::before {
@@ -69,6 +69,7 @@ body {
     margin: auto 0;
 }
 .sidebar-logo a{
+    margin-left: 5px;
     color: #eee;
     font-size: 1.5rem;
     font-weight: bold;
@@ -94,7 +95,7 @@ a.sidebar-link {
 }
 
 .sidebar-link i {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-right: .75rem;
 }
 
@@ -142,20 +143,20 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 .show-details {
-    margin-left: 0; /* Remove extra margin */
-    width: 100%; /* Occupy the remaining space */
+    margin-left: 0; 
+    width: 100%; 
     padding: 20px;
     align-items: center;
     justify-content: center;
 }
 .profile-info {
     padding: 10px;
-    width: 100%; /* Make sure the profile section uses full width of the show-details div */
+    width: 100%; 
     display: flex;
     flex-direction: column;
    
 }
-.profile-info h1{
+ h1, .books h1{
     font-size: xx-large;
     text-align: center;
 }
@@ -165,23 +166,23 @@ a.sidebar-link:hover {
     
 }
 .profile-info input{
-    width: 100%;
+    min-width: fit-content;
     border-radius: 20px;
     height: 45px;
     padding: 0 10px;
     font-size: medium;
 }
 .profile-info #btn{
+    cursor: pointer;
     margin-top: 10px;
     background-color: rgb(70, 2, 2);
     color: #eee;
     font-weight: bold;
     font-size: 18px;
-    width: 75%;
-    left: 10%;
+    width: 25%;
     display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
     text-align: center;
 }
 .profile-info #btn:hover{
@@ -191,48 +192,51 @@ a.sidebar-link:hover {
 .profile-info #bookbtn{
     height: 150px;
 }
-#books {
+.profile-image{
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    gap: 20px; /* Space between buttons */
+    align-items: center;
+    justify-content: center;
+}
+.profile-image img{
+    height: 250px;
+    width: 250px;
+}
+.book-info {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
 }
 
-/* Button styles */
-#bookbtn {
-    background-color: transparent; /* No background */
-    border: none; /* Remove default border */
+/* This for book menue*/
+
+
+.books{
+    display: block;
+}
+.book-info .bookbtn,.user-info .userbtn{
+    width: 30%;
+    height:25vh;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow:0 2px 5px rgb(43, 15, 15);
     cursor: pointer;
-    font-size: 2rem; /* Size of the icons */
-    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.book-info .bookbtn:hover,.user-info .userbtn:hover{
+    box-shadow:10px 10px 10px rgb(43, 15, 15);
+}
+.book-info .bookbtn i,
+.user-info .userbtn i{
+    font-size: 2em;
+    margin: auto;
+}
+.book-info .bookbtn p,
+.user-info .userbtn p
+{
+    font-size: 1em;
+    font-weight: bold;
 }
 
-/* Hover effect for buttons */
-#bookbtn:hover {
-    transform: scale(1.2); /* Enlarge icon slightly on hover */
-}
-
-/* Icon colors */
-#bookbtn i {
-    color: #460202; /* Consistent color for icons */
-}
-
-/* Adjust styles for smaller screens */
-@media (max-width: 768px) {
-    #books {
-        flex-direction: column; /* Stack buttons vertically on smaller screens */
-        align-items: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .admin-pannel-container {
-        flex-direction: column; /* Stack elements on top of each other on smaller screens */
-    }
-    .menues-admin {
-        width: 100%; /* Sidebar will take the full width */
-    }
-    .show-details {
-        width: 100%; /* Profile section will also take the full width */
-        margin-left: 0;
-    }
-}

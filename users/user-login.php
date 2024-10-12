@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script defer src="../assets/js/login.js"></script>
 </head>
 <body>
 <div class="admin-log-in-interface">
         <div class="admin-image">
-            <img src="../assets/media/admin-page/admin1.png" alt="admin">
+        <i class="fa-solid fa-user"></i>
         </div>
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">

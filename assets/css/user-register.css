@@ -18,12 +18,12 @@ body{
     justify-content: center;
     padding: 25px;
     padding-bottom: 60px;
-    background: #fff
+    background: #fff;
 }
 
 .container-form #form{
     padding: 10px;
-    background-color: rgb(70, 2, 2);
+    background-color: #eee;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     text-align: center;
@@ -33,7 +33,7 @@ body{
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    color:#fff;
+    color:rgb(43, 15, 15);
 }
 .container-form #form input{
     width: 100%;
@@ -44,18 +44,18 @@ body{
     border-radius: 5px;
 }
 .container-form #form #btn{
-    background-color: rgb(65, 62, 62);
+    background-color: rgb(43, 15, 15);
     color: #eee;
     font-size: 20px;
     cursor: pointer; 
 }
 .container-form #form #btn:hover{
-    background-color: #eee;
-    color: rgb(65, 62, 62);
+    background-color:black;
+    color: white;
     border: 2px solid rgb(65, 62, 62);
 }
 .container-form p{
-    color: #fff;
+    color: rgb(43, 15, 15);
     margin-top: 10px;
     font-size: 20px;
 }
@@ -64,9 +64,9 @@ body{
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background:#fff;
+    background:red;
     border-radius: 5px;
-    color: red;
+    color:white;
     display:none;
 }
 

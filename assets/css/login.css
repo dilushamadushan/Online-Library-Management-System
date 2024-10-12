@@ -7,18 +7,18 @@
    outline: none; border:none;
    text-decoration: none;
 }
-div {
+.container {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+   margin-top: 25vh;
 }
 
 .admin-log-in-interface{
     display: flex;
-    width: 91%;
-    height: 340px;
+    width: 40vw;
+    height: fit-content;
     border-radius: 20px;
     background:  #eee;
     padding: 10px;
@@ -39,7 +39,7 @@ div {
     font-size: 10em;
     display: block; /* Set to block for better alignment */
     margin: auto; 
-    color:rgb(43, 15, 15);
+    color:rgb(70, 2, 2);
 }
 .admin-log-in-interface .admin-login-pannal{
     height: 100%;
@@ -54,7 +54,7 @@ div {
     width: 100%;
 }
 .admin-log-in-interface .admin-login-pannal #form h1{
-    color: rgb(43, 15, 15);
+    color: rgb(70, 2, 2);
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -68,7 +68,7 @@ div {
     border-radius: 5px;
 }
 .admin-log-in-interface .admin-login-pannal #form #btn{
-    background-color: rgb(43, 15, 15);
+    background-color: rgb(70, 2, 2);
     color: #eee;
     font-size: 20px;
     cursor: pointer; 

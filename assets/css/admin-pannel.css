@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body{
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+ }
+.container{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,9 +16,9 @@ body{
 }
 .admin-pannel-container{
     height: 50%;
-    width: 60%;
-    box-shadow:0 5px 10px rgba(0,0,0,0.1);
-    display: flex; /* Make the container flexbox */
+    width: 70vw;
+    box-shadow:0 5px 10px rgba(70,2,2);
+    display: flex; 
     flex-direction: row; 
 }
 ::after,
@@ -166,8 +173,9 @@ a.sidebar-link:hover {
     
 }
 .profile-info input{
+    background-color: #eee;
     min-width: fit-content;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 45px;
     padding: 0 10px;
     font-size: medium;
@@ -206,10 +214,7 @@ a.sidebar-link:hover {
     flex-wrap: wrap;
     justify-content: space-evenly; 
 }
-
 /* This for book menue*/
-
-
 .books{
     display:none;
 }
@@ -218,15 +223,16 @@ a.sidebar-link:hover {
     height:25vh;
     margin-bottom: 20px;
     border-radius: 20px;
-    box-shadow:0 2px 5px rgb(43, 15, 15);
+    box-shadow:0 2px 5px rgb(70, 2, 2);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
 }
+
 .book-info .bookbtn:hover,.user-info .userbtn:hover{
-    box-shadow:10px 10px 10px rgb(43, 15, 15);
+    box-shadow:10px 10px 10px rgb(70, 2, 2);
 }
 .book-info .bookbtn i{
     font-size: 2em;
@@ -239,10 +245,12 @@ a.sidebar-link:hover {
 .book-info .bookbtn p,
 .user-info .userbtn p
 {
-    font-size: 1em;
+    font-size: 0.2em;
     font-weight: bold;
 }
 .users{
     display: none;
 } 
-
+#menue6 .user-info .userbtn p{
+    font-size: 0.1em;
+}

@@ -1,9 +1,4 @@
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Log-IN</title>
@@ -14,7 +9,11 @@
     <link rel="stylesheet" href="../assets/css/login.css">
     <script defer src="../assets/js/login.js"></script>
 </head>
-<body>
+<?php
+    include("../header.php");
+?>
+<head>
+<div>
     <div class="admin-log-in-interface">
         <div class="admin-image">
             <i class="fa-solid fa-user"></i>
@@ -28,11 +27,9 @@
                     <input type="password" name="pwd" id="pwd" placeholder="Password">
                     <img src="../assets/media/admin-page/eye-close.png" alt="eye-close" id="icon-pwd">
                 </div>
-                
                 <input type="submit" name="btn" id="btn" value="Login">
             </form>
         </div>
     </div>
-</body>
-</html>
+</div>
 

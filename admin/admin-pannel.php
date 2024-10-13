@@ -137,6 +137,77 @@
                             <h4>Listed Cotegories</h4>
                         </div>
                     </div> 
+                    <div class="book-listed">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Number</th>
+                                    <th>Book Name</th>
+                                    <th>ISBN Number</th>
+                                    <th>Subject of Book</th>
+                                    <th>Author</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Python</td>
+                                    <td>ISB0023456</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>Sam Judson</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="resources" id="menue4">
                         <h1>E-resorces</h1>

@@ -8,6 +8,7 @@
  }
 .container{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 5%;
@@ -45,6 +46,7 @@ body {
 }
 .menues-admin{
     display: flex;
+    flex-wrap: wrap;
 }
 
 #sidebar{
@@ -149,6 +151,7 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 .show-details {
+    width: 70vw;
     margin-left: 0; 
     width: 100%; 
     padding: 20px;
@@ -159,6 +162,7 @@ a.sidebar-link:hover {
     padding: 10px;
     width: 100%; 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
    
 }
@@ -225,8 +229,9 @@ a.sidebar-link:hover {
     box-shadow:0 2px 5px rgb(70, 2, 2);
     cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: column;
 }
 
@@ -253,3 +258,139 @@ a.sidebar-link:hover {
 #menue6 .user-info .userbtn p{
     font-size: 0.1em;
 }
+.book-listed{
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 2px 5px 10px rgba(0,0,0 ,0.5);
+}
+.book-listed table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.book-listed table thead{
+    background: rgba(70,2,2);
+    color: white;
+    
+}
+.book-listed table thead tr th{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    letter-spacing: 0.2rem;
+    vertical-align: top;
+    border: 1px solid #aab7b8;
+
+}
+.book-listed table tbody tr td{
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    font-weight: normal;
+    border: 1px solid #696c6d;
+    padding: 0.8rem;
+}
+.book-listed table tbody tr:nth-child(even){
+    background-color: #eee;
+    cursor: pointer;
+    
+}
+.book-listed table tbody tr:hover td{
+    background-color: #839192;
+    color: black;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+/* Base responsive settings for smaller screens */
+@media (max-width: 1200px) {
+    .admin-pannel-container {
+        flex-direction: column; /* Stack panels vertically */
+        width: 90vw; /* Adjust width */
+    }
+    .show-details {
+        width: 100%; /* Ensure content uses full width */
+    }
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 45%; /* Adjust button size */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Smaller tablets and large mobile devices */
+    .container {
+        flex-direction: column;
+        margin-top: 10%;
+        margin-left: 0;
+    }
+
+    .admin-pannel-container {
+        width: 95vw;
+    }
+    
+    .show-details {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+    
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 90%; /* Adjust button size for small screens */
+    }
+
+    .profile-info input, .profile-info #btn {
+        width: 100%; /* Make inputs full width */
+    }
+
+    .profile-image img {
+        height: 150px;
+        width: 150px; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile phones */
+    .admin-pannel-container {
+        width: 100vw;
+        box-shadow: none; /* Remove shadow for simplicity on small screens */
+    }
+
+    .toggle-btn i {
+        font-size: 1.25rem; /* Adjust icon size */
+    }
+
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 100%; /* Full width buttons */
+    }
+
+    .profile-info h2 {
+        font-size: 1rem; /* Adjust heading size */
+    }
+
+    .profile-info #btn {
+        width: 100%; /* Full width button */
+    }
+
+    .book-listed table thead tr th, .book-listed table tbody tr td {
+        font-size: 0.8rem; /* Adjust font size for readability */
+    }
+    
+    .profile-image img {
+        height: 100px;
+        width: 100px; /* Reduce image size on mobile */
+    }
+}
+
+@media (max-width: 375px) {
+    /* Very small mobile screens */
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 100%; /* Ensure full width on smallest screens */
+        height: 20vh; /* Adjust height */
+    }
+
+    .profile-info input {
+        font-size: 0.9rem;
+    }
+
+    .book-listed table tbody tr td {
+        font-size: 0.7rem; /* Further reduce text size */
+        padding: 0.5rem;
+    }
+}
+
+

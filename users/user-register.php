@@ -1,7 +1,6 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    include("../header.php");
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="../assets/css/user-register.css">
     <script defer src="../assets/js/user-register.js"></script>
 </head>
-<body>
+<div class="container">
     <div class="container-form">
         <form action="#" id="form">
             <h1>Registration Form</h1>
@@ -31,6 +30,6 @@
             <p>Already have an account <a href="../users/user-login.php">Log-In</a></p>
         </form>
     </div>
-</body>
-</html>
+</div>
+    
 

@@ -106,126 +106,37 @@
                 <div class="books" id="menue3">
                     <h1>Book Information</h1>
                     <div class="book-info" id="books">
-                        <div class="bookbtn" onclick="showBooklist(1)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-book" style="color: #460202;"></i>
                             <p id="count">2</p>
                             <h4>Book Listed</h4>
                         </div>
-                        <div class="bookbtn" onclick="showBooklist(2)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-bars" style="color: #460202;"></i>
                             <p id="count">5</p>
                             <h4>Issued Books</h4>
                         </div>
-                        <div class="bookbtn" onclick="showBooklist(3)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-recycle" style="color: #460202;"></i>
                             <p id="count">3</p>
                             <h4>Book Return</h4>
                         </div>
-                        <div class="bookbtn" onclick="showBooklist(4)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-user" style="color: #460202;"></i>
                             <p id="count">1</p>
                             <h4>Author listed</h4>
                         </div>
-                        <div class="bookbtn" onclick="showBooklist(5)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-list" style="color: #460202;"></i>
                             <p id="count">9</p>
                             <h4>Listed Cotegories</h4>
                         </div>
-                        <div class="bookbtn" onclick="showBooklist(6)">
+                        <div class="bookbtn">
                             <i class="fa-solid fa-list" style="color: #460202;"></i>
                             <p id="count">6</p>
                             <h4>Listed Cotegories</h4>
                         </div>
                     </div> 
-                    <div class="book-listed" id="list1">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Number</th>
-                                    <th>Book Name</th>
-                                    <th>ISBN Number</th>
-                                    <th>Subject of Book</th>
-                                    <th>Author</th>
-                                    <th colspan="2">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button class="button" onclick="exit(1)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>
                 </div>
                 <div class="resources" id="menue4">
                         <h1>E-resorces</h1>
@@ -303,20 +214,4 @@
     window.onload = function() {
         showMenues(1);
     };
-
-    const showBooklist= function (num) {
-        const books=document.querySelector("#books")
-        const list=document.querySelector(`#list${num}`)
-        console.log(list)
-        
-        books.style.display="none"
-        list.style.display="block"
-    }
-
-    const exit=function(num){
-        const books=document.querySelector("#books")
-        const list=document.querySelector(`#list${num}`)
-        books.style.display="flex"
-        list.style.display="none"
-    }
 </script>

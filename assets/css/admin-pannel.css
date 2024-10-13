@@ -1,19 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+ }
+ body{
+    background-image: url(../media/admin-page/background1.jpg);
+    background-size: cover;
+    
+ }
+.container{
+    height: 100%;
+    width: 100%;
 
 body{
     background-image: url(../media/home-main/img3.jpg);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-top: 5%;
+    margin-bottom: 5%;
     
 }
 .admin-pannel-container{
     height: 50%;
-    width: 60%;
-    box-shadow:0 5px 10px rgba(0,0,0,0.1);
-    display: flex; /* Make the container flexbox */
+    width: 70vw;
+    box-shadow:0 5px 10px rgb(8, 8, 8);
+    display: flex; 
     flex-direction: row; 
+    
 }
 ::after,
 ::before {
@@ -40,6 +58,7 @@ body {
 }
 .menues-admin{
     display: flex;
+    flex-wrap: wrap;
 }
 
 #sidebar{
@@ -49,7 +68,7 @@ body {
     transition: all .25s ease-in-out;
     display: flex;
     flex-direction: column;
-    background-color:rgb(70, 2, 2);
+    background-color:rgb(1, 1, 1);
 }
 #sidebar.expand{
     width: 100%;
@@ -88,7 +107,7 @@ body {
 
 a.sidebar-link {
     padding: .625rem 1.625rem;
-    color: #FFF;
+    color:white;
     display: block;
     font-size: 1rem;
     white-space: nowrap;
@@ -113,7 +132,7 @@ a.sidebar-link:hover {
     position: absolute;
     top: 0;
     left: 70px;
-    background-color: rgb(70, 2, 2);
+    background-color: rgb(0, 0, 0);
     padding: 0;
     min-width: 15rem;
     display: none;
@@ -144,32 +163,39 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 .show-details {
+    width: 70vw;
     margin-left: 0; 
     width: 100%; 
     padding: 20px;
     align-items: center;
     justify-content: center;
+    background: #696c6d;
     background-color: #eee;
+
 }
 .profile-info {
     padding: 10px;
     width: 100%; 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
    
 }
  h1, .books h1{
     font-size: xx-large;
     text-align: center;
+     color: white;
 }
 .profile-info h2{
+    color: white;
     font-size: larger;
     margin:10px 10px;
     
 }
 .profile-info input{
+    background-color: #eee;
     min-width: fit-content;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 45px;
     padding: 0 10px;
     font-size: medium;
@@ -177,8 +203,8 @@ a.sidebar-link:hover {
 .profile-info #btn{
     cursor: pointer;
     margin-top: 10px;
-    background-color: rgb(70, 2, 2);
-    color: #eee;
+    background-color: rgb(255, 217, 0);
+    color:black;
     font-weight: bold;
     font-size: 18px;
     width: 25%;
@@ -189,7 +215,7 @@ a.sidebar-link:hover {
 }
 .profile-info #btn:hover{
     background-color: #eee;
-    color: rgb(70, 2, 2);
+    color: rgb(0, 0, 0);
 }
 .profile-info #bookbtn{
     height: 150px;
@@ -208,10 +234,7 @@ a.sidebar-link:hover {
     flex-wrap: wrap;
     justify-content: space-evenly; 
 }
-
 /* This for book menue*/
-
-
 .books{
     display:none;
 }
@@ -220,15 +243,17 @@ a.sidebar-link:hover {
     height:25vh;
     margin-bottom: 20px;
     border-radius: 20px;
-    box-shadow:0 2px 5px rgb(43, 15, 15);
+    box-shadow:0 2px 5px rgb(0, 0, 0);
     cursor: pointer;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: column;
 }
+
 .book-info .bookbtn:hover,.user-info .userbtn:hover{
-    box-shadow:10px 10px 10px rgb(43, 15, 15);
+    box-shadow:10px 10px 10px rgb(0, 0, 0);
 }
 .book-info .bookbtn i{
     font-size: 2em;
@@ -241,10 +266,164 @@ a.sidebar-link:hover {
 .book-info .bookbtn p,
 .user-info .userbtn p
 {
-    font-size: 1em;
+    font-size: 0.2em;
     font-weight: bold;
 }
 .users{
     display: none;
 } 
+#menue6 .user-info .userbtn p{
+    font-size: 0.1em;
+}
+.book-listed{
+    width: 100%;
+    display: none;
+    padding: 20px;
+}
+.book-listed table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+.book-listed table thead{
+    background: rgb(255, 217, 0);
+    color:black;
+    
+}
+.book-listed table thead tr th{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    vertical-align: top;
+    border: 1px solid #aab7b8;
+
+}
+.book-listed table tbody tr td{
+    font-size: 1rem;
+    text-align: center;
+    font-weight: normal;
+    border: 1px solid #696c6d;
+    padding: 0.8rem;
+}
+.book-listed table tbody tr:nth-child(even){
+    background-color: #eee;
+    cursor: pointer;
+    
+}
+.book-listed table tbody tr:hover td{
+    background-color: #839192;
+    color: black;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+.book-listed table tbody tr td i:hover{
+    font-size: 1.5rem;
+}
+.book-listed .button{
+    margin-top: 10px;
+    background-color:rgb(255, 217, 0) ;
+    width: 10vw;
+    height: 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+.book-listed .button:hover{
+    box-shadow: 2px 5px 5px rgba(0,0,0 ,0.5);
+}
+/* Base responsive settings for smaller screens */
+@media (max-width: 1200px) {
+    .admin-pannel-container {
+        flex-direction: column; /* Stack panels vertically */
+        width: 90vw; /* Adjust width */
+    }
+    .show-details {
+        width: 100%; /* Ensure content uses full width */
+    }
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 45%; /* Adjust button size */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Smaller tablets and large mobile devices */
+    .container {
+        flex-direction: column;
+        margin-top: 10%;
+        margin-left: 0;
+    }
+
+    .admin-pannel-container {
+        width: 95vw;
+    }
+    
+    .show-details {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+    
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 90%; /* Adjust button size for small screens */
+    }
+
+    .profile-info input, .profile-info #btn {
+        width: 100%; /* Make inputs full width */
+    }
+
+    .profile-image img {
+        height: 150px;
+        width: 150px; /* Adjust image size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile phones */
+    .admin-pannel-container {
+        width: 100vw;
+        box-shadow: none; /* Remove shadow for simplicity on small screens */
+    }
+
+    .toggle-btn i {
+        font-size: 1.25rem; /* Adjust icon size */
+    }
+
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 100%; /* Full width buttons */
+    }
+
+    .profile-info h2 {
+        font-size: 1rem; /* Adjust heading size */
+    }
+
+    .profile-info #btn {
+        width: 100%; /* Full width button */
+    }
+
+    .book-listed table thead tr th, .book-listed table tbody tr td {
+        font-size: 0.8rem; /* Adjust font size for readability */
+    }
+    
+    .profile-image img {
+        height: 100px;
+        width: 100px; /* Reduce image size on mobile */
+    }
+}
+
+@media (max-width: 375px) {
+    /* Very small mobile screens */
+    .book-info .bookbtn, .user-info .userbtn {
+        width: 100%; /* Ensure full width on smallest screens */
+        height: 20vh; /* Adjust height */
+    }
+
+    .profile-info input {
+        font-size: 0.9rem;
+    }
+
+    .book-listed table tbody tr td {
+        font-size: 0.7rem; /* Further reduce text size */
+        padding: 0.5rem;
+    }
+}
+
 

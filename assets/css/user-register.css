@@ -7,11 +7,8 @@
    outline: none; border:none;
    text-decoration: none;
 }
-body{
-    background-color: #eee;
-}
-
 .container-form{
+    width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -27,13 +24,13 @@ body{
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     text-align: center;
-    width: 35%;
+    width: 40vw;
 }
 .container-form #form h1{
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    color:rgb(43, 15, 15);
+    color:rgb(70, 2, 2);
 }
 .container-form #form input{
     width: 100%;
@@ -44,7 +41,7 @@ body{
     border-radius: 5px;
 }
 .container-form #form #btn{
-    background-color: rgb(43, 15, 15);
+    background-color: rgb(70, 2, 2);
     color: #eee;
     font-size: 20px;
     cursor: pointer; 
@@ -55,7 +52,7 @@ body{
     border: 2px solid rgb(65, 62, 62);
 }
 .container-form p{
-    color: rgb(43, 15, 15);
+    color: rgb(70, 2, 2);
     margin-top: 10px;
     font-size: 20px;
 }

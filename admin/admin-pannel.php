@@ -90,15 +90,15 @@
                     <h1>Users' Informations</h1>
                     <div class="user-info">
                         <div class="userbtn">
-                            <i class="fa-regular fa-eye" style="color: #460202;"></i>
+                            <i class="fa-regular fa-eye"></i>
                             <h4>View User</h4>
                         </div>
                         <div class="userbtn">
-                            <i class="fa-solid fa-check" style="color: #460202;"></i>
+                            <i class="fa-solid fa-check" ></i>
                             <h4>Add Users</h4>
                         </div>
                         <div class="userbtn">
-                            <i class="fa-solid fa-circle-xmark" style="color: #460202;"></i>
+                            <i class="fa-solid fa-circle-xmark" ></i>
                             <h4>Remove Users</h4>
                         </div>
                     </div> 
@@ -107,32 +107,32 @@
                     <h1>Book Information</h1>
                     <div class="book-info" id="books">
                         <div class="bookbtn" onclick="showBooklist(1)">
-                            <i class="fa-solid fa-book" style="color: #460202;"></i>
+                            <i class="fa-solid fa-book" ></i>
                             <p id="count">2</p>
                             <h4>Book Listed</h4>
                         </div>
                         <div class="bookbtn" onclick="showBooklist(2)">
-                            <i class="fa-solid fa-bars" style="color: #460202;"></i>
+                            <i class="fa-solid fa-bars" ></i>
                             <p id="count">5</p>
                             <h4>Issued Books</h4>
                         </div>
                         <div class="bookbtn" onclick="showBooklist(3)">
-                            <i class="fa-solid fa-recycle" style="color: #460202;"></i>
+                            <i class="fa-solid fa-recycle"></i>
                             <p id="count">3</p>
                             <h4>Book Return</h4>
                         </div>
                         <div class="bookbtn" onclick="showBooklist(4)">
-                            <i class="fa-solid fa-user" style="color: #460202;"></i>
+                            <i class="fa-solid fa-user"></i>
                             <p id="count">1</p>
                             <h4>Author listed</h4>
                         </div>
                         <div class="bookbtn" onclick="showBooklist(5)">
-                            <i class="fa-solid fa-list" style="color: #460202;"></i>
+                            <i class="fa-solid fa-list"></i>
                             <p id="count">9</p>
                             <h4>Listed Cotegories</h4>
                         </div>
                         <div class="bookbtn" onclick="showBooklist(6)">
-                            <i class="fa-solid fa-list" style="color: #460202;"></i>
+                            <i class="fa-solid fa-list"></i>
                             <p id="count">6</p>
                             <h4>Listed Cotegories</h4>
                         </div>
@@ -231,15 +231,15 @@
                         <h1>E-resorces</h1>
                         <div class="user-info">
                             <div class="userbtn">
-                                <i class="fa-regular fa-eye" style="color: #460202;"></i>
+                                <i class="fa-regular fa-eye" ></i>
                                 <h4>View Resources</h4>
                             </div>
                             <div class="userbtn">
-                                <i class="fa-solid fa-check" style="color: #460202;"></i>
+                                <i class="fa-solid fa-check" ></i>
                                 <h4>Add Resources</h4>
                             </div>
                             <div class="userbtn">
-                                <i class="fa-solid fa-circle-xmark" style="color: #460202;"></i>
+                                <i class="fa-solid fa-circle-xmark"></i>
                                 <h4>Remove Resorces</h4>
                             </div>
                         </div> 
@@ -265,16 +265,16 @@
                         <h1>Article and Megazine</h1>
                         <div class="user-info">
                             <div class="userbtn">
-                                <i class="fa-regular fa-eye" style="color: #460202;"></i>
-                                <h5>View Article and Megazine</h5>
+                                <i class="fa-regular fa-eye"></i>
+                                <h6>View Article and Megazine</h6>
                             </div>
                             <div class="userbtn">
-                                <i class="fa-solid fa-check" style="color: #460202;"></i>
-                                <h5>Add Article and Megazine</h5>
+                                <i class="fa-solid fa-check"></i>
+                                <h6>Add Article and Megazine</h6>
                             </div>
                             <div class="userbtn">
-                                <i class="fa-solid fa-circle-xmark" style="color: #460202;"></i>
-                                <h5>  Remove Article and Megazine</h5>
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                <h6>  Remove Article and Megazine</h6>
                             </div>
                         </div> 
                     </div>

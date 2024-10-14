@@ -23,7 +23,7 @@ header ul li a:hover::after {
 header {
     padding: 15px;
     display: flex;
-    background-color: rgb(0, 0, 0); 
+    background-color: rgb(70, 2, 2); 
     align-items: center;
     justify-content: space-between;
     box-shadow: 2px 2px 2px 2px rgb(190, 241, 6);
@@ -34,7 +34,7 @@ header {
     height: 40px;
 }
 .dropdown-menu {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(70, 2, 2);
     width: 200px;
 }
 .dropdown-item {

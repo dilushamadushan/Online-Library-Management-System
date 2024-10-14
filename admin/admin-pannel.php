@@ -224,8 +224,126 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <button class="button" onclick="exit(1)">Back <i class="fa-solid fa-backward"></i></button>
+                        <div class="button-for-more">
+                            <button class="button">Add New</button>
+                            <button class="button" onclick="exit(1)">Back <i class="fa-solid fa-backward"></i></button>
+                        </div>>
                     </div>
+                    <div class="book-listed" id="list2">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Book Name</th>
+                                    <th>User Name</th>
+                                    <th>Subject of Book</th>
+                                    <th>Date of return</th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>Fundamentals of programming</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="button-for-more">
+                            <button class="button">Add New</button>
+                            <button class="button" onclick="exit(2)">Back <i class="fa-solid fa-backward"></i></button>
+                        </div>
+                        
+                    </div>
+                    <div class="book-listed" id="list3">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Book Name</th>
+                                    <th>User Name</th>
+                                    <th>Date of return</th>
+                                    <th colspan="2">Return status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Python</td>
+                                    <td>Hajith</td>
+                                    <td>21-10-2024</td>
+                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
+                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="button-for-more">
+                            <button class="button">Add New</button>
+                            <button class="button" onclick="exit(3)">Back <i class="fa-solid fa-backward"></i></button>
+                        </div>
+                        
+                    </div>
+ 
                 </div>
                 <div class="resources" id="menue4">
                         <h1>E-resorces</h1>

@@ -313,16 +313,19 @@ a.sidebar-link:hover {
 .book-listed table tbody tr td i:hover{
     font-size: 1.5rem;
 }
-.book-listed .button{
+.book-listed .button-for-more{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.book-listed .button-for-more .button{
     margin-top: 10px;
     background-color:rgb(255, 217, 0) ;
     width: 10vw;
     height: 2rem;
     border-radius: 10px;
     font-weight: bold;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
+    margin-right: 10px;
 }
 .book-listed .button:hover{
     box-shadow: 2px 5px 5px rgba(0,0,0 ,0.5);

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/header.css">
 </head>
 <body>
 <header>
-    <div class="logo_img"><img src="../assets/media/flogo.png" class="logo" alt="Library Logo"></div>
+    <div class="logo_img"><img src="assets/media/flogo.png" class="logo" alt="Library Logo"></div>
     <ul class="nav">
         <li class="nav-item">
             <a href="#" class="nav-link text-white position-relative">Home</a>
@@ -42,8 +42,8 @@
             Login
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-            <li><a class="dropdown-item" href="../users/user-login.php">User Login</a></li>
-            <li><a class="dropdown-item" href="../admin/admin-login.php">Admin Login</a></li>
+            <li><a class="dropdown-item" href="users/user-login.php">User Login</a></li>
+            <li><a class="dropdown-item" href="admin/admin-login.php">Admin Login</a></li>
         </ul>
     </div>
 </header>

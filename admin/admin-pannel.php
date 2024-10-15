@@ -138,6 +138,10 @@
                         </div>
                     </div> 
                     <div class="book-listed" id="list1">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
                         <table>
                             <thead>
                                 <tr>
@@ -230,6 +234,10 @@
                         </div>>
                     </div>
                     <div class="book-listed" id="list2">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
                         <table>
                             <thead>
                                 <tr>
@@ -290,6 +298,10 @@
                         
                     </div>
                     <div class="book-listed" id="list3">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
                         <table>
                             <thead>
                                 <tr>

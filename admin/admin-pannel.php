@@ -70,345 +70,353 @@
                 </div>
             </aside>
         </div>
-            <div class="show-details ">
-                <div class="profile-info" id="menue1">
-                    <h1>Personal Information</h1>
-                    <div class="profile-image">
-                    <img src="../assets/media/admin-page/avatar.png" alt="avatar">
-                    </div> 
-                    <h2>Admin Name:</h2>
-                    <input type="text" name="name" id="name" value="Hajith">
-                    <h2>Admin email:</h2>
-                    <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
-                    <h2>Mobile No:</h2>
-                    <input type="text" name="mobile" id="mobile" value="0740523954">
-                    <h2>Adsress:</h2>
-                    <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
-                    <input type="button" value="Ubdate" name="btn" id="btn">
-                </div>
-                <div class="users" id="menue2">
-                    <h1>Users' Informations</h1>
-                    <div class="user-info">
-                        <div class="userbtn">
-                            <i class="fa-regular fa-eye"></i>
-                            <h4>View User</h4>
-                        </div>
-                        <div class="userbtn">
-                            <i class="fa-solid fa-check" ></i>
-                            <h4>Add Users</h4>
-                        </div>
-                        <div class="userbtn">
-                            <i class="fa-solid fa-circle-xmark" ></i>
-                            <h4>Remove Users</h4>
-                        </div>
-                    </div> 
-                </div>
-                <div class="books" id="menue3">
-                    <h1>Book Information</h1>
-                    <div class="book-info" id="books">
-                        <div class="bookbtn" onclick="showBooklist(1)">
-                            <i class="fa-solid fa-book" ></i>
-                            <p id="count">2</p>
-                            <h4>Book Listed</h4>
-                        </div>
-                        <div class="bookbtn" onclick="showBooklist(2)">
-                            <i class="fa-solid fa-bars" ></i>
-                            <p id="count">5</p>
-                            <h4>Issued Books</h4>
-                        </div>
-                        <div class="bookbtn" onclick="showBooklist(3)">
-                            <i class="fa-solid fa-recycle"></i>
-                            <p id="count">3</p>
-                            <h4>Book Return</h4>
-                        </div>
-                        <div class="bookbtn" onclick="showBooklist(4)">
-                            <i class="fa-solid fa-user"></i>
-                            <p id="count">1</p>
-                            <h4>Author listed</h4>
-                        </div>
-                        <div class="bookbtn" onclick="showBooklist(5)">
-                            <i class="fa-solid fa-list"></i>
-                            <p id="count">9</p>
-                            <h4>Listed Cotegories</h4>
-                        </div>
-                        <div class="bookbtn" onclick="showBooklist(6)">
-                            <i class="fa-solid fa-list"></i>
-                            <p id="count">6</p>
-                            <h4>Listed Cotegories</h4>
-                        </div>
-                    </div> 
-                    <div class="book-listed" id="list1">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Number</th>
-                                    <th>Book Name</th>
-                                    <th>ISBN Number</th>
-                                    <th>Subject of Book</th>
-                                    <th>Author</th>
-                                    <th colspan="2">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Python</td>
-                                    <td>ISB0023456</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>Sam Judson</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="button-for-more">
-                            <button class="button">Add New</button>
-                            <button class="button" onclick="exit(1)">Back <i class="fa-solid fa-backward"></i></button>
-                        </div>>
-                    </div>
-                    <div class="book-listed" id="list2">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Book Name</th>
-                                    <th>User Name</th>
-                                    <th>Subject of Book</th>
-                                    <th>Date of return</th>
-                                    <th colspan="2">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>Fundamentals of programming</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="button-for-more">
-                            <button class="button">Add New</button>
-                            <button class="button" onclick="exit(2)">Back <i class="fa-solid fa-backward"></i></button>
-                        </div>
-                        
-                    </div>
-                    <div class="book-listed" id="list3">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Book Name</th>
-                                    <th>User Name</th>
-                                    <th>Date of return</th>
-                                    <th colspan="2">Return status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Python</td>
-                                    <td>Hajith</td>
-                                    <td>21-10-2024</td>
-                                    <td><i class="fa-regular fa-pen-to-square" style="color: #1f3356;"></i></td>
-                                    <td><i class="fa-solid fa-trash" style="color: rgb(70,2,2);"></i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="button-for-more">
-                            <button class="button">Add New</button>
-                            <button class="button" onclick="exit(3)">Back <i class="fa-solid fa-backward"></i></button>
-                        </div>
-                        
-                    </div>
- 
-                </div>
-                <div class="resources" id="menue4">
-                        <h1>E-resorces</h1>
-                        <div class="user-info">
-                            <div class="userbtn">
-                                <i class="fa-regular fa-eye" ></i>
-                                <h4>View Resources</h4>
-                            </div>
-                            <div class="userbtn">
-                                <i class="fa-solid fa-check" ></i>
-                                <h4>Add Resources</h4>
-                            </div>
-                            <div class="userbtn">
-                                <i class="fa-solid fa-circle-xmark"></i>
-                                <h4>Remove Resorces</h4>
-                            </div>
-                        </div> 
-                </div>
-                <div class="resources" id="menue5">
-                    <h1>Past Papers</h1>
-                    <div class="user-info">
-                        <div class="userbtn">
-                            <i class="fa-regular fa-eye" style="color: #460202;"></i>
-                            <h4>View Past papers</h4>
-                        </div>
-                        <div class="userbtn">
-                            <i class="fa-solid fa-check" style="color: #460202;"></i>
-                            <h4>Add Past papers</h4>
-                        </div>
-                        <div class="userbtn">
-                            <i class="fa-solid fa-circle-xmark" style="color: #460202;"></i>
-                            <h4>Remove Past papers</h4>
-                        </div>
-                    </div> 
-                </div>
-                    <div class="resources" id="menue6">
-                        <h1>Article and Megazine</h1>
-                        <div class="user-info">
-                            <div class="userbtn">
-                                <i class="fa-regular fa-eye"></i>
-                                <h6>View Article and Megazine</h6>
-                            </div>
-                            <div class="userbtn">
-                                <i class="fa-solid fa-check"></i>
-                                <h6>Add Article and Megazine</h6>
-                            </div>
-                            <div class="userbtn">
-                                <i class="fa-solid fa-circle-xmark"></i>
-                                <h6>  Remove Article and Megazine</h6>
-                            </div>
-                        </div> 
-                    </div>
+        <div class="show-details ">
+            <div class="profile-info" id="menue1">
+                <h1>Personal Information</h1>
+                <div class="profile-image">
+                <img src="../assets/media/admin-page/avatar.png" alt="avatar">
+                </div> 
+                <h2>Admin Name:</h2>
+                <input type="text" name="name" id="name" value="Hajith">
+                <h2>Admin email:</h2>
+                <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
+                <h2>Mobile No:</h2>
+                <input type="text" name="mobile" id="mobile" value="0740523954">
+                <h2>Adsress:</h2>
+                <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
+                <input type="button" value="Ubdate" name="btn" id="btn">
             </div>
+
+            <div class="users" id="menue2">
+                <h1>Users' Informations</h1>
+                <div class="book-listed" style="display: block;" id="user2">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter user name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>E-mail</th>
+                                <th>Mobile No</th>
+                                <th>Address</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button" onclick="add_new_user(2)">Add New</button>
+                    </div>
+                </div>
+                <div class="add-new-popup" id="popup2">
+                    <h1>Add New User</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New " id="new-btn">
+                    </form>
+                </div> 
+            </div>
+
+            <div class="books" id="menue3">
+                <h1>Book Information</h1>
+                <div class="book-info" id="books2" id="user3">
+                    <div class="bookbtn" onclick="showBooklist(2,1)">
+                        <i class="fa-solid fa-book" ></i>
+                        <p id="count">2</p>
+                        <h4>Book Listed</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,2)">
+                        <i class="fa-solid fa-bars" ></i>
+                        <p id="count">5</p>
+                        <h4>Issued Books</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,3)">
+                        <i class="fa-solid fa-recycle"></i>
+                        <p id="count">3</p>
+                        <h4>Book Return</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,4)">
+                        <i class="fa-solid fa-user"></i>
+                        <p id="count">1</p>
+                        <h4>Author listed</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,5)">
+                        <i class="fa-solid fa-list"></i>
+                        <p id="count">9</p>
+                        <h4>Listed Cotegories</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,6)">
+                        <i class="fa-solid fa-list"></i>
+                        <p id="count">6</p>
+                        <h4>Listed Cotegories</h4>
+                    </div>
+                </div>
+                <div class="book-listed" id="list1">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Book Name</th>
+                                <th>ISBN Number</th>
+                                <th>Subject of Book</th>
+                                <th>Author</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button">Add New</button>
+                        <button class="button" onclick="exit(2,1)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                </div>
+                <div class="book-listed" id="list2">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>User Name</th>
+                                <th>Subject of Book</th>
+                                <th>Date of return</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button">Add New</button>
+                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                    
+                </div>
+                <div class="book-listed" id="list3">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>User Name</th>
+                                <th>Date of return</th>
+                                <th colspan="2">Return status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button">Add New</button>
+                        <button class="button" onclick="exit(2,3)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                    
+                </div>
+                <div class="book-listed" id="list4">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Auther Name</th>
+                                <th>Book Name</th>
+                                <th>Subject of Book</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button">Add New</button>
+                        <button class="button" onclick="exit(2,4)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>>
+                </div>
+                <div class="book-listed" id="list5">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Auther Name</th>
+                                <th>Book Name</th>
+                                <th>Subject of Book</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button">Add New</button>
+                        <button class="button" onclick="exit(2,5)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                </div>
+                <div class="book-listed" id="list6">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Auther Name</th>
+                                <th>Book Name</th>
+                                <th>Subject of Book</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button" onclick="add_new_user(3)">Add New</button>
+                        <button class="button" onclick="exit(2,6)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                </div>
+                <div class="add-new-popup" id="popup3">
+                    <h1>Add New User</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+            </div>
+            <div class="resources" id="menue4">
+                    <h1>E-resorces</h1>
+                    <div class="book-listed" style="display: block;" id="user4">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Auther Name</th>
+                                    <th>Book Name</th>
+                                    <th>Subject of Book</th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="button-for-more">
+                            <button class="button" onclick="add_new_user(4)">Add New</button>
+                        </div>
+                    </div>
+                    <div class="add-new-popup" id="popup4">
+                    <h1>Add New User</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+            </div>
+
+            <div class="resources" id="menue5">
+                <h1>Past Papers</h1>
+                <div class="book-listed" style="display: block;" id="user5">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Auther Name</th>
+                                    <th>Book Name</th>
+                                    <th>Subject of Book</th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="button-for-more">
+                            <button class="button" onclick="add_new_user(5)">Add New</button>
+                        </div>
+                    </div>
+                    <div class="add-new-popup" id="popup5">
+                    <h1>Add New User</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                </div>
+
+                <div class="resources" id="menue6">
+                    <h1>Article and Megazine</h1>
+                    <div class="book-listed" style="display: block;" id="user6">
+                        <div class="search">
+                            <input type="text" name="search" id="search" placeholder="Enter the book name">
+                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Auther Name</th>
+                                    <th>Book Name</th>
+                                    <th>Subject of Book</th>
+                                    <th colspan="2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="button-for-more">
+                            <button class="button" onclick="add_new_user(6)">Add New</button>
+                        </div>
+                    </div>
+                    <div class="add-user-popup" id="popup6">
+                    <h1>Add New User</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                </div>
 </div>
     
 <script>
@@ -434,19 +442,30 @@
         showMenues(1);
     };
 
-    const showBooklist= function (num) {
-        const books=document.querySelector("#books")
-        const list=document.querySelector(`#list${num}`)
-        console.log(list)
-        
+    const showBooklist= function (num1,num2) {
+        const books=document.querySelector(`#books${num1}`)
+        const list=document.querySelector(`#list${num2}`)
         books.style.display="none"
         list.style.display="block"
     }
-
-    const exit=function(num){
-        const books=document.querySelector("#books")
-        const list=document.querySelector(`#list${num}`)
+    const exit=function(num1,num2){
+        const books=document.querySelector(`#books${num1}`)
+        const list=document.querySelector(`#list${num2}`)
         books.style.display="flex"
         list.style.display="none"
     }
+
+    const add_new_user=(num)=>{
+        const div=document.querySelector(`#user${num}`)
+        const popup=document.querySelector(`#
+        
+        
+        popup${num}`)
+
+        div.style.display="none";
+        popup.classList.add("to-add-popup-class")
+        console.log(popup);
+        
+    }
+   
 </script>

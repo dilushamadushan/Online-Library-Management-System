@@ -354,6 +354,54 @@ a.sidebar-link:hover {
 #btn-search:hover{
     box-shadow: 2px 5px 5px rgba(0,0,0 ,0.5);
 }
+.add-new-popup{
+    width: 25vw;
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #eee;
+    box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top:0;
+    left: 50%;
+    transform: translate(-50%,-50%)scale(0.1);
+    transition: transform 0.4s, top 0.4s;
+    visibility: hidden;
+}
+.to-add-popup-class{
+    top:50%;
+    transform: translate(-50%,-50%)scale(1);
+    visibility: visible;
+}
+.add-new-popup #new-popup{
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+.add-new-popup #new-popup h1{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color:rgb(70, 2, 2);
+}
+.add-new-popup #new-popup input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 17px;
+    margin: 8px 0;
+    background: #fff;
+    border-radius: 5px;
+}
+.add-new-popup #new-popup #new-btn{
+    background-color:rgb(255, 217, 0) ;
+    font-size: 20px;
+    cursor: pointer; 
+}
+.add-new-popup #new-popup #new-btn:hover{
+    box-shadow: 2px 5px 5px rgba(0,0,0 ,0.5);
+}
 /* Base responsive settings for smaller screens */
 @media (max-width: 1200px) {
     .admin-pannel-container {

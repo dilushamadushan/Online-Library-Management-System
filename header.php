@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css link -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Header css link -->
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/header.css">
+    <!-- Footer css link -->
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!-- Index css link -->
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>

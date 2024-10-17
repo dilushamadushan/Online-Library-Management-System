@@ -13,25 +13,23 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
 1. root
    - assets
      - js
-       - > add section name and then dash then name as you want 'home-foo.js'
+       - > add your js file
      - css
-       - > add section name and then dash then name as you want 'home-foo.css'
+       - > add style sheet
      - media
        - home
-       - post
+       - admin-page
        - > make your section folder here for media
    - HTML's 
     > make your php document here for the use of otherts
 
-***
+## NOTE 
 
-> [!NOTE]  
+- Theme should be using  `rgb(70, 2, 2)` , `rgb(255, 217, 0)`.
 
-> Theme should be using ![rgb(70, 2, 2)](https://placehold.co/5/2b1055/2b1055.png) `rgb(70, 2, 2)` , ![rgb(255, 217, 0)](https://placehold.co/1/7597de/7597de.png) `rgb(255, 217, 0)`.
+- I have alrady uploaded bootstrap css and js link and also LineIcons CDN and Font Awesome CDN, So you dont need add those link if you use header.php and footer.php
 
->I have alrady uploaded bootstrap css and js link and also LineIcons CDN and Font Awesome CDN, So you dont need add those link if you use header.php and footer.php
-
-> If you use header section, Your css link include into header.php
+- If you use header section, Your css link include into header.php
 
 ```php
     <head>
@@ -54,7 +52,7 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
 </head>
 ```
 
-> If you use footer section, Your JS link include into footer.php
+- If you use footer section, Your JS link include into footer.php
 
 ```php
 <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -66,7 +64,7 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
 ```
 
 ## Basic Template
-***
+
 ### PHP
 
 ```php

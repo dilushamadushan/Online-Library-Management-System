@@ -180,8 +180,8 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button">Add New</button>
-                        <button class="button" onclick="exit(2,1)">Back <i class="fa-solid fa-backward"></i></button>
+                        <button class="button" onclick="book_add_new(1)">Add New</button>
+                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
                 <div class="book-listed" id="list2">
@@ -204,7 +204,7 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button">Add New</button>
+                        <button class="button" onclick="book_add_new(2)">Add New</button>
                         <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                     
@@ -227,7 +227,7 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button">Add New</button>
+                        <button class="button" onclick="book_add_new(3)">Add New</button>
                         <button class="button" onclick="exit(2,3)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                     
@@ -250,7 +250,7 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button">Add New</button>
+                        <button class="button" onclick="book_add_new(4)">Add New</button>
                         <button class="button" onclick="exit(2,4)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>>
                 </div>
@@ -272,40 +272,60 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button">Add New</button>
+                        <button class="button"onclick="book_add_new(5)">Add New</button>
                         <button class="button" onclick="exit(2,5)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
-                <div class="book-listed" id="list6">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Auther Name</th>
-                                <th>Book Name</th>
-                                <th>Subject of Book</th>
-                                <th colspan="2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <div class="button-for-more">
-                        <button class="button" onclick="add_new_user(3)">Add New</button>
-                        <button class="button" onclick="exit(2,6)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>
-                </div>
-                <div class="add-new-popup" id="popup3">
-                    <h1>Add New User</h1>
+
+                <div class="add-new-popup" id="book-popup1">
+                    <h1 id="add-new-head">Add New Book</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="text" name="b-name" id="b-name" placeholder="Enter Book Name:" >
+                        <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN Number" >
+                        <input type="text" name="b-subject" id="b-subject" placeholder="Enter The subject of Book" >
+                        <input type="text" name="b-author" id="b-author" placeholder="Enter Author Name" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                <div class="add-new-popup" id="book-popup2">
+                    <h1 id="add-new-head">Add New Issued Book</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="ib-name" id="ib-name" placeholder="Enter Book Name" >
+                        <input type="text" name="ib-user" id="ib-user" placeholder="Enter User Name">
+                        <input type="date" name="ib-date" id="ib-date" placeholder="Enter the Date of Issue" >
+                        <input type="date" name="ib-return" id="ib-return" placeholder="Enter the date want to return" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                <div class="add-new-popup" id="book-popup3">
+                    <h1 id="add-new-head">Add New Returned Book</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="rb-name" id="rb-name" placeholder="Enter Book Nmae" >
+                        <input type="text" name="rb-user" id="rb-user" placeholder="Enter User Name" >
+                        <input type="date" name="rb-date" id="rb-date" placeholder="Returned date" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                <div class="add-new-popup" id="book-popup4">
+                    <h1 id="add-new-head">Add New Author</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="a-name" id="a-name" placeholder="Enter Author Name:" >
+                        <input type="text" name="ab-name" id="ab-name" placeholder="Enter Book Name" >
+                        <input type="text" name="ab-subject" id="ab-subject" placeholder="Enter the subject of Book:" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                <div class="add-new-popup" id="book-popup5">
+                    <h1 id="add-new-head">Add New Book Category</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="c-name" id="c-name" placeholder="Enter Book Category" >
+                        <input type="text" name="cb-name" id="cb-name" placeholder="Book Name">
+                        <input type="text" name="c-qty" id="c-qty" placeholder="Enter the Book Quantity">
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
@@ -356,9 +376,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Auther Name</th>
-                                    <th>Book Name</th>
-                                    <th>Subject of Book</th>
+                                    <th>Subject Of Pastpaper</th>
+                                    <th>Examination</th>
+                                    <th>Year</th>
+                                    <th>Language</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
@@ -370,13 +391,13 @@
                         </div>
                     </div>
                     <div class="add-new-popup" id="popup5">
-                    <h1>Add New User</h1>
+                    <h1>Add New Past Paper</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="text" name="p-subject" id="p-subject" placeholder="Enter Subject of Past paper:" >
+                        <input type="text" name="exam" id="exam" placeholder="Enter Examination" >
+                        <input type="text" name="year" id="year" placeholder="Enter the year" >
+                        <input type="text" name="lag" id="lan" placeholder="Enter the language" >
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
@@ -392,9 +413,9 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Auther Name</th>
-                                    <th>Book Name</th>
-                                    <th>Subject of Book</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Subject</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
@@ -405,14 +426,13 @@
                             <button class="button" onclick="add_new_user(6)">Add New</button>
                         </div>
                     </div>
-                    <div class="add-user-popup" id="popup6">
-                    <h1>Add New User</h1>
+                    <div class="add-new-popup" id="popup6">
+                    <h1>Add New Article/Megazine</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
+                        <input type="text" name="art-name" id="art-name" placeholder="Enter Name:" >
+                        <input type="text" name="type" id="type" placeholder="Enter Type" >
+                        <input type="text" name="subject" id="subject" placeholder="Subject" >
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
@@ -466,5 +486,12 @@
         console.log(popup);
         
     }
-   
+   const book_add_new=(num)=>{
+    const books_div=document.querySelector("#books2")
+    const option=document.querySelector(`#book-popup${num}`)
+
+    books_div.style.display="none";
+    option.classList.add("to-add-popup-class")
+
+   }
 </script>

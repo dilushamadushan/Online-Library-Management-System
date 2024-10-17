@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css link -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- LineIcons CDN -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <!-- Header css link -->
     <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/header.css">
+    <!-- Footer css link -->
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!-- Index css link -->
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 <header>

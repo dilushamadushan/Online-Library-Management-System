@@ -1,7 +1,5 @@
 <?php include("header.php") ?>
-<head>
-    <link rel="stylesheet" href="assets/css/index.css">
-</head>
+
 <div class="section_1">   
         <div id="con">
            <h1 class="fw-bolder">Welcome To Our Library </h1>

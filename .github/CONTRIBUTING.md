@@ -1,6 +1,6 @@
 ## Contributing
 
-Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
+Hi there! We're thrilled that you'd like to contribute to this project. Your help is essential in keeping it great.
 
 > [!IMPORTANT]  
 > - Create new branch for your changes. make your changes there!
@@ -22,14 +22,18 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
        - > make your section folder here for media
    - HTML's 
     > make your php document here for the use of otherts
+    
+## Theme Colors:
 
-## NOTE 
+- Use these theme colors throughout:
+  - Dark Red: rgb(70, 2, 2)
+  - Yellow: rgb(255, 217, 0)
+  
+## Additional Notes:
 
-- Theme should be using  `rgb(70, 2, 2)` , `rgb(255, 217, 0)`.
+The project already includes Bootstrap CSS/JS, LineIcons CDN, and Font Awesome CDN links in header.php and footer.php. Do not add these links again if you're using these files.
 
-- I have alrady uploaded bootstrap css and js link and also LineIcons CDN and Font Awesome CDN, So you dont need add those link if you use header.php and footer.php
-
-- If you use header section, Your css link include into header.php
+If you're including any custom CSS, ensure the link is placed within the header.php file.
 
 ```php
     <head>
@@ -51,8 +55,7 @@ Hi there! We're thrilled that you'd like to contribute to this project. Your hel
     <link rel="stylesheet" href="assets/css/YOUR STYLE SHEET NAME.css">
 </head>
 ```
-
-- If you use footer section, Your JS link include into footer.php
+If you're including any custom JS, ensure the link is placed within the footer.php file.
 
 ```php
 <script src="assets/js/bootstrap.bundle.min.js"></script>

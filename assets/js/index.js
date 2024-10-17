@@ -33,3 +33,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(changeBackground, 5000);
 });
+
+$(document).ready(function(){
+    $(".content-card").hover(function(){
+        $(this).css("background-color", "rgb(241, 236, 236)");
+        $(this).find("h4").css("color", "orangered");
+        $(this).find(".read-more-btn").css("color", "orangered");
+    }, function(){
+        $(this).css("background-color", "");
+        $(this).find("h4").css("color", "");
+        $(this).find(".read-more-btn").css("color", "");
+    });
+
+    $(".read-more-btn").hover(function(){
+        $(this).css("background-color", "orangered");
+        $(this).css("color", "white");
+    }, function(){
+        $(this).css("background-color", "");
+        $(this).css("color", "");
+    });
+});

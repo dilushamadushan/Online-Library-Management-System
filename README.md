@@ -17,4 +17,6 @@ This project is part of an assignment to build a basic Online Library Management
 - Display of book details (e-books, articles, past papers, magazines)
 - User profile management
 - Admin panel for managing books and users
-
+  
+> [!IMPORTANT]  
+> All group members must read [CONTRIBUTION GUIDE](.github/CONTRIBUTING.md)

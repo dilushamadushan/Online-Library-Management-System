@@ -14,7 +14,7 @@
     <!-- Footer css link -->
     <link rel="stylesheet" href="assets/css/footer.css">
     <!-- Index css link -->
-    <link rel="stylesheet" href="assets/css/index.css">
+     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 <header>
@@ -26,10 +26,11 @@
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle text-white position-relative">Collection</a>
             <ul class="dropdown-menu border-0">
-                <li><a class="dropdown-item" href="#">Part 1</a></li>
-                <li><a class="dropdown-item" href="#">Part 2</a></li>
-                <li><a class="dropdown-item" href="#">Part 3</a></li>
-                <li><a class="dropdown-item" href="#">Part 4</a></li>
+                <li><a class="dropdown-item" href="#">Book</a></li>
+                <li><a class="dropdown-item" href="#">E-Resourses</a></li>
+                <li><a class="dropdown-item" href="#">Pass Paper</a></li>
+                <li><a class="dropdown-item" href="#">Magazing & Artical</a></li>
+                <li><a class="dropdown-item" href="#">Newspaper</a></li>
             </ul>
         </li>
         <li class="nav-item">

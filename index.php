@@ -1,6 +1,7 @@
 <?php include("header.php") ?>
 <head>
-    <link rel="stylesheet" href="assets/css/index.css">
+
+    <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 <div class="section_1">   
         <div id="con">
@@ -16,6 +17,7 @@
             </div>
         </div>
 </div>
-<script src="assets/js/index.js"></script>
 
-<?php include("footer.php") ?>
+<script src="../assets/js/index.js"></script>
+
+<?php include("../footer.php") ?>

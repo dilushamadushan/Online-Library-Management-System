@@ -40,11 +40,17 @@ The project already includes Bootstrap CSS/JS, LineIcons CDN, and Font Awesome C
 ```php
 <?php include("header.php") ?>
 
+<head>
+    <link rel="stylesheet" href="assets/css/YOUR STYLE SHEET NAME">
+</head>
+
     <div class="sec">
         <h2><!-- YOUR SECTION TITLE GOES HERE --></h2>
         <hr>
             <!-- YOUR CODE GOES HERE -->
     </div>
+
+<script src="assets/js/YOUR JS FILE NAME"></script>
 
 <?php include("footer.php") ?>
 

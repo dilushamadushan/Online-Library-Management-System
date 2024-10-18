@@ -272,7 +272,8 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button"onclick="book_add_new(5)">Add New</button>
+                        <button class="button"onclick="book_add_new(5
+                        )">Add New</button>
                         <button class="button" onclick="exit(2,5)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
@@ -494,4 +495,9 @@
     option.classList.add("to-add-popup-class")
 
    }
+    const hamBurger = document.querySelector(".toggle-btn");
+    hamBurger.addEventListener("click", function () {
+    document.querySelector("#sidebar").classList.toggle("expand");
+    });
+
 </script>

@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap css link -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <!-- Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- LineIcons CDN -->
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <!-- Header css link -->
     <link rel="stylesheet" href="../assets/css/header.css">
+
     <!-- Index css link -->
      <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
 
+    <!-- Footer css link -->
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <!-- Index css link -->
+     <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 <body>
 <header>
@@ -20,10 +31,11 @@
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle text-white position-relative">Collection</a>
             <ul class="dropdown-menu border-0">
-                <li><a class="dropdown-item" href="#">Part 1</a></li>
-                <li><a class="dropdown-item" href="#">Part 2</a></li>
-                <li><a class="dropdown-item" href="#">Part 3</a></li>
-                <li><a class="dropdown-item" href="#">Part 4</a></li>
+                <li><a class="dropdown-item" href="#">Book</a></li>
+                <li><a class="dropdown-item" href="#">E-Resourses</a></li>
+                <li><a class="dropdown-item" href="#">Pass Paper</a></li>
+                <li><a class="dropdown-item" href="#">Magazing & Artical</a></li>
+                <li><a class="dropdown-item" href="#">Newspaper</a></li>
             </ul>
         </li>
         <li class="nav-item">
@@ -45,8 +57,8 @@
             Login
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-            <li><a class="dropdown-item" href="../users/user-login.php">User Login</a></li>
-            <li><a class="dropdown-item" href="../admin/admin-login.php">Admin Login</a></li>
+            <li><a class="dropdown-item" href="users/user-login.php">User Login</a></li>
+            <li><a class="dropdown-item" href="admin/admin-login.php">Admin Login</a></li>
         </ul>
     </div>
 </header>

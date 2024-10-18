@@ -2,14 +2,14 @@
     margin-top: 2px;
     background-size:cover;
     background-position: center;
-    height: 600px;
+    min-height: 100vh;
     position: relative;
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff; 
+    color: #fdfdfd; 
 }
 .section_1::before {
     content: '';
@@ -34,6 +34,7 @@
 }
 
 .section_1 p {
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     line-height: 1.8em;
     margin-bottom: 30px;
@@ -54,4 +55,80 @@
 .btn_find{
     background-color: #ff6804;
     border: none;
+}
+
+
+.quick-access-section {
+    min-height: 100vh;
+    margin-top: 70px;
+    padding: 0 8%;
+    text-align: center;
+}
+
+.content-card {
+    cursor: pointer;
+    box-shadow: 1px 3px 2px 2px rgb(221, 219, 219);
+    transition: transform 0.3s, border 0.3s;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.content-card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.content-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: border 0.3s;
+    mix-blend-mode: multiply;
+}
+.content-card p {
+    color: rgb(134, 132, 132);
+}
+
+.content-card:hover img {
+    border: 3px solid orangered;
+}
+
+.content-card h4 {
+    font-weight: bold;
+}
+
+.decorative-line-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.decorative-line {
+    border-bottom: 1px solid rgb(100, 99, 99);
+    width: 100px;
+    margin: 0 10px;
+}
+
+.read-more-btn {
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale :0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }

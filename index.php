@@ -62,5 +62,5 @@
     </div>
 </div>
 <script src="assets/js/index.js"></script>
-
 <?php include("../Online-Library-Management-System/footer.php"); ?>
+<?php include("footer.php") ?>

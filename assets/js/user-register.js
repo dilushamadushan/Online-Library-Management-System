@@ -11,7 +11,7 @@ form.addEventListener("submit",(event)=>{
         event.preventDefault()
     }
     else{
-        window.location.href="sign-in.html"
+        window.location.href="../Online-Library-Management-System/users/user-login.php"
     }
 })
 
@@ -28,13 +28,9 @@ function validateForm(){
         setError("All fields should be filled!")
         isValid = false
     }
-    else if(mobileVal!==10 || isNaN(mobileVal)){
+    else if(mobileVal.length != 10 || isNaN(Number(mobileVal))) {
         setError("Invalid Mobile number!")
-        isValid=false
-    }
-    else if(pwdVal.length < 10){
-        setError("Password must be in 10 digit!")
-        isValid=false
+        isValid = false
     }
     else if(pwdVal.length < 10){
         setError("Password must be in 10 digit!")

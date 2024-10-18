@@ -12,7 +12,7 @@
 <div class="container">
     <div class="admin-log-in-interface">
         <div class="admin-image">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user" id="user-icon"></i>
         </div>
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">

@@ -12,7 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   margin-top: 25vh;
+   margin: 25vh 10vh;
+
 }
 
 .admin-log-in-interface{
@@ -20,7 +21,7 @@
     width: 40vw;
     height: fit-content;
     border-radius: 20px;
-    background:  #eee;
+    background:white;
     padding: 10px;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
@@ -30,7 +31,7 @@
     justify-content: center;
     height: 10vh;
     width: 10vw;
-    background:  #eee ;
+    background:white;
     border-radius: 20px;
     margin: 0 10px ;
     height: 100%;
@@ -38,7 +39,7 @@
 .admin-log-in-interface .admin-image i{
     font-size: 10em;
     display: block; /* Set to block for better alignment */
-    margin: auto; 
+    margin: 40% 0; 
     color:rgb(70, 2, 2);
 }
 .admin-log-in-interface .admin-login-pannal{
@@ -47,7 +48,7 @@
     display: flex;
 }
 .admin-log-in-interface .admin-login-pannal #form{
-    background:  #eee;  ;
+    background:white;
     height: fit-content;
     border-radius: 20px;
     text-align: center;
@@ -62,6 +63,7 @@
 }
 .admin-log-in-interface .admin-login-pannal #form input{
     width: 100%;
+    background-color: #eee;
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
@@ -90,7 +92,7 @@
 .pwd-icon{
     display: flex;
     align-items: center;
-    background-color:white;
+    background-color: #eee;
     height: 45px;
     margin-bottom: 10px;
     border-radius: 10px;

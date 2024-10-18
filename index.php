@@ -1,7 +1,7 @@
 <?php include("header.php") ?>
 <head>
 
-    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <div class="section_1">   
         <div id="con">
@@ -29,7 +29,7 @@
     <div class="row mt-5">
         <div class="col-md-3 mb-4">
             <div class="content-card">
-                <img src="../assets/media/home-main/book.jpg" alt="Book Image" class="img-fluid">
+                <img src="assets/media/home-main/book.jpg" alt="Book Image" class="img-fluid">
                 <h4>BOOK</h4>
                 <p>Explore our collection of physical and digital books across various genres.</p>
                 <button class="read-more-btn">Read More</button>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-3 mb-4">
             <div class="content-card">
-                <img src="../assets/media/home-main/maga.jfif" alt="Magazine Image" class="img-fluid">
+                <img src="assets/media/home-main/maga.jfif" alt="Magazine Image" class="img-fluid">
                 <h4>MAG & ARTICLE</h4>
                 <p>Stay updated with the latest articles and magazines on diverse topics. </p>
                 <button class="read-more-btn">Read More</button>
@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-3 mb-4">
             <div class="content-card">
-                <img src="../assets/media/home-main/author.png" alt="Journal Image" class="img-fluid">
+                <img src="assets/media/home-main/author.png" alt="Journal Image" class="img-fluid">
                 <h4>AUTHOR</h4>
                 <p>Discover works from both emerging and renowned authors in our library.</p>
                 <button class="read-more-btn">Read More</button>
@@ -53,7 +53,7 @@
         </div>
         <div class="col-md-3 mb-4">
             <div class="content-card">
-                <img src="../assets/media/home-main/news.png" alt="Newspaper Image" class="img-fluid">
+                <img src="assets/media/home-main/news.png" alt="Newspaper Image" class="img-fluid">
                 <h4>NEWSPAPER</h4>
                 <p>Read the latest news from leading newspapers around the world.</p>
                 <button class="read-more-btn">Read More</button>
@@ -61,6 +61,6 @@
         </div>
     </div>
 </div>
-<script src="../assets/js/index.js"></script>
+<script src="assets/js/index.js"></script>
 
-<?php include("../footer.php") ?>
+<?php include("footer.php") ?>

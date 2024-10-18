@@ -8,8 +8,8 @@
                     <li><i class="fa-solid fa-phone"></i> Phone</li>
                     <li class="ms-5">General: 071999999</li>
                     <li class="ms-5">Librarian: 09877</li>
-                    <li><i class="fa-solid fa-fax"></i> Fax: +94 412227028</li>
-                    <li><i class="fa-solid fa-envelope"></i> E-mail: librarian@lib.ruh.ac.lk</li>
+                    <li><i class="fa-solid fa-fax"></i> Fax: +94 4122888888</li>
+                    <li><i class="fa-solid fa-envelope"></i> E-mail: librarian@.lk</li>
                 </ul>
             </div>
 
@@ -56,8 +56,8 @@
         </div>
     </div>
 </footer>
-<script src="../assets/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/jquery-3.7.1.js"></script>
-<script src="../assets/js/index.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery-3.7.1.js"></script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

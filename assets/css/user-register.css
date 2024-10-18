@@ -15,12 +15,12 @@
     justify-content: center;
     padding: 25px;
     padding-bottom: 60px;
-    background: #fff;
+    background:white;
 }
 
 .container-form #form{
     padding: 10px;
-    background-color: #eee;
+    background-color: white;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
     border-radius: 5px;
     text-align: center;
@@ -37,7 +37,7 @@
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background: #fff;
+    background: #eee;
     border-radius: 5px;
 }
 .container-form #form #btn{
@@ -70,7 +70,7 @@
 .container-form .pwd-icon{
     display: flex;
     align-items: center;
-    background-color:white;
+    background-color:#eee;
     height: 45px;
     margin-bottom: 10px;
     border-radius: 10px;

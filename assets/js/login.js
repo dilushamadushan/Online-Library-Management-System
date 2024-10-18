@@ -2,10 +2,11 @@ const form=document.querySelector("#form")
 const user=document.querySelector("#user")
 const pwd=document.querySelector("#pwd")
 const icon=document.querySelector("#icon-pwd")
+const user_icon=document.querySelector("#user-icon")
 
 form.addEventListener("submit",(e)=>{
     if(validateForm()){
-        window.location.href="../admin-page.php"
+        window.location.href="../Online-Library-Management-System/users/user-account.php"
     }
     else{
         e.preventDefault()

@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
     <!-- Header css link -->
     <link rel="stylesheet" href="../assets/css/header.css">
+
+    <!-- Index css link -->
+     <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+
     <!-- Footer css link -->
     <link rel="stylesheet" href="../assets/css/footer.css">
     <!-- Index css link -->

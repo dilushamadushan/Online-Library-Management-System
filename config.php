@@ -5,13 +5,10 @@ $dbpassword = "";
 $dbport = 3307;
 $dbname = "library_management_system";
 
-$conn = new mysqli($host, $dbusername, $dbpassword, $dbname, $dbport);
+$conn = mysqli_connect($host, $dbusername, $dbpassword, $dbname, $dbport);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} else {
-    //echo "Connected successfully."; // This should display if the connection is good
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
-$conn->close(); // Close the connection after testing
 ?>

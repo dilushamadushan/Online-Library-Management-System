@@ -1,6 +1,5 @@
-<?php include("../Online-Library-Management-System/header.php") ?>
+<?php include("header.php"); ?>
 <head>
-
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <div class="section_1">   
@@ -62,5 +61,5 @@
     </div>
 </div>
 <script src="assets/js/index.js"></script>
-<?php include("../Online-Library-Management-System/footer.php"); ?>
-<?php include("footer.php") ?>
+
+<?php include("footer.php"); ?>

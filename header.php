@@ -12,7 +12,7 @@
     <!-- Header css link -->
     <link rel="stylesheet" href="../assets/css/header.css">
     <!-- Index css link -->
-     <link rel="stylesheet" href="../Online-Library-Management-System/assets/css/index.css">
+     <link rel="stylesheet" href="../assets/css/index.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/header.css">
 

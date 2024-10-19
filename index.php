@@ -60,6 +60,25 @@
         </div>
     </div>
 </div>
+<div class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h1 class="fw-bolder">About Us</h1>
+                <p class="container fw-normal">Welcome to our library, a place where knowledge meets community. 
+                    We offer a vast collection of books, e-books, and other resources
+                     to inspire learning and exploration. Our mission is to provide a 
+                     welcoming space for readers of all ages to discover new ideas, connect
+                      with others, and access valuable information. Whether you're here to study, 
+                      research, or 
+                    relax with a good book, we're here to support your journey.</p>
+                    <button type="button" class="btn">See More</button>
+            </div>
+            <div class="about-img">
+               <img src="assets/media/home-main/man.png" class="man">
+               <img src="assets/media/home-main/elements.png" class="element">
+            </div>
+        </div>
+</div>
 <script src="assets/js/index.js"></script>
 
 <?php include("footer.php"); ?>

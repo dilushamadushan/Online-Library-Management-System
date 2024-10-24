@@ -1,24 +1,22 @@
 <?php
     include("config.php");
     session_start();
-    if (isset($_POST['btn'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['name']);
-    $pwd = mysqli_real_escape_string($conn, md5($_POST['pwd']));
+    if (isset($_POST['submit'])) {
+        $username = mysqli_real_escape_string($conn, $_POST['name']);
+        $pwd = mysqli_real_escape_string($conn, md5($_POST['pwd']));
 
-    $select = mysqli_query($conn, "SELECT User_Id, User_Nmae FROM `user_table` WHERE User_Name = '$username' AND User_Password = '$pwd'") or die('Query failed');
+        $select = mysqli_query($conn, "SELECT User_Id, User_Nmae FROM `user_table` WHERE User_Name = '$username' AND User_Password = '$pwd'") or die('Query failed');
 
-   if(mysqli_num_rows($select) > 0){
-        $row=mysqli_fetch_assoc($select);
-        $_SESSION['user_id']=$row['User_Id'];
-        header("Location:../user-account.php");
-        exit();
-      
-   }else{
-    $message[] = 'incorrect User Name or password!';
-
-   }
-}      
-            
+        if (password_verify($pwd, $row['User_Password'])) {
+            $_SESSION['user_id'] = $row['User_Id']; 
+            header("Location: user-account.php");
+            exit();
+        } else {
+            $message[] = 'Incorrect password!';
+        }
+    } else {
+        $message[] = 'Incorrect User Name or password!';
+    }         
 ?>
 
 <?php
@@ -40,13 +38,20 @@
         <div class="admin-login-pannal">
             <form action="admin-login.php" method="post" id="form">
                 <h1>User Login</h1>
+                <?php
+                    if (isset($message)) {
+                        foreach ($message as $msg) {
+                            echo "<div class='error'>$msg</div>";
+                         }
+                    }
+                ?>
                 <div class="error"></div>
                 <input type="text" name="user" id="user" placeholder="User Name">
                 <div class="pwd-icon">
                     <input type="password" name="pwd" id="pwd" placeholder="Password">
                     <img src="assets/media/admin-page/eye-close.png" alt="eye-close" id="icon-pwd">
                 </div>
-                <input type="submit" name="btn" id="btn" value="Login">
+                <input type="submit" name="submit" id="btn" value="Login">
 
                 <p>Don't You Have an account <a href="user-register.php">Register</a></p>
             </form>

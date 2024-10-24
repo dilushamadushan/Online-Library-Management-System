@@ -5,10 +5,8 @@ const icon=document.querySelector("#icon-pwd")
 const user_icon=document.querySelector("#user-icon")
 
 form.addEventListener("submit",(e)=>{
-    if(validateForm()){
-        window.location.href="../Online-Library-Management-System/users/user-account.php"
-    }
-    else{
+    if(!validateForm()){
+    
         e.preventDefault()
     }
 })

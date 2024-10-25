@@ -10,11 +10,9 @@
     <!-- LineIcons CDN -->
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
     <!-- Header css link -->
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <!-- Index css link -->
-     <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/header.css">
+    <!-- Index css link -->
+     <link rel="stylesheet" href="assets/css/index.css">
     <!-- Footer css link -->
     <link rel="stylesheet" href="assets/css/footer.css">
 </head>
@@ -54,8 +52,8 @@
             Login
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-            <li><a class="dropdown-item" href="users/user-login.php">User Login</a></li>
-            <li><a class="dropdown-item" href="admin/admin-login.php">Admin Login</a></li>
+            <li><a class="dropdown-item" href="user-login.php">User Login</a></li>
+            <li><a class="dropdown-item" href="admin-login.php">Admin Login</a></li>
         </ul>
     </div>
 </header>

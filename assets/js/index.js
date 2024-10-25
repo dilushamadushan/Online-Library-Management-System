@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const backgrounds = [
-        "assets/media/home-main/img1.jpg",
+        "assets/media/home-main/img1.webp",
         "assets/media/home-main/img2.jpg",
         "assets/media/home-main/img3.jpg",
         "assets/media/home-main/img4.jpg"

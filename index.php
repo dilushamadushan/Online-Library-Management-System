@@ -5,7 +5,7 @@
 </head>
 <div class="section_1">   
         <div id="con">
-           <h1 class="fw-bolder">Welcome To Our Library </h1>
+           <h1 class="fw-bolder">Welcome To Our <span> Library </span></h1>
             <p class="fw-medium">Here, you can explore a wide range of books, e-books, and resources. 
                Use the search bar to find what you're looking for, check out featured books, or
                browse different categories. If you're a member, log in to see your account details and manage your loans. 
@@ -80,6 +80,6 @@
             </div>
         </div>
 </div>
-<script src="assets/js/index.js"></script>
+
 
 <?php include("footer.php"); ?>

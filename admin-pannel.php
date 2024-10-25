@@ -74,7 +74,7 @@
             <div class="profile-info" id="menue1">
                 <h1>Personal Information</h1>
                 <div class="profile-image">
-                <img src="../assets/media/admin-page/avatar.png" alt="avatar">
+                <img src="assets/media/admin-page/avatar.png" alt="avatar">
                 </div> 
                 <h2>Admin Name:</h2>
                 <input type="text" name="name" id="name" value="Hajith">
@@ -439,7 +439,6 @@
                 </div> 
             </div>
         </div>  
-    
   </div>
 </div>
     

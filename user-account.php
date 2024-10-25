@@ -52,16 +52,8 @@
 
         </div>
 
-
         <div class="main">
 
-            <div id="profile" class="main-section active">1</div>
-
-            <div id="books" class="main-section">2</div>
-
-            <div id="E-Resourses" class="main-section">3</div>
-
-            <div id="update-password" class="main-section">4</div>
 
         </div>
     </div>

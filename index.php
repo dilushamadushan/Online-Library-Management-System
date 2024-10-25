@@ -61,6 +61,92 @@
         </div>
     </div>
 </div>
+
+<div class="book-section">
+    <h2 class="fw-bold">Latest Arrivals</h2>
+    <p>Check out the newest additions to our library collection</p>
+    <div class="book-conten">
+
+        <div class="bookbtn-nb"><i class="fa-solid fa-circle-chevron-left" id="backbtn"></i></div>
+        <div class="book-werp">
+            <div class="book-con-card">
+
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="book-con-card">
+
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="assets/media/home-main/temp.webp" alt="">
+                    <div class="overlay">
+                        <h3>Harry Potter</h3>
+                        <p>Jk Roline</p>
+                        <span>Publich year</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bookbtn-nb"><i class="fa-solid fa-circle-chevron-right" id="nextbtn"></i></div>
+    </div>
+</div>
+
 <div class="about-section">
         <div class="about-content">
             <div class="about-text">

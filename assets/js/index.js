@@ -53,3 +53,22 @@ $(document).ready(function(){
         $(this).css("color", "");
     });
 });
+
+let scrollContainer = document.querySelector(".book-werp");
+let backBtn = document.getElementById("backbtn");
+let nextBtn = document.getElementById("nextbtn");
+
+scrollContainer.addEventListener("wheel",(evt)=>{
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+    scrollContainer.style.scrollBehavior = "auto";
+});
+
+nextBtn.addEventListener("click", ()=>{
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft += 1200;
+});
+backBtn.addEventListener("click",()=>{
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft -= 1200;
+});

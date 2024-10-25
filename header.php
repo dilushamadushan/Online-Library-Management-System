@@ -18,10 +18,10 @@
 </head>
 <body>
 <header>
-    <div class="logo_img"><img src="assets/media/flogo.png" class="logo" alt="Library Logo"></div>
+    <div class="logo_img"><img src="assets/media/flogo.png" class="logo" alt="Library Logo" onclick="location.href='index.php';"></div>
     <ul class="nav">
         <li class="nav-item">
-            <a href="#" class="nav-link text-white position-relative">Home</a>
+            <a href="index.php" class="nav-link text-white position-relative">Home</a>
         </li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle text-white position-relative">Collection</a>

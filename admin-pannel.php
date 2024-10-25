@@ -437,8 +437,10 @@
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
-                </div>
-</div>
+            </div>
+        </div>  
+    
+  </div>
 </div>
     
 <script>

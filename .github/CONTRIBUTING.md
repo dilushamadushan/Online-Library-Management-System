@@ -69,6 +69,7 @@ The project already includes Bootstrap CSS/JS, LineIcons CDN, and Font Awesome C
  }
 
 .sec {
+    margin-top: 2px;
     position: relative;
     padding: 40px;
 }

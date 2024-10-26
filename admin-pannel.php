@@ -571,8 +571,6 @@
     const add_new_user=(num)=>{
         const div=document.querySelector(`#user${num}`)
         const popup=document.querySelector(`#popup${num}`)
-        
-      
 
         div.style.display="none";
         popup.classList.add("to-add-popup-class")

@@ -88,7 +88,7 @@
                         }
                     ?>
                     <h1>Personal Information</h1>
-                    <form action="admin-pannel.php" method="post" id="form">
+                    
                         <div class="profile-image">
                             <img src="assets/media/admin-page/avatar.png" alt="avatar">
                         </div> 
@@ -101,7 +101,7 @@
                         <h2>Address:</h2>
                         <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
                         <input type="submit" value="Update" name="btn-update" id="btn">
-                    </form>
+                    
                 </div>
             </div>
             <div class="users" id="menue2">

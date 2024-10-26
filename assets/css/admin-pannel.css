@@ -176,6 +176,7 @@ a.sidebar-link:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    border: 5px solid black;
    
 }
  h1, .books h1{
@@ -188,18 +189,15 @@ a.sidebar-link:hover {
     margin:10px 10px;
     
 }
-.profile-info #form{
-    width: 100%;
-}
-.profile-info #form input{
+.profile-info input{
     background-color: #d1d1d1;
-    width: 100%;
+    min-width: fit-content;
     border-radius: 10px;
     height: 45px;
     padding: 0 10px;
     font-size: medium;
 }
-.profile-info #form #btn{
+.profile-info #btn{
     cursor: pointer;
     margin-top: 10px;
     background-color: rgb(255, 217, 0);
@@ -212,7 +210,7 @@ a.sidebar-link:hover {
     margin-right: 0;
     text-align: center;
 }
-.profile-info #form #btn:hover{
+.profile-info #btn:hover{
     box-shadow:0 5px 10px rgb(8, 8, 8);
 }
 .profile-info #bookbtn{

@@ -76,3 +76,22 @@ header {
 .login-btn:active {
     transform: scale(0.95);
 }
+.userimg-btn{
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+.btn-user-log .dropLine{
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    margin-left: 10%;
+    width: 80%;
+    height: 12px;
+}
+.btn-user-log ul span,.btn-main-log ul span{
+    margin-left: 10px;
+}
+.btn-user-log{
+display: none;
+}

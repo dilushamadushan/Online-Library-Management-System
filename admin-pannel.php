@@ -63,8 +63,8 @@
                     </li>
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link" onclick="showMenues(7)">
-                        <i class="fa-regular fa-newspaper"></i>
-                            <span>NEWS & EVENTS</span>
+                        <i class="fa-regular fa-calendar"></i>
+                            <span>News & Events</span>
                         </a>
                     </li>
                 </ul>
@@ -445,21 +445,19 @@
                     </div> 
                 </div>
 
-                <div class="books" id="menue3">
-                <h1>Book Information</h1>
-                <div class="book-info" id="books2" id="user3">
-                    <div class="bookbtn" onclick="showBooklist(2,1)">
-                        <i class="fa-solid fa-book" ></i>
-                        <p id="count">2</p>
-                        <h4>Book Listed</h4>
+                <div class="books" id="menue7">
+                <h1>Event & News Information</h1>
+                <div class="book-info" id="events" id="user3">
+                    <div class="bookbtn" onclick="showEvwntsandNews(1)">
+                        <i><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h440l200 200v440q0 33-23.5 56.5T760-120H200Zm0-80h560v-400H600v-160H200v560Zm80-80h400v-80H280v80Zm0-320h200v-80H280v80Zm0 160h400v-80H280v80Zm-80-320v160-160 560-560Z"/></svg></i>
+                        <h4>News</h4>
                     </div>
-                    <div class="bookbtn" onclick="showBooklist(2,2)">
-                        <i class="fa-solid fa-bars" ></i>
-                        <p id="count">5</p>
-                        <h4>Issued Books</h4>
+                    <div class="bookbtn" onclick="showEvwntsandNews(2)">
+                        <i class="fa-regular fa-calendar"></i>
+                        <h4>Events</h4>
                     </div>
                 </div>
-                <div class="book-listed" id="list1">
+                <div class="book-listed" id="event-list1">
                     <div class="search">
                         <input type="text" name="search" id="search" placeholder="Enter the book name">
                         <input type="button" name="btn-search" id="btn-search" value="Search">
@@ -467,12 +465,10 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Number</th>
-                                <th>Book Name</th>
-                                <th>ISBN Number</th>
-                                <th>Subject of Book</th>
-                                <th>Author</th>
-                                <th colspan="2">Actions</th>
+                                <th>Event Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -480,11 +476,11 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button" onclick="book_add_new(1)">Add New</button>
-                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
+                        <button class="button" onclick="event_add_new(1)">Add New</button>
+                        <button class="button" onclick="event_exit(1)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
-                <div class="book-listed" id="list2">
+                <div class="book-listed" id="event-list2">
                     <div class="search">
                         <input type="text" name="search" id="search" placeholder="Enter the book name">
                         <input type="button" name="btn-search" id="btn-search" value="Search">
@@ -492,11 +488,12 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Book Name</th>
-                                <th>User Name</th>
-                                <th>Subject of Book</th>
-                                <th>Date of return</th>
-                                <th colspan="2">Actions</th>
+                            <tr>
+                                <th>News Name</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Date</th>
+                            </tr>
                             </tr>
                         </thead>
                         <tbody>
@@ -504,30 +501,30 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button" onclick="book_add_new(2)">Add New</button>
-                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
+                        <button class="button" onclick="event_add_new(2)">Add New</button>
+                        <button class="button" onclick="event_exit(2)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>   
                 </div>
 
-                <div class="add-new-popup" id="book-popup1">
-                    <h1 id="add-new-head">Add New Book</h1>
+                <div class="add-new-popup" id="event-popup1">
+                    <h1 id="add-new-head">Add Events</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="b-name" id="b-name" placeholder="Enter Book Name:" >
-                        <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN Number" >
-                        <input type="text" name="b-subject" id="b-subject" placeholder="Enter The subject of Book" >
-                        <input type="text" name="b-author" id="b-author" placeholder="Enter Author Name" >
+                        <input type="text" name="e-name" id="e-name" placeholder="Enter Event Name:" >
+                        <input type="text" name="e-description" id="e-description" placeholder="Enter The event description" >
+                        <input type="file" name="image" id="image" >
+                        <input type="date" name="e-date" id="e-date">
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
-                <div class="add-new-popup" id="book-popup2">
-                    <h1 id="add-new-head">Add New Issued Book</h1>
+                <div class="add-new-popup" id="event-popup2">
+                    <h1 id="add-new-head">Add News</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="ib-name" id="ib-name" placeholder="Enter Book Name" >
-                        <input type="text" name="ib-user" id="ib-user" placeholder="Enter User Name">
-                        <input type="date" name="ib-date" id="ib-date" placeholder="Enter the Date of Issue" >
-                        <input type="date" name="ib-return" id="ib-return" placeholder="Enter the date want to return" >
+                        <input type="text" name="n-name" id="n-name" placeholder="Enter Event Name:" >
+                        <input type="text" name="n-description" id="n-description" placeholder="Enter The event description" >
+                        <input type="file" name="n-image" id="n-image">
+                        <input type="date" name="n-date" id="n-date">
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
@@ -595,5 +592,27 @@
     document.querySelector("#sidebar").classList.toggle("expand");
     });
 
+    const showEvwntsandNews= function (num2) {
+        const books=document.querySelector(`#events`)
+        const list=document.querySelector(`#event-list${num2}`)
+        books.style.display="none"
+        list.style.display="block"
+    }
+
+    const event_add_new=(num)=>{
+    const books_div=document.querySelector("#events")
+    const option=document.querySelector(`#event-popup${num}`)
+
+    books_div.style.display="none";
+    option.classList.add("to-add-popup-class")
+
+   }
+   const event_exit=function(num2){
+        const books=document.querySelector(`#events`)
+        const list=document.querySelector(`#event-list${num2}`)
+        books.style.display="flex"
+        list.style.display="none"
+    }
+
 </script>
-<?php include("footer.php") ?>
+

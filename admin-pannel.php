@@ -1,10 +1,6 @@
 <?php
-    include("config.php");
-?>
-<?php
     include("header.php");
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,28 +78,21 @@
         </div>
         <div class="show-details ">
             <div class="profile-info" id="menue1">
-                    <?php
-                        if(isset($_POST["btn-update"])){
-                            echo "Button activated";
-                        }
-                    ?>
-                    <h1>Personal Information</h1>
-                    
-                        <div class="profile-image">
-                            <img src="assets/media/admin-page/avatar.png" alt="avatar">
-                        </div> 
-                        <h2>Admin Name:</h2>
-                        <input type="text" name="name" id="name" value="Hajith">
-                        <h2>Admin email:</h2>
-                        <input type="email" name="mail" id="mail" value="hanoufaatif@gmail.com">
-                        <h2>Mobile No:</h2>
-                        <input type="text" name="mobile" id="mobile" value="0740523954">
-                        <h2>Address:</h2>
-                        <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
-                        <input type="submit" value="Update" name="btn-update" id="btn">
-                    
-                </div>
+                <h1>Personal Information</h1>
+                <div class="profile-image">
+                <img src="assets/media/admin-page/avatar.png" alt="avatar">
+                </div> 
+                <h2>Admin Name:</h2>
+                <input type="text" name="name" id="name" value="Hajith">
+                <h2>Admin email:</h2>
+                <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
+                <h2>Mobile No:</h2>
+                <input type="text" name="mobile" id="mobile" value="0740523954">
+                <h2>Adsress:</h2>
+                <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
+                <input type="button" value="Ubdate" name="btn" id="btn">
             </div>
+
             <div class="users" id="menue2">
                 <h1>Users' Informations</h1>
                 <div class="book-listed" style="display: block;" id="user2">
@@ -170,7 +159,11 @@
                         <p id="count">9</p>
                         <h4>Listed Cotegories</h4>
                     </div>
-                    
+                    <div class="bookbtn" onclick="showBooklist(2,6)">
+                        <i class="fa-solid fa-list"></i>
+                        <p id="count">6</p>
+                        <h4>Listed Cotegories</h4>
+                    </div>
                 </div>
                 <div class="book-listed" id="list1">
                     <div class="search">
@@ -285,7 +278,8 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button"onclick="book_add_new(5)">Add New</button>
+                        <button class="button"onclick="book_add_new(5
+                        )">Add New</button>
                         <button class="button" onclick="exit(2,5)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
@@ -537,7 +531,6 @@
             </div>
         </div>
 </div>
-</div>
     
 <script>
     const showMenues = function (num) {
@@ -622,9 +615,4 @@
     }
 
 </script>
-<div class="footer">
-    <?php
-        include("footer.php");
-    ?>
-</div>
 

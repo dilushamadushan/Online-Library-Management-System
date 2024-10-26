@@ -47,13 +47,26 @@
             </ul>
         </li>
     </ul>
-    <div class="dropdown">
+    <div class="dropdown btn-main-log">
         <button class="btn btn-warning dropdown-toggle login-btn" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             Login
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
-            <li><a class="dropdown-item" href="user-login.php">User Login</a></li>
-            <li><a class="dropdown-item" href="admin-login.php">Admin Login</a></li>
+            <li><a class="dropdown-item" href="user-login.php"><i class="fa-solid fa-user"></i><span>User Login</span></a></li>
+            <li><a class="dropdown-item" href="admin-login.php"><i class="fa-solid fa-user-tie"></i><span>Admin Login</span></a></li>
         </ul>
     </div>
+
+    <div class="dropdown btn-user-log">
+        <div class="user-btn dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/media/admin-page/avatar.png" alt="" class="userimg-btn">
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+            <li><a class="dropdown-item " href="#"><img src="assets/media/admin-page/avatar.png" alt="" class="userimg-btn"><span>User Name</span></a></li>
+            <div class="dropLine"></div>
+            <li><a class="dropdown-item" href="user-account.php"><i class="fa-solid fa-user-pen"></i><span>Edit Profile</span></a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a></li>
+        </ul>
+    </div>
+
 </header>

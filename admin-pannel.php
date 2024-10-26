@@ -61,6 +61,12 @@
                             <span>Articles and Megacine</span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" onclick="showMenues(7)">
+                        <i class="fa-regular fa-newspaper"></i>
+                            <span>NEWS & EVENTS</span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="sidebar-footer">
                     <a href="#" class="sidebar-link">
@@ -428,18 +434,105 @@
                         </div>
                     </div>
                     <div class="add-new-popup" id="popup6">
-                    <h1>Add New Article/Megazine</h1>
+                        <h1>Add New Article/Megazine</h1>
+                        <form action="#" id="new-popup">
+                            <div class="error"></div>
+                            <input type="text" name="art-name" id="art-name" placeholder="Enter Name:" >
+                            <input type="text" name="type" id="type" placeholder="Enter Type" >
+                            <input type="text" name="subject" id="subject" placeholder="Subject" >
+                            <input type="submit" value="Add New" id="new-btn">
+                        </form>
+                    </div> 
+                </div>
+
+                <div class="books" id="menue3">
+                <h1>Book Information</h1>
+                <div class="book-info" id="books2" id="user3">
+                    <div class="bookbtn" onclick="showBooklist(2,1)">
+                        <i class="fa-solid fa-book" ></i>
+                        <p id="count">2</p>
+                        <h4>Book Listed</h4>
+                    </div>
+                    <div class="bookbtn" onclick="showBooklist(2,2)">
+                        <i class="fa-solid fa-bars" ></i>
+                        <p id="count">5</p>
+                        <h4>Issued Books</h4>
+                    </div>
+                </div>
+                <div class="book-listed" id="list1">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Book Name</th>
+                                <th>ISBN Number</th>
+                                <th>Subject of Book</th>
+                                <th>Author</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button" onclick="book_add_new(1)">Add New</button>
+                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>
+                </div>
+                <div class="book-listed" id="list2">
+                    <div class="search">
+                        <input type="text" name="search" id="search" placeholder="Enter the book name">
+                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Name</th>
+                                <th>User Name</th>
+                                <th>Subject of Book</th>
+                                <th>Date of return</th>
+                                <th colspan="2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                    <div class="button-for-more">
+                        <button class="button" onclick="book_add_new(2)">Add New</button>
+                        <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
+                    </div>   
+                </div>
+
+                <div class="add-new-popup" id="book-popup1">
+                    <h1 id="add-new-head">Add New Book</h1>
                     <form action="#" id="new-popup">
                     <div class="error"></div>
-                        <input type="text" name="art-name" id="art-name" placeholder="Enter Name:" >
-                        <input type="text" name="type" id="type" placeholder="Enter Type" >
-                        <input type="text" name="subject" id="subject" placeholder="Subject" >
+                        <input type="text" name="b-name" id="b-name" placeholder="Enter Book Name:" >
+                        <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN Number" >
+                        <input type="text" name="b-subject" id="b-subject" placeholder="Enter The subject of Book" >
+                        <input type="text" name="b-author" id="b-author" placeholder="Enter Author Name" >
+                        <input type="submit" value="Add New" id="new-btn">
+                    </form>
+                </div> 
+                <div class="add-new-popup" id="book-popup2">
+                    <h1 id="add-new-head">Add New Issued Book</h1>
+                    <form action="#" id="new-popup">
+                    <div class="error"></div>
+                        <input type="text" name="ib-name" id="ib-name" placeholder="Enter Book Name" >
+                        <input type="text" name="ib-user" id="ib-user" placeholder="Enter User Name">
+                        <input type="date" name="ib-date" id="ib-date" placeholder="Enter the Date of Issue" >
+                        <input type="date" name="ib-return" id="ib-return" placeholder="Enter the date want to return" >
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
             </div>
-        </div>  
-  </div>
+        </div>
 </div>
     
 <script>

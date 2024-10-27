@@ -1,4 +1,5 @@
 <?php
+include("phpmailserver/send.php");
 session_start();
 include("config.php");
 
@@ -45,6 +46,7 @@ if (isset($_POST['btn'])) {
                                         $_SESSION['user_id'] = $row['user_id'];
                                         $_SESSION['User_Emaiil'] = $row['User_Emaiil'];
                                         $_SESSION['user_otp'] = $row['user_otp'];
+                                        require "PHPMailer/phpmailserver/send.php";
 
                                         $receiver = $email;
                                         $subject = "Welcome, $username!";

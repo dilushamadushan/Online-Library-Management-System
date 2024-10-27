@@ -1,45 +1,105 @@
 <?php
-    include("config.php");
-    if (isset($_POST['btn'])) {
+session_start();
+include("config.php");
+
+if (isset($_POST['btn'])) {
     $username = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['mail']);
-    $mobile = mysqli_real_escape_string($conn, $_POST["mobile"]);
-    $address = mysqli_real_escape_string($conn, $_POST["addr"]);
-    $pwd = mysqli_real_escape_string($conn, md5($_POST['pwd']));
-    $cpwd = mysqli_real_escape_string($conn, md5($_POST['cpwd']));
-    $image = $_FILES['profile']['name'];
-    $image_size = $_FILES['profile']['size'];
-    $image_tmp_name = $_FILES['profile']['tmp_name'];
-    $image_folder = 'profile/'.$image;
+    $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
+    $address = mysqli_real_escape_string($conn, $_POST['addr']);
+    $pwd = $_POST['pwd'];
+    $cpwd = $_POST['cpwd'];
+    $verification_status = "0";
+    $role = "user";
+    $num = 1;
 
-    $select = mysqli_query($conn, "SELECT * FROM `user_table` WHERE User_Nmae = '$username'") or die('query failed');
+    if (!empty($username) && !empty($email) && !empty($address) && !empty($pwd) && !empty($cpwd)) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $SQL = mysqli_query($conn, "SELECT User_Emaiil FROM user_table WHERE User_Emaiil='{$email}'");
+            if (mysqli_num_rows($SQL) > 0) {
+                echo "{$email} - Already exists";
+            } else {
+                if ($pwd === $cpwd) {
+                    $hashed_pwd = password_hash($pwd, PASSWORD_BCRYPT);
+                    if (isset($_FILES['profile'])) {
+                        $image = $_FILES['profile']['name'];
+                        $image_tmp_name = $_FILES['profile']['tmp_name'];
+                        $img_extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+                        $allowed_extensions = ['png', 'jpeg', 'jpg'];
 
-   if(mysqli_num_rows($select) > 0){
-      $message[] = 'user already exist'; 
-   }else{
-      if($pwd != $cpwd){
-         $message[] = 'confirm password not matched!';
-      }elseif($image_size > 2000000){
-         $message[] = 'image size is too large!';
-      }else{
-         $insert = mysqli_query($conn, "INSERT INTO `user_table`(User_Nmae, User_Emaiil	, User_Mobile, User_Address,User_Password,User_profile) VALUES('$username ', '$email', '$mobile', '$address','$pwd','$image')") or die('query failed');
+                        if (in_array($img_extension, $allowed_extensions)) {
+                            $time = time();
+                            $new_image_name = $time . '_' . $image;
+                            $image_folder = 'profile/' . $new_image_name;
+                            if (move_uploaded_file($image_tmp_name, $image_folder)) {
+                                $otp = mt_rand(1111, 9999);
+                                $id = "U";
+                                $User_id = $id . "00" . $num;
+                                global $num;
+                                $num++;
+                                $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp) 
+                                VALUES ('$User_id','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp')");
 
-         if($insert){
-            move_uploaded_file($image_tmp_name, $image_folder);
-            $message[] = 'registered successfully!';
-            header('location:user-register.php');
-         }else{
-            $message[] = 'registeration failed!';
-         }
-        
-      }
+                                if ($sql2) {
+                                    $_SESSION['otp'] = $otp;
+                                    $_SESSION['mail'] = $email;
+                                    require "Mail/phpmailer/PHPMailerAutoload.php";
+                                    $mail = new PHPMailer;
+
+                                    $mail->isSMTP();
+                                    $mail->Host = 'smtp.gmail.com';
+                                    $mail->Port = 587;
+                                    $mail->SMTPAuth = true;
+                                    $mail->SMTPSecure = 'tls';
+
+                                    $mail->Username = 'hanoufaatif@gmail.com';
+                                    $mail->Password = 'rvux ccrc ggge uifx';
+
+                                    $mail->setFrom('hanoufaatif@gmail.com', 'Public Library');
+                                    $mail->addAddress($email);
+
+                                   
+                                    $mail->Subject = 'OTP verification';
+                                    $mail->Body = 'This is your four digit OTP ' . $otp;
+
+                                    if(!$mail->send()){
+                                        ?>
+                                            <script>
+                                                alert("<?php echo "Register Failed, Invalid Email "?>");
+                                            </script>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <script>
+                                            alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                                            window.location.replace('verify.php');
+                                        </script>
+                                        <?php
+                                    }
+                                } else {
+                                    echo "Something went wrong in the registration process.";
+                                }
+                            } else {
+                                echo "Failed to upload the profile image.";
+                            }
+                        } else {
+                            echo "Invalid image format. Only JPG, PNG, and JPEG are allowed.";
+                        }
+                    } else {
+                        echo "Please select a profile image.";
+                    }
+                } else {
+                    echo "Passwords do not match.";
+                }
+            }
+        } else {
+            echo "$email is not a valid email address.";
+        }
+    } else {
+        echo "All input fields are required.";
     }
-   }
-
-$conn->close();        
-            
+}
 ?>
-
 <?php
     include("header.php");
 ?>
@@ -83,5 +143,24 @@ $conn->close();
     </div>
 </div>
 <?php include("footer.php") ?>
-    
+<?php
+// if (isset($_GET['email']) && isset($_GET['otp'])) {
+//         $email = mysqli_real_escape_string($conn, $_GET['email']);
+//         $otp = mysqli_real_escape_string($conn, $_GET['otp']);
+
+//         $SQL = mysqli_query($conn, "SELECT * FROM user_table WHERE User_Emaiil='$email' AND user_otp='$otp'");
+//         if (mysqli_num_rows($SQL) > 0) {
+//             $update = mysqli_query($conn, "UPDATE user_table SET varification_status='1' WHERE User_Emaiil='$email'");
+//             if ($update) {
+//                 echo "Email verification successful!";
+//             } else {
+//                 echo "Failed to update verification status.";
+//             }
+//         } else {
+//             echo "Invalid verification link or OTP.";
+//         }
+//     } else {
+//         echo "Invalid request.";
+//     }
+//     ?>
 

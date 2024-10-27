@@ -176,6 +176,7 @@ a.sidebar-link:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    border: 5px solid black;
    
 }
  h1, .books h1{

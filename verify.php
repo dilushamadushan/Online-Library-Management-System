@@ -87,14 +87,14 @@
         <h2>Verify Your Account</h2>
         <p>We emailed you the four-digit OTP code. Enter the code below to confirm your email address.</p>
         <div class="error-text" id="error-text">Invalid OTP. Please try again.</div>
-        <form id="otp-form">
+        <form id="otp-form" action="verify.php" method="post">
             <div class="fields-of-input">
                 <input type="number" id="otp1" class="otp-field" min="0" max="9" required  onpaste="false;">
                 <input type="number" id="otp2" class="otp-field" min="0" max="9" required  onpaste="false;">
                 <input type="number" id="otp3" class="otp-field" min="0" max="9" required  onpaste="false;">
                 <input type="number" id="otp4" class="otp-field" min="0" max="9" required  onpaste="false;">
             </div>
-            <button type="submit" class="button">Verify</button>
+            <button type="submit" class="button" name="verify">Verify</button>
         </form>
     </div>
     <script>
@@ -120,5 +120,17 @@
         });
 
     </script>
+
+    <?php
+    include("config.php");
+    if(isset($_POST['verify'])){
+        $otp;
+        for($i=1;$i<5;$i++){
+            $otp[]=$_POST["otp$i"];
+        }
+        print_r($otp);
+    }
+    ?>
+
 </body>
 </html>

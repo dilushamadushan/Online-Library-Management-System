@@ -1,5 +1,4 @@
 <?php
-include("phpmailserver/send.php");
 session_start();
 include("config.php");
 
@@ -8,11 +7,11 @@ if (isset($_POST['btn'])) {
     $email = mysqli_real_escape_string($conn, $_POST['mail']);
     $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
     $address = mysqli_real_escape_string($conn, $_POST['addr']);
-    $pwd = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
-    $cpwd = password_hash($_POST['cpwd'], PASSWORD_BCRYPT);
+    $pwd = $_POST['pwd'];
+    $cpwd = $_POST['cpwd'];
     $verification_status = "0";
     $role = "user";
-    $num = 0;
+    $num = 1;
 
     if (!empty($username) && !empty($email) && !empty($address) && !empty($pwd) && !empty($cpwd)) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -20,8 +19,8 @@ if (isset($_POST['btn'])) {
             if (mysqli_num_rows($SQL) > 0) {
                 echo "{$email} - Already exists";
             } else {
-                $num++;
-                if (password_verify($_POST['cpwd'], $pwd)) {
+                if ($pwd === $cpwd) {
+                    $hashed_pwd = password_hash($pwd, PASSWORD_BCRYPT);
                     if (isset($_FILES['profile'])) {
                         $image = $_FILES['profile']['name'];
                         $image_tmp_name = $_FILES['profile']['tmp_name'];
@@ -36,27 +35,46 @@ if (isset($_POST['btn'])) {
                                 $otp = mt_rand(1111, 9999);
                                 $id = "U";
                                 $User_id = $id . "00" . $num;
+                                global $num;
+                                $num++;
                                 $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp) 
-                                VALUES ('$User_id','$username', '$email', '$mobile', '$address', '$pwd', '$new_image_name', '$verification_status', '$otp')");
+                                VALUES ('$User_id','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp')");
 
                                 if ($sql2) {
-                                    $sql3 = mysqli_query($conn, "SELECT * FROM user_table WHERE User_Emaiil='{$email}'");
-                                    if (mysqli_num_rows($sql3) > 0) {
-                                        $row = mysqli_fetch_assoc($sql3);
-                                        $_SESSION['user_id'] = $row['user_id'];
-                                        $_SESSION['User_Emaiil'] = $row['User_Emaiil'];
-                                        $_SESSION['user_otp'] = $row['user_otp'];
-                                        require "PHPMailer/phpmailserver/send.php";
+                                    $_SESSION['otp'] = $otp;
+                                    $_SESSION['mail'] = $email;
+                                    require "Mail/phpmailer/PHPMailerAutoload.php";
+                                    $mail = new PHPMailer;
 
-                                        $receiver = $email;
-                                        $subject = "Welcome, $username!";
-                                        $body = "Name: $username\nEmail: $email\nOTP: $otp";
-                                        $sender = "From: hanoufaatif@gmail.com";
-                                        if (mail($receiver, $subject, $body, $sender)) {
-                                            echo "Success! Registration complete.";
-                                        } else {
-                                            echo "Email sending failed!";
-                                        }
+                                    $mail->isSMTP();
+                                    $mail->Host = 'smtp.gmail.com';
+                                    $mail->Port = 587;
+                                    $mail->SMTPAuth = true;
+                                    $mail->SMTPSecure = 'tls';
+
+                                    $mail->Username = 'hanoufaatif@gmail.com';
+                                    $mail->Password = 'rvux ccrc ggge uifx';
+
+                                    $mail->setFrom('hanoufaatif@gmail.com', 'Public Library');
+                                    $mail->addAddress($email);
+
+                                    $verification_link = "http://yourdomain.com/verify.php?email=$email&otp=$otp";
+                                    $mail->Subject = 'OTP verification';
+                                    $mail->Body = 'Click the following link to verify your email: ' . $verification_link;
+
+                                    if(!$mail->send()){
+                                        ?>
+                                            <script>
+                                                alert("<?php echo "Register Failed, Invalid Email "?>");
+                                            </script>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <script>
+                                            alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
+                                            window.location.replace('verify.html');
+                                        </script>
+                                        <?php
                                     }
                                 } else {
                                     echo "Something went wrong in the registration process.";
@@ -81,6 +99,9 @@ if (isset($_POST['btn'])) {
         echo "All input fields are required.";
     }
 }
+?>
+<?php
+    include("header.php");
 ?>
 <head>
     <meta charset="UTF-8">
@@ -122,4 +143,24 @@ if (isset($_POST['btn'])) {
     </div>
 </div>
 <?php include("footer.php") ?>
+<?php
+// if (isset($_GET['email']) && isset($_GET['otp'])) {
+//         $email = mysqli_real_escape_string($conn, $_GET['email']);
+//         $otp = mysqli_real_escape_string($conn, $_GET['otp']);
+
+//         $SQL = mysqli_query($conn, "SELECT * FROM user_table WHERE User_Emaiil='$email' AND user_otp='$otp'");
+//         if (mysqli_num_rows($SQL) > 0) {
+//             $update = mysqli_query($conn, "UPDATE user_table SET varification_status='1' WHERE User_Emaiil='$email'");
+//             if ($update) {
+//                 echo "Email verification successful!";
+//             } else {
+//                 echo "Failed to update verification status.";
+//             }
+//         } else {
+//             echo "Invalid verification link or OTP.";
+//         }
+//     } else {
+//         echo "Invalid request.";
+//     }
+//     ?>
 

@@ -58,9 +58,9 @@ if (isset($_POST['btn'])) {
                                     $mail->setFrom('hanoufaatif@gmail.com', 'Public Library');
                                     $mail->addAddress($email);
 
-                                    $verification_link = "http://yourdomain.com/verify.php?email=$email&otp=$otp";
+                                   
                                     $mail->Subject = 'OTP verification';
-                                    $mail->Body = 'Click the following link to verify your email: ' . $verification_link;
+                                    $mail->Body = 'This is your four digit OTP ' . $otp;
 
                                     if(!$mail->send()){
                                         ?>
@@ -72,7 +72,7 @@ if (isset($_POST['btn'])) {
                                         ?>
                                         <script>
                                             alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-                                            window.location.replace('verify.html');
+                                            window.location.replace('verify.php');
                                         </script>
                                         <?php
                                     }

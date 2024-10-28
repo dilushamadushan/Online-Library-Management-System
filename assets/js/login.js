@@ -3,13 +3,29 @@ const user=document.querySelector("#user")
 const pwd=document.querySelector("#pwd")
 const icon=document.querySelector("#icon-pwd")
 const user_icon=document.querySelector("#user-icon")
+const error=document.querySelector(".error")
 
 form.addEventListener("submit",(e)=>{
-    if(!validateForm()){
-    
-        e.preventDefault()
-    }
-})
+   
+    e.preventDefault()
+    if (!validateForm()) return
+    const xhr = new XMLHttpRequest();
+            xhr.open("POST", "user-login.php", true);
+            xhr.onload = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        const data = xhr.responseText.trim();
+                        if (data === "success") {
+                            window.location.href = "user-account.php";
+                        } else {
+                            setError(data);
+                        }
+                    }
+                }
+            };
+            xhr.send(`name=${encodeURIComponent(user.value)}&pwd=${encodeURIComponent(pwd.value)}`);
+        });
+
 function validateForm(){
     let isValid=true
     const userVal=user.value.trim()
@@ -46,12 +62,12 @@ function validateForm(){
     
     else{
         setError("")   
+         error.style.display="none"
     }
     return isValid   
 }
 
 const setError=function(message){
-    const error=document.querySelector(".error")
     error.style.display="block"
     error.innerHTML=message;
 }
@@ -59,11 +75,11 @@ const setError=function(message){
 icon.addEventListener("click",()=>{
     if(pwd.type=="password"){
         pwd.type="text"
-        icon.src="../assets/media/admin-page/eye-open.png"
+        icon.src="assets/media/admin-page/eye-open.png"
     }
     else{
         pwd.type="password"
-        icon.src="../assets/media/admin-page/eye-close.png"
+        icon.src="assets/media/admin-page/eye-close.png"
     }
 })
     

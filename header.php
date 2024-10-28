@@ -30,7 +30,6 @@
                 <li><a class="dropdown-item" href="#">E-Resourses</a></li>
                 <li><a class="dropdown-item" href="#">Pass Paper</a></li>
                 <li><a class="dropdown-item" href="#">Magazing & Artical</a></li>
-                <li><a class="dropdown-item" href="#">Newspaper</a></li>
             </ul>
         </li>
         <li class="nav-item">

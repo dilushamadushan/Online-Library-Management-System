@@ -19,7 +19,7 @@
                 <ul class="list-unstyled">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Author</a></li>
-                    <li><a href="#">News And Event</a></li>
+                    <li><a href="#">Event & News</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
@@ -31,7 +31,6 @@
                 <ul class="list-unstyled">
                     <li><i class="fa-solid fa-book"></i> <a href="#">Book</a></li>
                     <li><i class="fa-solid fa-database"></i> <a href="#">E-Resources</a></li>
-                    <li><i class="fa-solid fa-newspaper"></i> <a href="#">Newspaper</a></li>
                     <li><i class="fa-solid fa-file"></i> <a href="#">Magazine & Article</a></li>
                     <li><i class="fa-solid fa-paperclip"></i> <a href="#">Past Paper</a></li>
                 </ul>
@@ -51,7 +50,7 @@
             </div>
         </div>
         <hr class="border-light">
-        <div class="text-center">
+        <div class="foo-text-center">
             <p>&copy; 2024 Public Library. All rights reserved.</p>
         </div>
     </div>

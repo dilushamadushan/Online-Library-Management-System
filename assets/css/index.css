@@ -140,11 +140,10 @@
 }
 
 .about-section{
-    background-color: rgba(255, 255, 0, 0.205);
-    min-height: 100vh;
+    min-height: 90vh;
     padding: 0 8%;
     text-align: center;
-    margin-top: -20px;
+    margin-top: 50px;
 }
 .about-section .about-content{
    height: auto;
@@ -349,3 +348,35 @@
     font-size: 22px;
     text-align: left;
 }
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.status-section
+{
+    padding: 0 8%;
+    text-align: center;
+}
+
+.status-card{
+    height: 150px;
+}
+
+.status-icon{
+    text-align: center;
+    font-size: 40px;
+}
+
+.status-count{
+    font-size: xx-large;
+}
+

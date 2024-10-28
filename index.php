@@ -55,16 +55,16 @@
         </div>
         <div class="col-md-3 mb-4">
             <div class="content-card">
-                <img src="assets/media/home-main/news.png" alt="Newspaper Image" class="img-fluid">
-                <h4>NEWSPAPER</h4>
-                <p>Read the latest news from leading newspapers around the world.</p>
+                <img src="assets/media/home-main/e-book.png" alt="Newspaper Image" class="img-fluid">
+                <h4>E-BOOK</h4>
+                <p>Explore our collection of digital books across various genres.</p>
                 <button class="read-more-btn">Read More</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="book-section">
+<div class="book-section reveal">
 <div class="sec-title">
     <h2 class="fw-bold">Latest Arrivals</h2>
     <p>Check out the newest additions to our library collection</p>
@@ -151,28 +151,7 @@
     </div>
 </div>
 
-<div class="about-section">
-        <div class="about-content">
-            <div class="about-text">
-                <h1 class="fw-bold">About Us</h1>
-                <p class="container fw-normal">Welcome to our library, a place where knowledge meets community. 
-                    We offer a vast collection of books, e-books, and other resources
-                     to inspire learning and exploration. Our mission is to provide a 
-                     welcoming space for readers of all ages to discover new ideas, connect
-                      with others, and access valuable information. Whether you're here to study, 
-                      research, or 
-                    relax with a good book, we're here to support your journey.</p>
-                    <button type="button" class="btn">See More</button>
-            </div>
-            <div class="about-img">
-               <img src="assets/media/home-main/man.png" class="man">
-               <img src="assets/media/home-main/elements.png" class="element">
-            </div>
-        </div>
-</div>
-
-
-<div class="news-section">
+<div class="news-section reveal">
     <div class="sec-title">
     <h2 class="fw-bold">Top News</h2>
     <p>Stay Updated with Our Newest Library Additions!</p>
@@ -224,6 +203,60 @@
                     <p>Access the latest e-books in our digital library.</p>
                     <a href="#">Read more</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="about-section reveal">
+        <div class="about-content">
+            <div class="about-text">
+                <h1 class="fw-bold">About Us</h1>
+                <p class="container fw-normal">Welcome to our library, a place where knowledge meets community. 
+                    We offer a vast collection of books, e-books, and other resources
+                     to inspire learning and exploration. Our mission is to provide a 
+                     welcoming space for readers of all ages to discover new ideas, connect
+                      with others, and access valuable information. Whether you're here to study, 
+                      research, or 
+                    relax with a good book, we're here to support your journey.</p>
+                    <button type="button" class="btn">See More</button>
+            </div>
+            <div class="about-img">
+               <img src="assets/media/home-main/man.png" class="man">
+               <img src="assets/media/home-main/elements.png" class="element">
+            </div>
+        </div>
+</div>
+
+<div class="status-section reveal">
+    <div class="status-card-main row mt-5">
+        <div class="col-md-3 mb-5">
+            <div class="status-card">
+                <div class="status-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                <div class="status-count">235k</div>
+                <h5>Our Book Collection</h5>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="status-card">
+                <div class="status-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="status-count">6543</div>
+                <h5>Active Users</h5>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="status-card">
+                <div class="status-icon"><i class="fa-solid fa-tablet-screen-button"></i></div>
+                <div class="status-count">35</div>
+                <h5>E-Resourses</h5>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="status-card">
+                <div class="status-icon"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="status-count">32</div>
+                <h5>Author</h5>
             </div>
         </div>
     </div>

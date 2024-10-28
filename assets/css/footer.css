@@ -65,3 +65,9 @@
         .contact-info i{
             margin-right: 10px;
         }
+
+        .foo-text-center{
+            color: rgb(117, 117, 117);
+            text-align: center;
+            margin-bottom: -20px;
+        }

@@ -1,6 +1,9 @@
 <?php
 session_start();
 include("config.php");
+function generateUserID($number) {
+    return 'U' . str_pad($number, 3, '0', STR_PAD_LEFT);
+    }
 
 if (isset($_POST['btn'])) {
     $username = mysqli_real_escape_string($conn, $_POST['name']);
@@ -33,12 +36,13 @@ if (isset($_POST['btn'])) {
                             $image_folder = 'profile/' . $new_image_name;
                             if (move_uploaded_file($image_tmp_name, $image_folder)) {
                                 $otp = mt_rand(1111, 9999);
-                                $id = "U";
-                                $User_id = $id . "00" . $num;
-                                global $num;
-                                $num++;
-                                $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp) 
-                                VALUES ('$User_id','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp')");
+                                    $query = "SELECT MAX(user_id) AS last_id FROM user_table";
+                                    $result = mysqli_query($conn, $query);
+                                    $row = mysqli_fetch_assoc($result);
+                                    $lastUserID = (int)str_replace('U', '', $row['last_id']);
+                                    $newUserID = generateUserID($lastUserID + 1);
+                                    $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp) 
+                                    VALUES ('$newUserID','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp')");
 
                                 if ($sql2) {
                                     $_SESSION['otp'] = $otp;
@@ -143,24 +147,5 @@ if (isset($_POST['btn'])) {
     </div>
 </div>
 <?php include("footer.php") ?>
-<?php
-// if (isset($_GET['email']) && isset($_GET['otp'])) {
-//         $email = mysqli_real_escape_string($conn, $_GET['email']);
-//         $otp = mysqli_real_escape_string($conn, $_GET['otp']);
 
-//         $SQL = mysqli_query($conn, "SELECT * FROM user_table WHERE User_Emaiil='$email' AND user_otp='$otp'");
-//         if (mysqli_num_rows($SQL) > 0) {
-//             $update = mysqli_query($conn, "UPDATE user_table SET varification_status='1' WHERE User_Emaiil='$email'");
-//             if ($update) {
-//                 echo "Email verification successful!";
-//             } else {
-//                 echo "Failed to update verification status.";
-//             }
-//         } else {
-//             echo "Invalid verification link or OTP.";
-//         }
-//     } else {
-//         echo "Invalid request.";
-//     }
-//     ?>
 

@@ -5,23 +5,11 @@ const icon = document.querySelector("#icon-pwd");
 const error = document.querySelector(".error");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "user-login.php", true);
-    xhr.onload = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            const data = xhr.responseText.trim();
-            if (data === "success") {
-                window.location.href = "user-account.php";
-            } else {
-                //setError(data);
-                console.log(data);
-                
-            }
-        }
-    };
-    xhr.send(`name=${encodeURIComponent(user.value)}&pwd=${encodeURIComponent(pwd.value)}`);
+    if(!validateForm()){
+        e.preventDefault()
+    }
+    
+    
 });
 
 function validateForm() {

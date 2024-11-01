@@ -1,0 +1,199 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"poppins",sans-serif;
+}
+
+
+
+.add_en{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: yellow;
+    background: url(../media/event/lib1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    width: 420px;
+    background:transparent;
+    border: 2px solid rgb(252,202,3);
+    backdrop-filter: blue(10px);
+    color: white;
+    border-radius: 12px;
+    
+
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 10%;
+   
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline:none;
+    border: 2px solid rgb(255,202,3);
+    border-radius: 40px;
+    font-size: 16px;
+    color:;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input :: placeholder{
+    color: rgb(255,202,3);
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top:30%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.wrapper .btn{
+    width: 50%;
+    padding-right: 5%;
+    height: 5%;
+    background: #ff6804;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0, -1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-left: 30%;
+}
+
+
+.searchBox {
+    display: flex;
+    max-width: 230px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: rgb(255,202,3);
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  }
+  /*hover effect*/
+  button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+  }
+  /*button pressing effect*/
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    padding: 24px 46px 24px 26px;
+  }
+
+
+
+  /* From Uiverse.io by joe-watson-sbf */ 
+.acontainer {
+    color: white;
+    position: relative;
+    font-family: sans-serif;
+    width: 500px;
+  }
+  
+  .acontainer::before,
+  .acontainer::after {
+    content: "";
+    background-color: #fab5704c;
+    position: absolute;
+  }
+  
+  .acontainer::before {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    top: 30%;
+    right: 7%;
+  }
+  
+  .acontainer::after {
+    content: "";
+    position: absolute;
+    height: 3rem;
+    top: 8%;
+    right: 5%;
+    border: 1px solid;
+  }
+  
+  .acontainer .box {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.074);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border-radius: 0.7rem;
+    transition: all ease 0.3s;
+    margin-left: 10px;
+  }
+  
+  .acontainer .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+ 
+  
+  .acontainer .box div span:nth-child(3) {
+    font-weight: 500;
+    margin-right: 0.2rem;
+  }
+  
+  .acontainer .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
+
+  .mid{
+    width: 15px;
+  }

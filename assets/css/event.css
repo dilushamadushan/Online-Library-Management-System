@@ -122,7 +122,8 @@ The project already includes Bootstrap CSS/JS, LineIcons CDN, and Font Awesome C
 }
 
 .collection{
-    overflow:auto
+    overflow:auto;
+    background : yellow; 
 }
 
 h1{

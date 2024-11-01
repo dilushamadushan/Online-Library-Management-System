@@ -1,10 +1,11 @@
 
-<?php include("header.php"); ?>
+<?php include("header.php");?>
 <head>
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <div class="section_1">   
         <div id="con">
+        <div class="con-main">
            <h1 class="fw-bolder">Welcome To Our <span> Library </span></h1>
             <p class="fw-medium">Here, you can explore a wide range of books, e-books, and resources. 
                Use the search bar to find what you're looking for, check out featured books, or
@@ -15,6 +16,7 @@
                 <button type="button" class="btn btn-outline-light btn-lg btn_find">Find Book</button>
                 <button type="button" class="btn btn-outline-light btn-lg" onclick="location.href='#qas';">See More</button>
             </div>
+        </div>
         </div>
 </div>
 <div class="quick-access-section" id="qas">
@@ -50,7 +52,7 @@
                 <img src="assets/media/home-main/author.png" alt="Journal Image" class="img-fluid">
                 <h4>AUTHOR</h4>
                 <p>Discover works from both emerging and renowned authors in our library.</p>
-                <button class="read-more-btn">Read More</button>
+                <button class="read-more-btn" onclick="location.href='author.php';">Read More</button>
             </div>
         </div>
         <div class="col-md-3 mb-4">
@@ -69,6 +71,11 @@
     <h2 class="fw-bold">Latest Arrivals</h2>
     <p>Check out the newest additions to our library collection</p>
 </div>
+<div class="decorative-line-wrapper">
+        <div class="decorative-line"></div>
+        <i class="fa-solid fa-book"></i>
+        <div class="decorative-line"></div>
+    </div>
     <div class="book-conten">
 
         <div class="bookbtn-nb"><i class="fa-solid fa-circle-chevron-left" id="backbtn"></i></div>
@@ -156,8 +163,13 @@
     <h2 class="fw-bold">Top News</h2>
     <p>Stay Updated with Our Newest Library Additions!</p>
     </div>
+    <div class="decorative-line-wrapper">
+        <div class="decorative-line"></div>
+        <i class="fa-solid fa-newspaper"></i>
+        <div class="decorative-line"></div>
+    </div>
     <div class="news-card-main row mt-5">
-        <div class="col-md-6 mb-3">
+ <div class="col-md-6 mb-3">
             <div class="news-card">
                 <div class="news-cardImg">
                     <img src="assets/media/home-main/news1.jpg" alt="no image">

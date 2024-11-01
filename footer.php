@@ -43,9 +43,22 @@
                     <div class="line-foo"></div>
                 </div>
                 <p><i class="fa-solid fa-chart-simple"></i> <span class="ms-2">Total Visit</span></p>
-                <div class="total-count">00</div>
-                <p><i class="fa-solid fa-chart-area"></i> <span class="ms-2">Today Visit</span></p>
-                <div class="today-count">00</div>
+                <div class="total-count">
+                <?php
+                    //   mysqli_query($conn, "UPDATE views_count SET value = value + 1 WHERE name = 'hits'");
+                    //
+                    //    $result_view = mysqli_query($conn, "SELECT * FROM views_count WHERE name = 'hits'");
+                    //    
+                    //    if ($result_view) {
+                    //        while($row = mysqli_fetch_array($result_view)) {
+                    //            echo $row['value'];
+                    //        }
+                    //    } else {
+                    //        echo "Error fetching data.";
+                    //    }
+                    ?>
+                </div>
+
                 <i class="fa-solid fa-hands-holding-circle icon-center"></i>
             </div>
         </div>

@@ -33,7 +33,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link text-white position-relative">Authors</a>
+            <a href="author.php" class="nav-link text-white position-relative">Authors</a>
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link text-white position-relative">Event & News</a>
@@ -46,7 +46,18 @@
             </ul>
         </li>
     </ul>
-    <div class="dropdown btn-main-log">
+    
+    <div class="btn-main-log">
+        <button class="btn btn-warning  login-btn" type="button">
+        <a  href="user-login.php">Login</a>
+        </button>
+      <!-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+            <li><a class="dropdown-item" href="user-login.php"><i class="fa-solid fa-user"></i><span>User Login</span></a></li>
+            <li><a class="dropdown-item" href="admin-login.php"><i class="fa-solid fa-user-tie"></i><span>Admin Login</span></a></li>
+        </ul>-->
+    </div>
+
+   <!-- <div class="dropdown btn-main-log">
         <button class="btn btn-warning dropdown-toggle login-btn" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             Login
         </button>
@@ -55,7 +66,7 @@
             <li><a class="dropdown-item" href="admin-login.php"><i class="fa-solid fa-user-tie"></i><span>Admin Login</span></a></li>
         </ul>
     </div>
-
+-->
     <div class="dropdown btn-user-log">
         <div class="user-btn dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="assets/media/admin-page/avatar.png" alt="" class="userimg-btn">

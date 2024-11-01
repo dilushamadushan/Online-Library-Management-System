@@ -5,11 +5,9 @@ const icon = document.querySelector("#icon-pwd");
 const error = document.querySelector(".error");
 
 form.addEventListener("submit", (e) => {
-    if(!validateForm()){
-        e.preventDefault()
+    if (!validateForm()) {
+        e.preventDefault();
     }
-    
-    
 });
 
 function validateForm() {
@@ -18,7 +16,7 @@ function validateForm() {
     const pwdVal = pwd.value.trim();
 
     if (userVal === "" || pwdVal === "") {
-        setError("Two fields must be filled!");
+        setError("Both fields must be filled!");
         isValid = false;
     } else if (pwdVal.length < 10 || 
                !/[a-z]/.test(pwdVal) || 

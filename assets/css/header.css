@@ -68,6 +68,11 @@ header {
     font-size: 15px;
 }
 
+.login-btn a{
+    text-decoration: none;
+    color: black;
+}
+
 .login-btn:hover {
     transform: scale(1.05);
     cursor: pointer;

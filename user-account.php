@@ -13,7 +13,7 @@
                 <button class="toggle-btn" type="button" id="toggle-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <div class="sidebar-logo">User Name</div>
+                <div class="sidebar-logo">Profile</div>
             </div>
 
             <ul class="sidebar-nav">
@@ -35,8 +35,8 @@
                         <span>E-Resourses</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="#" data-target="update-password">
+                <li class="sidebar-item" onclick="location.href='password-change.php';">
+                    <a class="sidebar-link" href="#">
                         <i class="fa-solid fa-lock"></i>
                         <span>Change Password</span>
                     </a>
@@ -56,33 +56,33 @@
             <div id="profile" class="main-section active">
                 <div class="profile-details">
                     <div class="main-topic">
-                            <h1>Personal information</h1>
+                            <h1>My Profile</h1>
                     </div>
                     <div class="user-info-main">
                         <div class="user-img">
-                            <img src="assets/media/admin-page/avatar.png" alt="User Image">
+                            <img src="assets/media/user-account/tempUser.jpg" alt="User Image">
                         </div>
                         <div class="user-info">
                                 <div class="user-info-details">
-                                    <span>Name</span>
-                                    <p>Dilusha madushan</p>
+                                    <span>Name:</span>
+                                    <p class="font-monospace">Dilusha madushan</p>
                                 </div>
                                 <div class="user-info-details">
-                                    <span>Email</span>
-                                    <p>dilushamadushan@gmail.com</p>
+                                    <span>Email:</span>
+                                    <p class="font-monospace">dilushamadushan@gmail.com</p>
                                 </div>
                                 <div class="user-info-details">
-                                    <span>Contact Number</span>
-                                    <p>202-2223332</p>
+                                    <span>Contact Number:</span>
+                                    <p class="font-monospace">202-2223332</p>
                                 </div>
                                 <div class="user-info-details">
-                                    <span>Address</span>
-                                    <p>No 2, Abc, Kandy</p>
+                                    <span>Address:</span>
+                                    <p class="font-monospace">No 2, Abc, Kandy</p>
                                 </div>
                                 <button id="user-update"><i class="fa-solid fa-pen"></i>Edit Profile</button>
                         </div>
                     </div>
-                    <div class="update-form">
+                    <div class="update-form ">
                         <form action="" method="POST">
                             <label>Name</label><br>
                             <input type="text" name="up-name"><br>
@@ -93,12 +93,12 @@
                             <label>Address</label><br>
                             <input type="text" name="up-address" ><br>
                             <button id="update-user-btn" class="user-prof-btn" value="Update">Update</button>
-                            <button id="profBack-user" class="user-prof-btn" value="Back">Back</button>
                         </form>
+                        <button id="profBack-user" class="user-prof-btn" value="Back">Back</button>
                     </div>
                 </div>
             </div>
-            <div id="books" class="main-section">
+            <div id="books" class="main-section ">
                 <div class="main-topic">
                     <h1>Books</h1>
                 </div>
@@ -170,7 +170,7 @@
             </div>
             <div id="E-Resourses" class="main-section">
                     <div class="main-topic">
-                        <h1>Books</h1>
+                        <h1>E-Resourses</h1>
                     </div>
                     <div id="book-btn">
                         <button id="e-list-book" class="book-main-btn"><i class="fa-solid fa-list"></i> Book List</button>
@@ -238,22 +238,6 @@
                         </div>
                     </div>
                 </div>
-            <div id="update-password" class="main-section">
-                <div class="main-topic">
-                    <h1>Change Password</h1>
-                </div>
-                <div class="pass-change-form">
-                <form action="" method="">
-                    <h3>Current Password :</h3>
-                    <input type="password" class="form-clz" name="up-cPass">
-                    <h3>New Password :</h3>
-                    <input type="password" class="form-clz"  name="up-nPass">
-                    <h3>Re-type Password :</h3>
-                    <input type="password" class="form-clz"  name="up-rPass"><br>
-                    <input type="button" name="pass-btn" value="Change Password">
-                </form>
-            </div>
-        </div>
     </div>
 </div>
 

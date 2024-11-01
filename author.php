@@ -337,8 +337,7 @@
                         In the precious moments of free time she finds, Rebecca is dedicated to the craft of writing, 
                         crafting narratives that resonate with readers and leave a lasting impact on their imaginations. 
                         Her writing not only entertains but also offers a gateway to different worlds, providing joy and 
-                        escapism to countless readers. 
-                        
+                        escapism to countless readers.     
                     </p>
                     <button onclick="closePopup1()">OK</button>
                 </div>

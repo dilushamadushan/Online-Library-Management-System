@@ -4,18 +4,16 @@
     margin-top: 2px;
 }
 .user-section {
-    height: 100%;
-    width: 85%;
+    height: 85%;
     display: flex;
-    margin: 100px 120px;
+    margin: 100px 150px;
 }
 .sidebar {
     width: 250px;
     height: 600px;
-    background-color: rgb(70, 2, 2);
-    opacity: 0.8;
+    background-color: rgba(70, 2, 2, 0.623);
+    backdrop-filter: blur(10px);
     color: white;
-    transition: width 0.3s;
     position: relative;
 }
 .sidebar.collapsed {
@@ -30,7 +28,7 @@
     display: flex;
     align-items: center;
     padding: 1rem;
-    background-color: rgb(70, 2, 2);
+    background-color: rgba(70, 2, 2, 0.308);
 }
 .toggle-btn {
     background-color: transparent;
@@ -67,7 +65,6 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: rgb(70, 2, 2);
     padding: 1rem;
     text-align: center;
 }
@@ -80,12 +77,13 @@
 }
 
 .main {
-    flex: 1;
     padding: 2rem;
     font-size: 1.5rem;
     color: rgb(0, 0, 0);
-    background-color: white;
-    width: auto;
+    width:800px;
+    background: rgba(54, 54, 53, 0.151);
+    border: 2px solid rgba(151, 151, 151, 0.219);
+    backdrop-filter: blur(10px);
 }
 
 .main-section {
@@ -98,39 +96,44 @@
     display: flex;
 }
 .user-info{
-    margin-left: 20px;
+    margin-left: 40px;
     width:100%;
     height: auto;
 }
 .user-info-details{
     margin-bottom: 5px;
-    background: rgba(54, 54, 53, 0.062);
-    border: 2px solid rgba(151, 151, 151, 0.116);
-    backdrop-filter: blur(10px);
     border-radius: 20px;
-    height: auto;
     padding: 5px;
 }
 .user-info-details span{
     padding-left: 10px;
     font-size: medium;
-    color: rgb(58, 58, 58);
+    color: rgb(8, 8, 8);
 }
 .user-info-details p{
-    font-size: 0.9em;
+    font-size: 1.1em;
+    font-weight: bold;
     padding-left: 10px;
     margin-bottom: 0.2px;
+    color: #0e0e0e;
+    margin-left: 20px;
 }
 .user-info button{
     font-size: medium;
     padding: 10px;
     width: 200px;
+    background: rgba(54, 54, 53, 0.151);
+    border: 2px solid rgba(151, 151, 151, 0.219);
+    backdrop-filter: blur(10px);
     margin-bottom: 20px;
-    background-color:  rgb(224, 205, 205);
     border-radius: 15px;
     border: none;
     box-shadow: 2px 2px rgb(156, 156, 156);
     transition: .3s, transform .2s;
+    margin-left: 20px;
+}
+.user-info button i{
+    padding-right: 10px;
 }
 .user-info  button:hover {
     transform: scale(1.05);
@@ -138,7 +141,7 @@
     background-color: yellow;
 }
 .user-img {
-    width: 450px;
+    width: 480px;
     height: 300px;
     border-radius: 100%;
     overflow: hidden;
@@ -159,10 +162,14 @@
     font-weight: bold;
 }
 .update-form input{
-    border: 1px solid rgb(170, 170, 170);
-    background-color: #ddd;
+    background: rgba(54, 54, 53, 0.151);
+    border: 2px solid rgba(65, 65, 65, 0.219);
+    backdrop-filter: blur(30px);
     border-radius: 10px;
     width: 100%;
+    padding-left: 20px;
+    font-size: medium;
+    color: #000000;
 }
 .form-clz{
     padding-left: 10px;
@@ -174,20 +181,29 @@
     font-size: medium;
     padding: 5px;
     width: 49%;
-    background-color:  rgb(224, 205, 205);
     border-radius: 15px;
     border: none;
-    box-shadow: 2px 2px rgb(156, 156, 156);
+    background: rgba(54, 54, 53, 0.651);
+    border: 2px solid rgba(151, 151, 151, 0.329);
+    backdrop-filter: blur(20px);
     transition: .3s, transform .2s;
+    box-shadow: 2px 2px rgb(156, 156, 156);
 }
 .user-prof-btn:hover {
     transform: scale(1.05);
     cursor: pointer;
     background-color: yellow;
 }
+#profBack-user{
+    width: 250PX;
+    position:absolute;
+    margin-top: -50px;
+    margin-left: 250px;
+}
 .main-topic{
-    border-bottom: 1px solid rgb(146, 146, 146);
+    border-bottom: 1px solid rgb(39, 39, 39);
     margin-bottom: 40px;
+    font-weight: bold;
 }
 .book-res{
     width: auto;
@@ -197,14 +213,17 @@
     margin-top: 20px;
 }
 .book-main-btn{
-    font-size: medium;
+    font-size: large;
     padding: 10px;
     width: 200px;
+    height: 100px;
     margin-bottom: 20px;
-    background-color:  rgb(224, 205, 205);
     border-radius: 15px;
     border: none;
-    box-shadow: 2px 2px rgb(156, 156, 156);
+    background: rgba(54, 54, 53, 0.349);
+    border: 2px solid rgba(151, 151, 151, 0.329);
+    backdrop-filter: blur(20px);
+    margin-left: 25px;
     transition: .3s, transform .2s;
 }
 .book-main-btn:hover {
@@ -215,45 +234,17 @@
 .section-table th, .section-table td{
     border-bottom: 1px solid #ddd;
     text-align: center;
-    padding-left: 50px;
+    width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
+
+}
+.section-table th{
+    background: rgba(90, 90, 90, 0.308);
+    backdrop-filter: blur(20px);
 }
 .section-table .book-table{
     font-size: large;
-}
-.pass-change-form{
-   margin-left: 50px;
-   width: 500px;
-   line-height: 40px;
-}
-.pass-change-form h3{
-    margin-top: 10px;
-    font-size: 0.9em;
-    font-weight: bold;
-}
-.pass-change-form input{
-    border: 1px solid rgb(170, 170, 170);
-    background-color: #ddd;
-    border-radius: 10px;
-    width: 100%;
-}
-.pass-change-form input[type="button"]{
-    margin-top: 20px;
-    font-size: medium;
-    padding: 5px;
-    width: 100%;
-    margin-bottom: 20px;
-    background-color:  rgb(224, 205, 205);
-    border-radius: 15px;
-    border: none;
-    box-shadow: 2px 2px rgb(156, 156, 156);
-    transition: .3s, transform .2s;
-}
-.pass-change-form input[type="button"]:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    background-color: yellow;
 }
 .e-book-res{
     width: auto;
@@ -281,10 +272,93 @@
 .e-section-table th, .e-section-table td{
     border-bottom: 1px solid #ddd;
     text-align: center;
-    padding-left: 50px;
+    width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+.e-section-table th{
+background: rgba(90, 90, 90, 0.308);
+backdrop-filter: blur(20px);
 }
 .e-section-table .e-book-table{
     font-size: large;
 }
+.error{
+    font-size: medium;
+    padding: 3px;
+    background-color: rgba(241, 111, 111, 0.548);
+    backdrop-filter: blur(30px);
+    color: rgb(138, 0, 0);
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+.success{
+    font-size: medium;
+    padding: 3px;
+    background-color: rgba(111, 241, 144, 0.637);
+    backdrop-filter: blur(30px);
+    color: rgb(0, 138, 32);
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.password-section {
+    background: rgba(54, 54, 53, 0.151);
+    border: 2px solid rgba(65, 65, 65, 0.219);
+    backdrop-filter: blur(30px);
+    box-shadow: 2px 2px 2px 4px rgba(158, 158, 158, 0.6);
+    border-radius: 8px;
+    margin: 9% auto;
+    padding: 30px;
+    width: 500px;
+    height: auto;
+}
+.password-section h1{
+    font-weight: bold;
+    color: black;
+}
+
+.password-form {
+    line-height: 40px;
+    font-size: 1.1em;
+}
+.password-form h3 {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000;
+}
+.password-form .form-control {
+    background: rgba(88, 88, 88, 0.021);
+    border: 2px solid rgba(65, 65, 65, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    width: 100%;
+    padding-left: 20px;
+    font-size: medium;
+    color: #000000;
+    text-align: center;
+}
+.password-form .submit-btn,
+.password-form .back-btn {
+    background: rgba(54, 54, 53, 0.349);
+    border: 2px solid rgba(151, 151, 151, 0.329);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    box-shadow: 2px 2px #9c9c9c;
+    transition: transform 0.2s;
+    width: 215px;
+    color: black;
+    font-weight: bold;
+}
+.password-form .submit-btn:hover,
+.password-form .back-btn:hover {
+    transform: scale(1.05);
+    background-color: yellow;
+}
+

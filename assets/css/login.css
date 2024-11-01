@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .admin-log-in-interface{
@@ -22,6 +23,7 @@
     background:white;
     padding: 10px;
     box-shadow:0 5px 10px rgba(0,0,0,0.1);
+    margin: 0 10px;
 }
 .admin-log-in-interface .admin-image{
     display: flex;

@@ -58,19 +58,33 @@ let scrollContainer = document.querySelector(".book-werp");
 let backBtn = document.getElementById("backbtn");
 let nextBtn = document.getElementById("nextbtn");
 
-scrollContainer.addEventListener("wheel",(evt)=>{
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-    scrollContainer.style.scrollBehavior = "auto";
+
+nextBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+});
+backBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
 });
 
-nextBtn.addEventListener("click", ()=>{
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft += 1200;
-});
-backBtn.addEventListener("click",()=>{
-    scrollContainer.style.scrollBehavior = "smooth";
-    scrollContainer.scrollLeft -= 1200;
+// Auto-scrolling
+let autoScrollInterval = setInterval(() => {
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+}, 3500); 
+
+
+scrollContainer.addEventListener("mouseover", () => clearInterval(autoScrollInterval));
+scrollContainer.addEventListener("mouseout", () => {
+    autoScrollInterval = setInterval(() => {
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+            scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    }, 3500);
 });
 
 window.addEventListener('scroll', reveal);

@@ -9,7 +9,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fdfdfd; 
+    color: #ffffff;
+    font-weight: bold; 
 }
 .section_1::before {
     content: '';
@@ -18,19 +19,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); 
+    background: rgba(0, 0, 0, 0.438); 
     z-index: 0;
 }
+
 .section_1 #con {
-    position: relative;
-    z-index: 1;
+    background-color: #00000063;
+    min-height: 100vh;
+    width: 100%;
+}
+.con-main{
     width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 9% 8%;
+    transform: translate(5%, 5%);
+    animation: appear 5s ease-in-out;
 }
 
 .section_1 h1 {
     font-size: 3em;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+.section_1 h1 span{
+    color: rgb(252, 202, 3);
 }
 
 .section_1 p {
@@ -56,13 +70,14 @@
     background-color: #ff6804;
     border: none;
 }
-
-
+.sec-title p{
+    color: rgb(134, 132, 132);
+}
 .quick-access-section {
     min-height: 100vh;
-    margin-top: 70px;
     padding: 0 8%;
     text-align: center;
+    padding-top: 40px;
 }
 
 .content-card {
@@ -134,14 +149,18 @@
 }
 
 .about-section{
-    background:linear-gradient(rgb(181, 189, 189),rgb(255, 255, 255));
-    padding-left: 8%;
-    padding-right: 8%;
-    min-height: 100vh;
+    min-height: 90vh;
+    padding: 0 8%;
+    text-align: center;
+    margin-top: 50px;
 }
 .about-section .about-content{
-   height: auto;
    display: flex;
+   background: rgb(255, 255, 255);
+   box-shadow: 2px 2px 2px 2px rgb(194, 194, 194);
+   border-radius: 8px;
+   margin-bottom: 30px;
+   padding-bottom: 20px;
 }
 .about-section .about-content .about-text{
     margin-top: 70px;
@@ -152,13 +171,16 @@
     line-height: 1.8em;
 }
 .about-section .about-content button{
-    margin-left: 400px;
-    margin-top: -20px;
-    background-color: chocolate;
+    margin-top: 15px;
+    background-color: rgb(0, 0, 0);
     border: 1px solid rgb(255, 255, 255);
     color: #fff;
+    width: 150px;
+    padding: 10px;
 }
 .about-section .about-content button:hover{
+    background-color: rgba(255, 172, 19, 0.932);
+    color: #000000;
     transform: scale(1.1);
     z-index: 1;
 }
@@ -192,3 +214,214 @@
        transform: translate(-15px, 0px);
    }
 }
+
+.book-section{
+   background-image: url(../media/home-main/img05.jpg);
+    background-size:cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.book-conten{
+    margin-top: 20px;
+    background: rgba(54, 54, 53, 0);
+    border: 2px solid rgba(151, 151, 151, 0.219);
+    backdrop-filter: blur(2px);
+    padding-bottom: 40px;
+    border-radius: 8px;
+}
+.book-werp{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+
+}
+.book-werp .book-con-card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    flex: none;
+}
+
+.book-werp .book-con-card img{
+    transition: transform  0.5s;
+    width: 100%;
+    height: 100%;
+}
+.book-werp .book-con-card img:hover{
+    filter: grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.book-werp .book-con-card .box:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.book-werp::-webkit-scrollbar{
+    display: none;
+}
+.book-conten{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.book-section .sec-title p{
+    color: rgb(0, 0, 0);
+}
+
+.book-section .sec-title{
+
+    margin-top: 20px;
+}
+
+
+#backbtn,#nextbtn{
+    width :50px;
+    cursor: pointer;
+    margin: 40px;
+}
+.bookbtn-nb{
+    display: block;
+    margin: 20px auto;
+    font-size: 3rem;
+    color: rgba(54, 54, 53, 0.973);
+
+}
+.bookbtn-nb:hover{
+    color: rgb(252, 202, 3);
+}
+.box{
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.5);
+}
+.overlay{
+    height: 0;
+    width: 100%;
+    background:linear-gradient(transparent,#000000c2 58%);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    transition: height 0.5s;
+}
+.box:hover .overlay{
+    height: 40%;
+}
+.box .overlay h3{
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: bebas 'Courier New', Courier, monospace;
+    color: #fff;
+}
+.box .overlay p{
+    font-size: small;
+    color: #cfcfcf;
+}
+.overlay span{
+    margin-top: -5px;
+    color: #cfcfcf;
+    font-size: small;
+}
+
+.news-section {
+    min-height: 100vh;
+    padding: 0 8%;
+    text-align: center;
+}
+.news-card-main {
+    width: 100%;
+}
+.news-card {
+    box-shadow: 2px 2px 6px rgb(0,0,0,0.5);
+    height: 250px;
+    border: 1px solid rgba(238, 255, 3, 0.548);
+    display: flex;
+    transition: 0.5s;
+}
+.news-card:hover {
+    transform: scale(1.05);
+}
+.news-cardImg img {
+    width: 350px;
+    height: 100%;
+}
+.news-cardContent {
+    padding: 10px;
+    width: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.news-cardContent a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgb(203, 205, 212);
+    border-radius: 20px;
+    padding: 5px 5px;
+    width: 100px;
+    font-size: 14px;
+    margin-left: 40px;
+}
+.news-cardContent a:hover {
+    border: none;
+    background-color: yellow;
+    transform: scale(1.1);
+}
+.news-cardContent p {
+    color: rgb(197, 198, 199);
+}
+.news-cardContent h4{
+    font-size: 22px;
+    text-align: left;
+}
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.status-section
+{
+    padding: 0 8%;
+    text-align: center;
+}
+
+.status-card{
+    height: 150px;
+}
+
+.status-icon{
+    text-align: center;
+    font-size: 40px;
+}
+
+.status-count{
+    font-size: xx-large;
+}
+

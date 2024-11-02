@@ -6,7 +6,7 @@
         }
 
         footer {
-            background: linear-gradient(rgb(20, 20, 20), black);
+            background: linear-gradient( rgb(70, 2, 2), black);
             width: 100%;
             margin-top: auto; 
         }
@@ -32,7 +32,7 @@
             border-radius: 50px;
             width: 200px;
             height: 2px;
-            background-color: rgb(165, 45, 2);
+            background-color: rgba(238, 255, 0, 0.541);
             margin: 10px 0;
         }
 
@@ -64,4 +64,10 @@
         }
         .contact-info i{
             margin-right: 10px;
+        }
+
+        .foo-text-center{
+            color: rgb(117, 117, 117);
+            text-align: center;
+            margin-bottom: -20px;
         }

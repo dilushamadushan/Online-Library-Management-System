@@ -56,17 +56,24 @@
     margin-top: 10px;
     font-size: 20px;
 }
-.container-form .error{
+
+.container-form .error, .success {
     width: 100%;
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background:red;
     border-radius: 5px;
-    color:white;
-    display:none;
+    color: white;
+    align-items: center;
 }
 
+.container-form .error {
+    background: red;
+}
+
+.container-form .success {
+    background: green;
+}
 .container-form .pwd-icon{
     display: flex;
     align-items: center;

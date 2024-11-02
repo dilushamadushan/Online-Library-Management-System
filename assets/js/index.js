@@ -105,3 +105,34 @@ function reveal(){
         }
     }
 }
+
+
+let popUp = document.getElementById("cookiePopup");
+
+const checkCookie = () => {
+    let hasCookie = document.cookie.split(";").some((cookie) => cookie.trim().startsWith("user_agreement="));
+    if (hasCookie) {
+        popUp.classList.add("hide");
+        popUp.classList.remove("show");
+    } else {
+        popUp.classList.add("show");
+        popUp.classList.remove("hide");
+    }
+};
+
+window.onload = () => {
+    setTimeout(() => {
+        checkCookie();
+    }, 1000);
+};
+
+document.getElementById("acceptcookies").addEventListener("click", () => {
+    popUp.classList.add("hide");
+    popUp.classList.remove("show");
+});
+
+let closeCookies = document.querySelector(".close-coockies"); 
+closeCookies.addEventListener("click", () => {
+    popUp.classList.add("hide");
+    popUp.classList.remove("show");
+});

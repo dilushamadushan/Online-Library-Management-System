@@ -52,6 +52,18 @@ header {
 .dropdown-item:hover {
     background-color: rgb(255, 217, 0);
 }
+
+.dropdown-item-img {
+    width: 90%;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+.dropdown-item-img:hover {
+    background-color:none;
+}
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -96,7 +108,4 @@ header {
 }
 .btn-user-log ul span,.btn-main-log ul span{
     margin-left: 10px;
-}
-.btn-user-log{
-display: none;
 }

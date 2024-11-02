@@ -15,14 +15,17 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 	$pass = validate($_POST['u-pwd']);
 
 	if (empty($uname)) {
-		header("Location: user-login.php?error=User Name is required");
+		header("Location: user-login.php?error=User ID is required");
 	    exit();
 	}else if(empty($pass)){
         header("Location: user-login.php?error=Password is required");
 	    exit();
 	}else{
-		md5($pass);
-       
+
+        $pass = md5($pass);
+		echo $pass;
+        
+
 		$sql = "SELECT * FROM user_table WHERE user_id='$uname' AND User_Password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
@@ -30,23 +33,25 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
           
-            if ($row['user_id'] === $uname && password_verify($pass,$row['password'])) {
+
+            if ($row['user_id'] === $uname && $row['User_Password'] === $pass) {
+
             	$_SESSION['user_name'] = $row['User_Nmae'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['user_id'];
             	header("Location: user-account.php");
 		        exit();
             }else{
-				header("Location: user-login.php?error=Incorect User name or password");
+				header("Location: user-login.php?error=Incorect User ID or password");
 		        exit();
 			}
 		}else{
-			header("Location: user-login.php?error=Incorect User name or password");
+			header("Location: user-login.php?error=Incorect User ID or password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: index.php");
+	header("Location: user-login.php");
 	exit();
 }

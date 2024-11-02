@@ -11,8 +11,8 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 	   return $data;
 	}
 
-	$uname = validate($_POST['user_id']);
-	$pass = validate($_POST['User_Password']);
+	$uname = validate($_POST['user-id']);
+	$pass = validate($_POST['u-pwd']);
 
 	if (empty($uname)) {
 		header("Location: user-login.php?error=User Name is required");
@@ -30,8 +30,8 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            print_r($row);
-            if ($row['user_name'] === $uname && $row['password'] === $pass) {
+          
+            if ($row['user_id'] === $uname && $row['password'] === $pass) {
             	$_SESSION['user_name'] = $row['User_Nmae'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['user_id'];

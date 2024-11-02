@@ -1,3 +1,4 @@
+<?php include "config.php"; ?>
 <footer class="text-white mt-auto py-4">
     <div class="container">
         <div class="row justify-content-evenly">
@@ -45,17 +46,17 @@
                 <p><i class="fa-solid fa-chart-simple"></i> <span class="ms-2">Total Visit</span></p>
                 <div class="total-count">
                 <?php
-                    //   mysqli_query($conn, "UPDATE views_count SET value = value + 1 WHERE name = 'hits'");
-                    //
-                    //    $result_view = mysqli_query($conn, "SELECT * FROM views_count WHERE name = 'hits'");
-                    //    
-                    //    if ($result_view) {
-                    //        while($row = mysqli_fetch_array($result_view)) {
-                    //            echo $row['value'];
-                    //        }
-                    //    } else {
-                    //        echo "Error fetching data.";
-                    //    }
+                       mysqli_query($conn, "UPDATE views SET value = value + 1 WHERE Name = 'hit'");
+                    
+                        $result_view = mysqli_query($conn, "SELECT * FROM views WHERE Name = 'hit'");
+                        
+                        if ($result_view) {
+                            while($row_view = mysqli_fetch_array($result_view)) {
+                                echo $row_view['Value'];
+                            }
+                        } else {
+                            echo "Error fetching data.";
+                        }
                     ?>
                 </div>
 

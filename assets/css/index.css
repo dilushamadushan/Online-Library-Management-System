@@ -424,4 +424,60 @@
 .status-count{
     font-size: xx-large;
 }
+.close-coockies{
+    margin-left: 95%;
+    width: 20px;
+    height: 20px;
+    font-size: large;
+}
 
+#cookiePopup{
+    padding-top: 10px;
+    height: 300px;
+    max-width: 42.85em;
+    background-color: #ffffffff;
+    position: fixed;
+    font-size: 14px;
+    width: 500px;
+    box-shadow: 0 0 2em rgba(5,0,31,0.15);
+    line-height: 1.8em;
+    border-radius: 6px;
+    transition: all 0.5s ease-in;
+    bottom: 0;
+    margin-bottom: 20px;
+    z-index: 1000;
+}
+
+#cookiePopup img{
+    width: 150px;
+    height: 100px;
+    mix-blend-mode: multiply;
+    margin-left: 170px;
+}
+#cookiePopup p{
+    text-align: center;
+}
+#cookiePopup button{
+    margin-left: 150px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: orange;
+    border:1px solid rgb(151, 103, 14);
+    transition: 0.2s;
+}
+#cookiePopup button:hover{
+    transform: scale(1.05);
+    color: aliceblue;
+    background-color: rgb(70,2,2);
+}
+.hide{
+    visibility: hidden;
+    bottom: 0;
+    right: 2em;
+}
+.show{
+    visibility: visible;
+    bottom: 2em;
+    right: 2em;
+}

@@ -1,26 +1,53 @@
-<?php
-include("config.php");
-session_start();
+<?php 
+session_start(); 
+include "config.php";
 
-$user = $_POST['user-name']; 
-$pwd = ($_POST['u-pwd']); 
-$_SESSION['message']="";
+if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 
-if (!empty($user) && !empty($pwd)) {
-    $sql = mysqli_query($conn, "SELECT * FROM user_table WHERE User_Nmae='{$user}' AND User_Password='{$pwd}'");
-    
-    if (mysqli_num_rows($sql) > 0) {
-        $row = mysqli_fetch_assoc($sql);
-        if ($row) {
-            $_SESSION['user_id'] = $row['User_Id']; 
-            $_SESSION['user-name'] = $row['User_Nmae']; 
-            $_SESSION['user_otp'] = $row['User_otp']; 
-            $_SESSION['message']="success";
-        }
-    } else {
-        $_SESSION['message']="Password or Username is incorrect"; 
-    }
-} else {
-    $_SESSION['message']="Required fields are missing!";
+	function validate($data){
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
+	}
+
+	$uname = validate($_POST['user-id']);
+	$pass = validate($_POST['u-pwd']);
+
+	if (empty($uname)) {
+		header("Location: user-login.php?error=User Name is required");
+	    exit();
+	}else if(empty($pass)){
+        header("Location: user-login.php?error=Password is required");
+	    exit();
+	}else{
+        $pass = md5($pass);
+
+        
+		$sql = "SELECT * FROM user_table WHERE user_id='$uname' AND User_Password='$pass'";
+
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+          
+            if ($row['user_id'] === $uname && $row['password'] === $pass) {
+            	$_SESSION['user_name'] = $row['User_Nmae'];
+            	$_SESSION['name'] = $row['name'];
+            	$_SESSION['id'] = $row['user_id'];
+            	header("Location: user-account.php");
+		        exit();
+            }else{
+				header("Location: user-login.php?error=Incorect User name or password");
+		        exit();
+			}
+		}else{
+			header("Location: user-login.php?error=Incorect User name or password");
+	        exit();
+		}
+	}
+	
+}else{
+	header("Location: index.php");
+	exit();
 }
-?>

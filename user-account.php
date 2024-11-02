@@ -1,3 +1,23 @@
+<?php 
+session_start();
+include "config.php";
+?>
+
+<?php 
+    $userId = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+    $user_sql =mysqli_query($conn,"SELECT * FROM user_table WHERE user_id = '$userId'");
+
+    if(mysqli_num_rows($user_sql) > 0){
+        $user_result = mysqli_fetch_assoc($user_sql);
+         $user_name= $user_result['User_Nmae'];
+        $user_email= $user_result['User_Emaiil'];
+        $user_no = $user_result['User_Mobile'];
+        $user_address = $user_result['User_Address'];
+    }else {
+        header("location: user-login.php");
+    }
+?>
+
 <?php
     include("header.php");
 ?>
@@ -44,7 +64,7 @@
             </ul>
 
             <div class="sidebar-footer">
-                    <a href="#">
+                    <a href="logout.php">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span>Logout</span>
                     </a>
@@ -65,31 +85,31 @@
                         <div class="user-info">
                                 <div class="user-info-details">
                                     <span>Name:</span>
-                                    <p class="font-monospace">Dilusha madushan</p>
+                                    <p class="font-monospace"><?php echo htmlspecialchars($user_name); ?></p>
                                 </div>
                                 <div class="user-info-details">
                                     <span>Email:</span>
-                                    <p class="font-monospace">dilushamadushan@gmail.com</p>
+                                    <p class="font-monospace"><?php echo htmlspecialchars($user_email); ?></p>
                                 </div>
                                 <div class="user-info-details">
                                     <span>Contact Number:</span>
-                                    <p class="font-monospace">202-2223332</p>
+                                    <p class="font-monospace"><?php echo htmlspecialchars($user_no); ?></p>
                                 </div>
                                 <div class="user-info-details">
                                     <span>Address:</span>
-                                    <p class="font-monospace">No 2, Abc, Kandy</p>
+                                    <p class="font-monospace"><?php echo htmlspecialchars($user_address); ?></p>
                                 </div>
                                 <button id="user-update"><i class="fa-solid fa-pen"></i>Edit Profile</button>
                         </div>
                     </div>
                     <div class="update-form ">
-                        <form action="" method="POST">
+                        <form action="update-user-details.php" method="POST">
                             <label>Name</label><br>
                             <input type="text" name="up-name"><br>
                             <label>Email</label><br>
                             <input type="email" name="up-email" ><br>
                             <label>Contact Number</label><br>
-                            <input type="tel" name="up-email" ><br>
+                            <input type="tel" name="up-cono" ><br>
                             <label>Address</label><br>
                             <input type="text" name="up-address" ><br>
                             <button id="update-user-btn" class="user-prof-btn" value="Update">Update</button>

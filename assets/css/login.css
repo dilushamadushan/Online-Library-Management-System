@@ -86,7 +86,7 @@
     background: #ffe3e5;
     border: 1px solid #dfa5ab;
     margin-bottom: 8px;
-    display: none;
+    display:block;
 }
 .pwd-icon{
     display: flex;

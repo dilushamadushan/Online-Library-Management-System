@@ -18,9 +18,11 @@
         <div class="admin-login-pannal">
             <form action="login-verify.php" method="post" id="form" enctype="multipart/form-data">
                 <h1>User Login</h1>
+                
                 <?php if (isset($_GET['error'])) { ?>
      		    <div class="error"><?php echo $_GET['error']; ?></div>
      	        <?php } ?>
+
                 <input type="text" name="user-id" id="user" placeholder="User Name">
                 <div class="pwd-icon">
                     <input type="password" name="u-pwd" id="pwd" placeholder="Password">

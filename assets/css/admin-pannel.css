@@ -9,7 +9,12 @@
  body{
     background-image: url(../media/admin-page/background1.jpg);
     background-size: cover;
-    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+     
  }
 .container{
     height: 100%;
@@ -20,14 +25,16 @@
     justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
+   
+    
 }
 .admin-pannel-container{
-    height: 50%;
+    height: 100%;
     width: 70vw;
     box-shadow:0 5px 10px rgb(8, 8, 8);
     display: flex; 
     flex-direction: row; 
-    
+    backdrop-filter: blur(10px);
 }
 ::after,
 ::before {
@@ -176,7 +183,6 @@ a.sidebar-link:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    border: 5px solid black;
    
 }
  h1, .books h1{

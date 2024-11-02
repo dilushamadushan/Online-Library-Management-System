@@ -35,22 +35,32 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
           
 
             if ($row['user_id'] === $uname) {
-
             	$_SESSION['user_name'] = $row['User_Nmae'];
             	$_SESSION['id'] = $row['user_id'];
-            	//header("Location: user-account.php");
-		        //exit();
-            }//else{
-				//header("Location: user-login.php?error=Incorect User ID or password");
-		        //exit();
+				if($row['User_role']==="admin"){
+            	header("Location: admin-pannel.php");
+					$_SESSION['Admin_loggedin']=true;
+					$_SESSION['type']="admin";
+		        exit();
+				}
+				else{
+					header("Location: user-account.php");
+					$_SESSION['User_loggedin']=true;
+					$_SESSION['type']="user";
+		            exit();
+				}
+
+            }else{
+				header("Location: user-login.php?error=Incorect User ID or password");
+		        exit();
 			}
-		//}//else{
-			//header("Location: user-login.php?error=Incorect User ID or password");
-	        //exit();
+		}else{
+			header("Location: user-login.php?error=Incorect User ID or password");
+	        exit();
 		}
-	//}
+	}
 	
 }else{
-	//header("Location: user-login.php");
-	//exit();
+	header("Location: user-login.php");
+	exit();
 }

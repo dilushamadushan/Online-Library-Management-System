@@ -15,10 +15,10 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 	$pass = validate($_POST['User_Password']);
 
 	if (empty($uname)) {
-		header("Location: user-lgin.php?error=User Name is required");
+		header("Location: user-login.php?error=User Name is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: user-lgin.php?error=Password is required");
+        header("Location: user-login.php?error=Password is required");
 	    exit();
 	}else{
         $pass = md5($pass);
@@ -38,11 +38,11 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
             	header("Location: user-account.php");
 		        exit();
             }else{
-				header("Location: user-lgin.php?error=Incorect User name or password");
+				header("Location: user-login.php?error=Incorect User name or password");
 		        exit();
 			}
 		}else{
-			header("Location: user-lgin.php?error=Incorect User name or password");
+			header("Location: user-login.php?error=Incorect User name or password");
 	        exit();
 		}
 	}

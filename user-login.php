@@ -21,7 +21,9 @@
                 <h1>User Login</h1>
                 
                 <?php if (isset($_GET['error'])) { ?>
-     		    <div class="error"><?php echo $_GET['error']; ?></div>
+     		    <div class="error"><?php echo $_GET['error'];
+                    
+                 ?></div>
      	        <?php } ?>
 
                 <input type="text" name="user-id" id="user" placeholder="User Name">

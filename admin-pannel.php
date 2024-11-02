@@ -1,5 +1,6 @@
 <?php
     include("header.php");
+    include("config.php");
 ?>
 <head>
     <meta charset="UTF-8">
@@ -61,12 +62,6 @@
                             <span>Articles and Megacine</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link" onclick="showMenues(7)">
-                        <i class="fa-regular fa-calendar"></i>
-                            <span>News & Events</span>
-                        </a>
-                    </li>
                 </ul>
                 <div class="sidebar-footer">
                     <a href="#" class="sidebar-link">
@@ -77,20 +72,40 @@
             </aside>
         </div>
         <div class="show-details ">
-            <div class="profile-info" id="menue1">
-                <h1>Personal Information</h1>
-                <div class="profile-image">
+        <div class="profile-info" id="menue1">
+            <h1>Personal Information</h1>
+            <div class="profile-image">
                 <img src="assets/media/admin-page/avatar.png" alt="avatar">
-                </div> 
-                <h2>Admin Name:</h2>
-                <input type="text" name="name" id="name" value="Hajith">
-                <h2>Admin email:</h2>
-                <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
-                <h2>Mobile No:</h2>
-                <input type="text" name="mobile" id="mobile" value="0740523954">
-                <h2>Adsress:</h2>
-                <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
-                <input type="button" value="Ubdate" name="btn" id="btn">
+            </div> 
+            <h2>Admin Name:</h2>
+            <input type="text" name="name" id="name" value="Hajith">
+            <h2>Admin email:</h2>
+            <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
+            <h2>Mobile No:</h2>
+            <input type="text" name="mobile" id="mobile" value="0740523954">
+            <h2>Address:</h2>
+            <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
+            <input type="submit" value="Update" name="btn" id="btn">
+            <?php 
+                if(isset($_POST['btn'])){
+                    $name = $_POST['name'];
+                    $mail = $_POST['mail'];
+                    $mobile = $_POST['mobile'];
+                    $addr = $_POST['addr'];
+
+                    // Prepare SQL statement to prevent SQL injection
+                    $sql = "UPDATE user_table SET User_Nmae =?, User_Emaiil=?, User_Mobile=?, User_Address=? WHERE user_id='A001'";
+                    $stmt = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($stmt, "ssss", $name, $mail, $mobile, $addr);
+                    $result = mysqli_stmt_execute($stmt);
+
+                    if($result){
+                        echo "<script>alert('Updated Successfully');</script>";
+                    } else {
+                        echo "<script>alert('Update Failed');</script>";
+                    }
+                }
+            ?>
             </div>
 
             <div class="users" id="menue2">
@@ -444,92 +459,9 @@
                         </form>
                     </div> 
                 </div>
-
-                <div class="books" id="menue7">
-                <h1>Event & News Information</h1>
-                <div class="book-info" id="events" id="user3">
-                    <div class="bookbtn" onclick="showEvwntsandNews(1)">
-                        <i><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h440l200 200v440q0 33-23.5 56.5T760-120H200Zm0-80h560v-400H600v-160H200v560Zm80-80h400v-80H280v80Zm0-320h200v-80H280v80Zm0 160h400v-80H280v80Zm-80-320v160-160 560-560Z"/></svg></i>
-                        <h4>News</h4>
-                    </div>
-                    <div class="bookbtn" onclick="showEvwntsandNews(2)">
-                        <i class="fa-regular fa-calendar"></i>
-                        <h4>Events</h4>
-                    </div>
-                </div>
-                <div class="book-listed" id="event-list1">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Event Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                    <div class="button-for-more">
-                        <button class="button" onclick="event_add_new(1)">Add New</button>
-                        <button class="button" onclick="event_exit(1)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>
-                </div>
-                <div class="book-listed" id="event-list2">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                            <tr>
-                                <th>News Name</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Date</th>
-                            </tr>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                        </tbody>
-                    </table>
-                    <div class="button-for-more">
-                        <button class="button" onclick="event_add_new(2)">Add New</button>
-                        <button class="button" onclick="event_exit(2)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>   
-                </div>
-
-                <div class="add-new-popup" id="event-popup1">
-                    <h1 id="add-new-head">Add Events</h1>
-                    <form action="#" id="new-popup">
-                    <div class="error"></div>
-                        <input type="text" name="e-name" id="e-name" placeholder="Enter Event Name:" >
-                        <input type="text" name="e-description" id="e-description" placeholder="Enter The event description" >
-                        <input type="file" name="image" id="image" >
-                        <input type="date" name="e-date" id="e-date">
-                        <input type="submit" value="Add New" id="new-btn">
-                    </form>
-                </div> 
-                <div class="add-new-popup" id="event-popup2">
-                    <h1 id="add-new-head">Add News</h1>
-                    <form action="#" id="new-popup">
-                    <div class="error"></div>
-                        <input type="text" name="n-name" id="n-name" placeholder="Enter Event Name:" >
-                        <input type="text" name="n-description" id="n-description" placeholder="Enter The event description" >
-                        <input type="file" name="n-image" id="n-image">
-                        <input type="date" name="n-date" id="n-date">
-                        <input type="submit" value="Add New" id="new-btn">
-                    </form>
-                </div> 
-            </div>
         </div>
+    </div>       
+    </div>
 </div>
     
 <script>
@@ -613,4 +545,8 @@
     }
 
 </script>
+
+<?php
+    include("footer.php");
+?>
 

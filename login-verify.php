@@ -26,7 +26,7 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 		echo $pass;
         
 
-		$sql = "SELECT * FROM user_table WHERE user_id='$uname' AND User_Password='$pass'";
+		$sql = "SELECT * FROM user_table WHERE user_id='$uname'";
 
 		$result = mysqli_query($conn, $sql);
 
@@ -34,13 +34,22 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 			$row = mysqli_fetch_assoc($result);
           
 
-            if ($row['user_id'] === $uname && $row['User_Password'] === $pass) {
-
+            if ($row['user_id'] === $uname) {
             	$_SESSION['user_name'] = $row['User_Nmae'];
-            	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['user_id'];
-            	header("Location: user-account.php");
+				if($row['User_role']==="admin"){
+            	header("Location: admin-pannel.php");
+					$_SESSION['Admin_loggedin']=true;
+					$_SESSION['type']="admin";
 		        exit();
+				}
+				else{
+					header("Location: user-account.php");
+					$_SESSION['User_loggedin']=true;
+					$_SESSION['type']="user";
+		            exit();
+				}
+
             }else{
 				header("Location: user-login.php?error=Incorect User ID or password");
 		        exit();

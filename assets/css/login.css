@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
 }
 
 .admin-log-in-interface{
@@ -31,7 +32,6 @@
     width: 10vw;
     background:white;
     border-radius: 20px;
-    margin: 0 10px ;
     height: 100%;
 }
 .admin-log-in-interface .admin-image i{

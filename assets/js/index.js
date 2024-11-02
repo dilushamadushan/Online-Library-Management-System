@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const backgrounds = [
-        "assets/media/home-main/img1.jpg",
-        "assets/media/home-main/img2.jpg",
-        "assets/media/home-main/img3.jpg",
-        "assets/media/home-main/img4.jpg"
+        "assets/media/home-main/img1.webp",
+        "assets/media/home-main/img02.jpg",
+        "assets/media/home-main/img03.jpg",
+        "assets/media/home-main/img04.jpg"
     ];
 
     let currentIndex = 0;
@@ -53,3 +53,55 @@ $(document).ready(function(){
         $(this).css("color", "");
     });
 });
+
+let scrollContainer = document.querySelector(".book-werp");
+let backBtn = document.getElementById("backbtn");
+let nextBtn = document.getElementById("nextbtn");
+
+
+nextBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+});
+backBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+// Auto-scrolling
+let autoScrollInterval = setInterval(() => {
+    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+}, 3500); 
+
+
+scrollContainer.addEventListener("mouseover", () => clearInterval(autoScrollInterval));
+scrollContainer.addEventListener("mouseout", () => {
+    autoScrollInterval = setInterval(() => {
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+            scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    }, 3500);
+});
+
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+    var reveals = document.querySelectorAll('.reveal');
+
+    for(var i = 0;i < reveals.length;i++){
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+        
+        if(revealtop < windowheight - revealpoint){
+            reveals[i].classList.add('active');
+        }
+        else{
+            reveals[i].classList.remove('active');
+        }
+    }
+}

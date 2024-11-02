@@ -21,9 +21,8 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
         header("Location: user-login.php?error=Password is required");
 	    exit();
 	}else{
-        $pass = md5($pass);
-
-        
+		md5($pass);
+       
 		$sql = "SELECT * FROM user_table WHERE user_id='$uname' AND User_Password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
@@ -31,7 +30,7 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
           
-            if ($row['user_id'] === $uname && $row['password'] === $pass) {
+            if ($row['user_id'] === $uname && password_verify($pass,$row['password'])) {
             	$_SESSION['user_name'] = $row['User_Nmae'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['user_id'];

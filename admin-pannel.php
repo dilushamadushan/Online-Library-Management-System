@@ -1,6 +1,6 @@
 <?php
     include("header.php");
-    
+    include("config.php");
 ?>
 <head>
     <meta charset="UTF-8">
@@ -87,7 +87,6 @@
             <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
             <input type="submit" value="Update" name="btn" id="btn">
             <?php 
-                include("config.php");
                 if(isset($_POST['btn'])){
                     $name = $_POST['name'];
                     $mail = $_POST['mail'];
@@ -119,6 +118,7 @@
                     <table>
                         <thead>
                             <tr>
+                                <th>User ID</th>
                                 <th>User Name</th>
                                 <th>E-mail</th>
                                 <th>Mobile No</th>
@@ -128,23 +128,22 @@
                         </thead>
                         <tbody>
                             <?php
-                                include("config.php");
                                 $sql = "SELECT * FROM user_table";
                                 $result = mysqli_query($conn, $sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
+                                        echo "<td>".$row['user_id']."</td>";
                                         echo "<td>".$row['User_Nmae']."</td>";
                                         echo "<td>".$row['User_Emaiil']."</td>";
                                         echo "<td>".$row['User_Mobile']."</td>";
                                         echo "<td>".$row['User_Address']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "<td><a href='#'>Edit</a></td>";
+                                        echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
-                            ?>
-                            
+                                ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -153,14 +152,15 @@
                 </div>
                 <div class="add-new-popup" id="popup2">
                     <h1>Add New User</h1>
-                    <form action="#" id="new-popup">
+                    <form action="add-new.php" method="post" id="new-popup">
                     <div class="error"></div>
                         <input type="text" name="name" id="name" placeholder="Enter User Name:" >
                         <input type="text" name="mail" id="mail" placeholder="Enter Email" >
                         <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
                         <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
-                        <input type="submit" value="Add New " id="new-btn">
+                        <input type="submit" value="Add New " id="new-btn" name="new-btn">
                     </form>
+
                 </div> 
             </div>
 
@@ -177,11 +177,6 @@
                         <p id="count">5</p>
                         <h4>Issued Books</h4>
                     </div>
-                    <div class="bookbtn" onclick="showBooklist(2,3)">
-                        <i class="fa-solid fa-recycle"></i>
-                        <p id="count">3</p>
-                        <h4>Book Return</h4>
-                    </div>
                     <div class="bookbtn" onclick="showBooklist(2,4)">
                         <i class="fa-solid fa-user"></i>
                         <p id="count">1</p>
@@ -190,11 +185,6 @@
                     <div class="bookbtn" onclick="showBooklist(2,5)">
                         <i class="fa-solid fa-list"></i>
                         <p id="count">9</p>
-                        <h4>Listed Cotegories</h4>
-                    </div>
-                    <div class="bookbtn" onclick="showBooklist(2,6)">
-                        <i class="fa-solid fa-list"></i>
-                        <p id="count">6</p>
                         <h4>Listed Cotegories</h4>
                     </div>
                 </div>
@@ -216,19 +206,18 @@
                         </thead>
                         <tbody>
                             <?php
-                                include("config.php");
                                 $sql = "SELECT * FROM book_table";
                                 $result = mysqli_query($conn, $sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
-                                        echo "<td>".$row['Book_id']."</td>";
-                                        echo "<td>".$row['Book_Name']."</td>";
-                                        echo "<td>".$row['ISBN_Number']."</td>";
-                                        echo "<td>".$row['Subject_of_Book']."</td>";
+                                        echo "<td>".$row['book_id	']."</td>";
+                                        echo "<td>".$row['book_name']."</td>";
+                                        echo "<td>".$row['ISBN_no']."</td>";
+                                        echo "<td>".$row['subject']."</td>";
                                         echo "<td>".$row['Author']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "<td><a href='#'>Edit</a></td>";
+                                        echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -257,18 +246,17 @@
                         </thead>
                         <tbody>
                             <?php
-                                include("config.php");
-                                $sql = "SELECT * FROM issued_books";
+                                $sql = "SELECT * FROM book_table";
                                 $result = mysqli_query($conn, $sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
-                                        echo "<td>".$row['Book_Name']."</td>";
-                                        echo "<td>".$row['User_Name']."</td>";
-                                        echo "<td>".$row['Subject_of_Book']."</td>";
-                                        echo "<td>".$row['Date_of_return']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "<td>".$row['book_name']."</td>";
+                                        echo "<td>".$row['user_name']."</td>";
+                                        echo "<td>".$row['subject']."</td>";
+                                        echo "<td>".$row['date_of_return']."</td>";
+                                        echo "<td><a href='#'>Edit</a></td>";
+                                        echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -279,86 +267,8 @@
                         <button class="button" onclick="book_add_new(2)">Add New</button>
                         <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
-                    
                 </div>
-                <div class="book-listed" id="list3">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Book Name</th>
-                                <th>User Name</th>
-                                <th>Date of return</th>
-                                <th colspan="2">Return status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                include("config.php");
-                                $sql = "SELECT * FROM returned_books";
-                                $result = mysqli_query($conn, $sql);
-                                if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr>";
-                                        echo "<td>".$row['Book_Name']."</td>";
-                                        echo "<td>".$row['User_Name']."</td>";
-                                        echo "<td>".$row['Date_of_return']."</td>";
-                                        echo "<td>".$row['Return_status']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
-                                        echo "</tr>";
-                                    }
-                                }
-                                ?>
-                        </tbody>
-                    </table>
-                    <div class="button-for-more">
-                        <button class="button" onclick="book_add_new(3)">Add New</button>
-                        <button class="button" onclick="exit(2,3)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>
-                    
-                </div>
-                <div class="book-listed" id="list4">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Auther Name</th>
-                                <th>Book Name</th>
-                                <th>Subject of Book</th>
-                                <th colspan="2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                include("config.php");
-                                $sql = "SELECT * FROM author_table";
-                                $result = mysqli_query($conn, $sql);
-                                if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr>";
-                                        echo "<td>".$row['Author_Name']."</td>";
-                                        echo "<td>".$row['Book_Name']."</td>";
-                                        echo "<td>".$row['Subject_of_Book']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
-                                        echo "</tr>";
-                                    }
-                                }
-                                ?>
-                        </tbody>
-                    </table>
-                    <div class="button-for-more">
-                        <button class="button" onclick="book_add_new(4)">Add New</button>
-                        <button class="button" onclick="exit(2,4)">Back <i class="fa-solid fa-backward"></i></button>
-                    </div>>
-                </div>
+                
                 <div class="book-listed" id="list5">
                     <div class="search">
                         <input type="text" name="search" id="search" placeholder="Enter the book name">
@@ -375,17 +285,16 @@
                         </thead>
                         <tbody>
                             <?php
-                                include("config.php");
-                                $sql = "SELECT * FROM book_category";
+                                $sql = "SELECT * FROM book_table";
                                 $result = mysqli_query($conn, $sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
-                                        echo "<td>".$row['Category_Name']."</td>";
-                                        echo "<td>".$row['Book_Name']."</td>";
-                                        echo "<td>".$row['Book_Quantity']."</td>";
-                                        echo "<td><button class='button'>Edit</button></td>";
-                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "<td>".$row['Author']."</td>";
+                                        echo "<td>".$row['book_name']."</td>";
+                                        echo "<td>".$row['subject']."</td>";
+                                        echo "<td><a href='#'>Edit</a></td>";
+                                        echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -393,21 +302,20 @@
                         </tbody>
                     </table>
                     <div class="button-for-more">
-                        <button class="button"onclick="book_add_new(5
-                        )">Add New</button>
+                        <button class="button"onclick="book_add_new(5)">Add New</button>
                         <button class="button" onclick="exit(2,5)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
 
                 <div class="add-new-popup" id="book-popup1">
                     <h1 id="add-new-head">Add New Book</h1>
-                    <form action="#" id="new-popup">
+                    <form action="add-new.php" method="post" id="new-popup">
                     <div class="error"></div>
                         <input type="text" name="b-name" id="b-name" placeholder="Enter Book Name:" >
                         <input type="text" name="isbn" id="isbn" placeholder="Enter ISBN Number" >
                         <input type="text" name="b-subject" id="b-subject" placeholder="Enter The subject of Book" >
                         <input type="text" name="b-author" id="b-author" placeholder="Enter Author Name" >
-                        <input type="submit" value="Add New" id="new-btn">
+                        <input type="submit" value="Add New" id="new-btn" name="add-new2">
                     </form>
                 </div> 
                 <div class="add-new-popup" id="book-popup2">
@@ -418,16 +326,6 @@
                         <input type="text" name="ib-user" id="ib-user" placeholder="Enter User Name">
                         <input type="date" name="ib-date" id="ib-date" placeholder="Enter the Date of Issue" >
                         <input type="date" name="ib-return" id="ib-return" placeholder="Enter the date want to return" >
-                        <input type="submit" value="Add New" id="new-btn">
-                    </form>
-                </div> 
-                <div class="add-new-popup" id="book-popup3">
-                    <h1 id="add-new-head">Add New Returned Book</h1>
-                    <form action="#" id="new-popup">
-                    <div class="error"></div>
-                        <input type="text" name="rb-name" id="rb-name" placeholder="Enter Book Nmae" >
-                        <input type="text" name="rb-user" id="rb-user" placeholder="Enter User Name" >
-                        <input type="date" name="rb-date" id="rb-date" placeholder="Returned date" >
                         <input type="submit" value="Add New" id="new-btn">
                     </form>
                 </div> 
@@ -462,25 +360,32 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Auther Name</th>
-                                    <th>Book Name</th>
-                                    <th>Subject of Book</th>
+                                    <th>Book Id</th>
+                                    <th>Name</th>
+                                    <th>ISBN Number</th>
+                                    <th>Subject</th>
+                                    <th>Author</th>
+                                    <th>Name</th>
+                                    <th>Image</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    include("config.php");
-                                    $sql = "SELECT * FROM e_resources";
+                                    $sql = "SELECT * FROM e_book_table";
                                     $result = mysqli_query($conn, $sql);
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
-                                            echo "<td>".$row['Author_Name']."</td>";
-                                            echo "<td>".$row['Book_Name']."</td>";
-                                            echo "<td>".$row['Subject_of_Book']."</td>";
-                                            echo "<td><button class='button'>Edit</button></td>";
-                                            echo "<td><button class='button'>Delete</button></td>";
+                                            echo "<td>".$row['e_book_name']."</td>";
+                                            echo "<td>".$row['ISBN_no']."</td>";
+                                            echo "<td>".$row['subject']."</td>";
+                                            echo "<td>".$row['author']."</td>";
+                                            echo "<td>".$row['	publish_year']."</td>";
+                                            echo "<td>".$row['image']."</td>";
+                                            echo "<td>".$row['pdf']."</td>";
+                                            echo "<td><a href='#'>Edit</a></td>";
+                                            echo "<td><a href='#'>Delete</a></td>";
                                             echo "</tr>";
                                         }
                                     }
@@ -493,13 +398,15 @@
                     </div>
                     <div class="add-new-popup" id="popup4">
                     <h1>Add New User</h1>
-                    <form action="#" id="new-popup">
+                    <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                     <div class="error"></div>
-                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
-                        <input type="submit" value="Add New" id="new-btn">
+                        <input type="text" name="eb-name" id="name" placeholder="Enter User Name:" >
+                        <input type="text" name="ISB-no" id="mail" placeholder="Enter Email" >
+                        <input type="text" name="subject" id="mobile" placeholder="Enter Your Mobile No:" >
+                        <input type="text" name="year" id="addr" placeholder="Enter User Address" >
+                        <input type="file" name="image" id="addr" placeholder="Enter User Address" >
+                        <input type="file" name="pdf" id="addr" placeholder="Enter User Address" >
+                        <input type="submit" value="Add New" id="new-btn" name="new-btn4">
                     </form>
                 </div> 
             </div>
@@ -514,31 +421,31 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Subject Of Pastpaper</th>
                                     <th>Examination</th>
                                     <th>Year</th>
-                                    <th>Language</th>
+                                    <th>PDF</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
-                                    <?php
-                                        include("config.php");
-                                        $sql = "SELECT * FROM past_paper";
-                                        $result = mysqli_query($conn, $sql);
-                                        if(mysqli_num_rows($result) > 0){
-                                            while($row = mysqli_fetch_assoc($result)){
-                                                echo "<tr>";
-                                                echo "<td>".$row['Subject_of_Pastpaper']."</td>";
-                                                echo "<td>".$row['Examination']."</td>";
-                                                echo "<td>".$row['Year']."</td>";
-                                                echo "<td>".$row['Language']."</td>";
-                                                echo "<td><button class='button'>Edit</button></td>";
-                                                echo "<td><button class='button'>Delete</button></td>";
-                                                echo "</tr>";
-                                            }
-                                        }
-                                        ?>
                             <tbody>
+                                <?php
+                                    $sql = "SELECT * FROM past_paper_table";
+                                    $result = mysqli_query($conn, $sql);
+                                    if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>".$row['subject']."</td>";
+                                            echo "<td>".$row['exam']."</td>";
+                                            echo "<td>".$row['year']."</td>";
+                                            echo "<td>".$row['pdf']."</td>";
+                                            echo "<td><a href='add-new.php'>Edit</a></td>";
+                                            echo "<td><a href='#'>Delete</a></td>";
+                                            echo "</tr>";
+                                        }
+                                    }
+                                    ?>
                             </tbody>
                         </table>
                         <div class="button-for-more">
@@ -568,25 +475,32 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Writer</th>
                                     <th>Type</th>
-                                    <th>Subject</th>
+                                    <th>Publish Date</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    include("config.php");
-                                    $sql = "SELECT * FROM article_megazine";
+                                    $sql = "SELECT * FROM articles_table";
                                     $result = mysqli_query($conn, $sql);
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
-                                            echo "<td>".$row['Name']."</td>";
-                                            echo "<td>".$row['Type']."</td>";
-                                            echo "<td>".$row['Subject']."</td>";
-                                            echo "<td><button class='button'>Edit</button></td>";
-                                            echo "<td><button class='button'>Delete</button></td>";
+                                            echo "<td>".$row['id	']."</td>";
+                                            echo "<td>".$row['title']."</td>";
+                                            echo "<td>".$row['writer	']."</td>";
+                                            echo "<td>".$row['type	']."</td>";
+                                            echo "<td>".$row['publish_date']."</td>";
+                                            echo "<td>".$row['description']."</td>";
+                                            echo "<td>".$row['image']."</td>";
+                                            echo "<td><a href='#'>Edit</a></td>";
+                                            echo "<td><a href='#'>Delete</a></td>";
                                             echo "</tr>";
                                         }
                                     }
@@ -698,4 +612,3 @@
 <?php
     include("footer.php");
 ?>
-

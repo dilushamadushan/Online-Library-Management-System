@@ -1,5 +1,5 @@
 <?php 
-//session_start(); 
+session_start(); 
 include "config.php";
 ?>
 
@@ -91,10 +91,11 @@ include "config.php";
     </div>
     <div class="dropdown btn-user-log"<?php echo (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) ? '' : 'style="display:none;"'; ?>>
         <div class="user-btn dropdown-toggle" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo $_SESSION['user_Img'] ?? 'assets/media/default-avatar.png'; ?>" alt="" class="userimg-btn">
+            <img src="<?php echo $_SESSION['user_Img'] ?? 'assets/media/admin-page/avatar.png'; ?>" alt="" class="userimg-btn">
         </div>
         <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-            <li><a class="dropdown-item-img" href="user-account.php"><img src="<?php echo $_SESSION['user_Img'] ?? 'assets/media/default-avatar.png'; ?>"class="userimg-btn"><span><?php echo htmlspecialchars(strtoupper($_SESSION['user_Name'] ?? 'Guest')); ?></span></a></li>
+            <li><a class="dropdown-item-img" href="user-account.php"><img src="<?php echo $_SESSION['user_Img'] ?? 'assets/media/admin-page/avatar.png'; ?>"class="userimg-btn"><span><?php echo htmlspecialchars(strtoupper($_SESSION['user_name'] ?? 'Guest')); ?>
+</span></a></li>
             <div class="dropLine"></div>
             <li><a class="dropdown-item" href="user-account.php"><i class="fa-solid fa-user-pen"></i><span>Edit Profile</span></a></li>
             <li><a class="dropdown-item" href="logout.php"><i class="fa-solid fa-right-from-bracket"></i><span>Log Out</span></a></li>

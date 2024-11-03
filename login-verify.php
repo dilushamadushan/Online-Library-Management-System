@@ -38,15 +38,17 @@ if (isset($_POST['user-id']) && isset($_POST['u-pwd'])) {
             	$_SESSION['user_name'] = $row['User_Nmae'];
             	$_SESSION['id'] = $row['user_id'];
 				if($row['User_role']==="admin"){
-            	header("Location: admin-pannel.php");
-					$_SESSION['Admin_loggedin']=true;
-					$_SESSION['type']="admin";
+					$_SESSION['logged_in']=true;
+					$_SESSION['user_type']="admin";
+					$_SESSION['user_Img'] = $row['admin_image']; 
+					header("Location: admin-pannel.php");
 		        exit();
 				}
 				else{
+					$_SESSION['logged_in']=true;
+					$_SESSION['user_type']="user";
+					$_SESSION['user_Img'] = $row['User_profile']; 
 					header("Location: user-account.php");
-					$_SESSION['User_loggedin']=true;
-					$_SESSION['type']="user";
 		            exit();
 				}
 

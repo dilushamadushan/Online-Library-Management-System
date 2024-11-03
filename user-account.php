@@ -1,6 +1,9 @@
 <?php 
-session_start();
+//session_start();
 include "config.php";
+?>
+<?php
+    include("header.php");
 ?>
 
 <?php 
@@ -18,9 +21,7 @@ include "config.php";
     }
 ?>
 
-<?php
-    include("header.php");
-?>
+
 <head>
     <link rel="stylesheet" href="assets/css/user-account.css">
 </head>
@@ -80,7 +81,7 @@ include "config.php";
                     </div>
                     <div class="user-info-main">
                         <div class="user-img">
-                            <img src="assets/media/user-account/tempUser.jpg" alt="User Image">
+                            <img src="<?php echo $_SESSION['user_Img'] ?? 'assets/media/admin-page/avatar.png'; ?>" alt="User Image">
                         </div>
                         <div class="user-info">
                                 <div class="user-info-details">

@@ -1,6 +1,6 @@
 <?php
     include("header.php");
-    include("config.php");
+    
 ?>
 <head>
     <meta charset="UTF-8">
@@ -87,6 +87,7 @@
             <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
             <input type="submit" value="Update" name="btn" id="btn">
             <?php 
+                include("config.php");
                 if(isset($_POST['btn'])){
                     $name = $_POST['name'];
                     $mail = $_POST['mail'];
@@ -126,6 +127,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM user_table";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['User_Nmae']."</td>";
+                                        echo "<td>".$row['User_Emaiil']."</td>";
+                                        echo "<td>".$row['User_Mobile']."</td>";
+                                        echo "<td>".$row['User_Address']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                            ?>
                             
                         </tbody>
                     </table>
@@ -197,7 +215,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM book_table";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['Book_id']."</td>";
+                                        echo "<td>".$row['Book_Name']."</td>";
+                                        echo "<td>".$row['ISBN_Number']."</td>";
+                                        echo "<td>".$row['Subject_of_Book']."</td>";
+                                        echo "<td>".$row['Author']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                            ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -221,7 +256,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM issued_books";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['Book_Name']."</td>";
+                                        echo "<td>".$row['User_Name']."</td>";
+                                        echo "<td>".$row['Subject_of_Book']."</td>";
+                                        echo "<td>".$row['Date_of_return']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -245,6 +296,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM returned_books";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['Book_Name']."</td>";
+                                        echo "<td>".$row['User_Name']."</td>";
+                                        echo "<td>".$row['Date_of_return']."</td>";
+                                        echo "<td>".$row['Return_status']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -268,6 +336,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM author_table";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['Author_Name']."</td>";
+                                        echo "<td>".$row['Book_Name']."</td>";
+                                        echo "<td>".$row['Subject_of_Book']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -290,6 +374,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                include("config.php");
+                                $sql = "SELECT * FROM book_category";
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<tr>";
+                                        echo "<td>".$row['Category_Name']."</td>";
+                                        echo "<td>".$row['Book_Name']."</td>";
+                                        echo "<td>".$row['Book_Quantity']."</td>";
+                                        echo "<td><button class='button'>Edit</button></td>";
+                                        echo "<td><button class='button'>Delete</button></td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -369,6 +469,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    include("config.php");
+                                    $sql = "SELECT * FROM e_resources";
+                                    $result = mysqli_query($conn, $sql);
+                                    if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>".$row['Author_Name']."</td>";
+                                            echo "<td>".$row['Book_Name']."</td>";
+                                            echo "<td>".$row['Subject_of_Book']."</td>";
+                                            echo "<td><button class='button'>Edit</button></td>";
+                                            echo "<td><button class='button'>Delete</button></td>";
+                                            echo "</tr>";
+                                        }
+                                    }
+                                    ?>
                             </tbody>
                         </table>
                         <div class="button-for-more">
@@ -405,6 +521,23 @@
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
+                                    <?php
+                                        include("config.php");
+                                        $sql = "SELECT * FROM past_paper";
+                                        $result = mysqli_query($conn, $sql);
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo "<tr>";
+                                                echo "<td>".$row['Subject_of_Pastpaper']."</td>";
+                                                echo "<td>".$row['Examination']."</td>";
+                                                echo "<td>".$row['Year']."</td>";
+                                                echo "<td>".$row['Language']."</td>";
+                                                echo "<td><button class='button'>Edit</button></td>";
+                                                echo "<td><button class='button'>Delete</button></td>";
+                                                echo "</tr>";
+                                            }
+                                        }
+                                        ?>
                             <tbody>
                             </tbody>
                         </table>
@@ -442,6 +575,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    include("config.php");
+                                    $sql = "SELECT * FROM article_megazine";
+                                    $result = mysqli_query($conn, $sql);
+                                    if(mysqli_num_rows($result) > 0){
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>".$row['Name']."</td>";
+                                            echo "<td>".$row['Type']."</td>";
+                                            echo "<td>".$row['Subject']."</td>";
+                                            echo "<td><button class='button'>Edit</button></td>";
+                                            echo "<td><button class='button'>Delete</button></td>";
+                                            echo "</tr>";
+                                        }
+                                    }
+                                    ?>
                             </tbody>
                         </table>
                         <div class="button-for-more">

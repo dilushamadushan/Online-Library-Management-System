@@ -365,7 +365,6 @@
                                     <th>ISBN Number</th>
                                     <th>Subject</th>
                                     <th>Author</th>
-                                    <th>Name</th>
                                     <th>Image</th>
                                     <th colspan="2">Actions</th>
                                 </tr>

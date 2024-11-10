@@ -92,8 +92,6 @@
                     $mail = $_POST['mail'];
                     $mobile = $_POST['mobile'];
                     $addr = $_POST['addr'];
-
-                    // Prepare SQL statement to prevent SQL injection
                     $sql = "UPDATE user_table SET User_Nmae =?, User_Emaiil=?, User_Mobile=?, User_Address=? WHERE user_id='A001'";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "ssss", $name, $mail, $mobile, $addr);
@@ -365,7 +363,9 @@
                                     <th>ISBN Number</th>
                                     <th>Subject</th>
                                     <th>Author</th>
+                                    <th>Publish Year</th>
                                     <th>Image</th>
+                                    <th>PDF</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
@@ -376,11 +376,12 @@
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
+                                            echo "<td>".$row['e_book_id']."</td>";
                                             echo "<td>".$row['e_book_name']."</td>";
                                             echo "<td>".$row['ISBN_no']."</td>";
                                             echo "<td>".$row['subject']."</td>";
                                             echo "<td>".$row['author']."</td>";
-                                            echo "<td>".$row['	publish_year']."</td>";
+                                            echo "<td>".$row['publish_year']."</td>";
                                             echo "<td>".$row['image']."</td>";
                                             echo "<td>".$row['pdf']."</td>";
                                             echo "<td><a href='#'>Edit</a></td>";
@@ -399,12 +400,12 @@
                     <h1>Add New User</h1>
                     <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                     <div class="error"></div>
-                        <input type="text" name="eb-name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="ISB-no" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="subject" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="year" id="addr" placeholder="Enter User Address" >
-                        <input type="file" name="image" id="addr" placeholder="Enter User Address" >
-                        <input type="file" name="pdf" id="addr" placeholder="Enter User Address" >
+                        <input type="text" name="eb-name" id="name" placeholder="Enter E-book Name:" >
+                        <input type="text" name="ISB-no" id="mail" placeholder="Enter ISBN Number" >
+                        <input type="text" name="subject" id="mobile" placeholder="Subject" >
+                        <input type="text" name="year" id="addr" placeholder="Year" >
+                        <input type="file" name="image" id="addr">
+                        <input type="file" name="pdf" id="addr">
                         <input type="submit" value="Add New" id="new-btn" name="new-btn4">
                     </form>
                 </div> 
@@ -435,8 +436,9 @@
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
+                                            echo "<td>".$row['p_id']."</td>";
                                             echo "<td>".$row['subject']."</td>";
-                                            echo "<td>".$row['exam']."</td>";
+                                            echo "<td>".$row['examination_typ']."</td>";
                                             echo "<td>".$row['year']."</td>";
                                             echo "<td>".$row['pdf']."</td>";
                                             echo "<td><a href='add-new.php'>Edit</a></td>";
@@ -453,13 +455,13 @@
                     </div>
                     <div class="add-new-popup" id="popup5">
                     <h1>Add New Past Paper</h1>
-                    <form action="#" id="new-popup">
+                    <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                     <div class="error"></div>
                         <input type="text" name="p-subject" id="p-subject" placeholder="Enter Subject of Past paper:" >
                         <input type="text" name="exam" id="exam" placeholder="Enter Examination" >
                         <input type="text" name="year" id="year" placeholder="Enter the year" >
-                        <input type="text" name="lag" id="lan" placeholder="Enter the language" >
-                        <input type="submit" value="Add New" id="new-btn">
+                        <input type="file" name="pdf" id="pdf" accept="pdf/*">
+                        <input type="submit" value="Add New" id="new-btn" name="new-paper">
                     </form>
                 </div> 
                 </div>

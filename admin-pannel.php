@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/admin-pannel.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script defer src="assets/js/admin-pannel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <div class="container">
@@ -487,25 +488,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $sql = "SELECT * FROM articles_table";
-                                    $result = mysqli_query($conn, $sql);
-                                    if(mysqli_num_rows($result) > 0){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            echo "<tr>";
-                                            echo "<td>".$row['id	']."</td>";
-                                            echo "<td>".$row['title']."</td>";
-                                            echo "<td>".$row['writer	']."</td>";
-                                            echo "<td>".$row['type	']."</td>";
-                                            echo "<td>".$row['publish_date']."</td>";
-                                            echo "<td>".$row['description']."</td>";
-                                            echo "<td>".$row['image']."</td>";
-                                            echo "<td><a href='#'>Edit</a></td>";
-                                            echo "<td><a href='#'>Delete</a></td>";
-                                            echo "</tr>";
-                                        }
-                                    }
-                                    ?>
+                            <?php
+                                $sql = "SELECT * FROM articles_table";
+                                $stmt = mysqli_prepare($conn, $sql);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['writer']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['type']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['publish_date']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['description']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['image']) . "</td>";
+                                    echo "<td><a href='#'>Edit</a></td>";
+                                    echo "<td><a href='#'>Delete</a></td>";
+                                    echo "</tr>";
+                                }
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <div class="button-for-more">
@@ -514,12 +518,16 @@
                     </div>
                     <div class="add-new-popup" id="popup6">
                         <h1>Add New Article/Megazine</h1>
-                        <form action="#" id="new-popup">
+                        <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                             <div class="error"></div>
                             <input type="text" name="art-name" id="art-name" placeholder="Enter Name:" >
                             <input type="text" name="type" id="type" placeholder="Enter Type" >
-                            <input type="text" name="subject" id="subject" placeholder="Subject" >
-                            <input type="submit" value="Add New" id="new-btn">
+                            <input type="text" name="writer" id="subject" placeholder="Writer Name" >
+                            <input type="date" name="date" id="subject" placeholder="Date" >
+                            <textarea name="description" id="description"></textarea>
+                            <input type="file" name="image" id="image" accept="image/*">
+                            <input type="file" name="pdf" id="pdf" accept="pdf/*">
+                            <input type="submit" value="Add New" id="new-btn" name="new-btn5">
                         </form>
                     </div> 
                 </div>
@@ -607,6 +615,8 @@
         books.style.display="flex"
         list.style.display="none"
     }
+
+
 
 </script>
 

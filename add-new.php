@@ -179,31 +179,65 @@ include("config.php");
         return 'M' . str_pad($number, 3, '0', STR_PAD_LEFT);
     }
 
-    $query = "SELECT MAX(id	) AS last_id FROM articles_table";
+    $query = "SELECT MAX(id) AS last_id FROM articles_table";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     $lastNoticeID = (int)str_replace('M', '', $row['last_id']);
     $newNoticeID = generateNoticeID($lastNoticeID + 1);
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new-notice'])) {
-        $title = trim($_POST['title']);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['new-btn5'])) {
+        $title = trim($_POST['art-name']);
         $date = trim($_POST['date']);
-        $writer = trim($_POST['notice']);
-        $type = trim($_POST['notice']);
-        $description = trim($_POST['notice']);
+        $writer = trim($_POST['writer']);
+        $type = trim($_POST['type']);
+        $description = trim($_POST['description']);
 
-        if ($title && $date && $notice) {
-            $sql = "INSERT INTO articles_table (id	, title, writer, type,publish_date,description,image,pdf) VALUES (?, ?, ?, ?)";
-            $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "ssss", $newNoticeID, $title, $date, $notice);
-            $result = mysqli_stmt_execute($stmt);
+        if ($title && $date && $writer && $type && $description && isset($_FILES['pdf']) && isset($_FILES['image'])) {
+            $pdf = $_FILES['pdf']['name'];
+            $pdf_tmp_name = $_FILES['pdf']['tmp_name'];
+            $pdf_extension = strtolower(pathinfo($pdf, PATHINFO_EXTENSION));
+            $allowed_pdf_extensions = ['pdf'];
 
-            if ($result) {
-                echo "<script>alert('Added Successfully');</script>";
+            $cover = $_FILES['image']['name'];
+            $cover_tmp_name = $_FILES['image']['tmp_name'];
+            $cover_extension = strtolower(pathinfo($cover, PATHINFO_EXTENSION));
+            $allowed_cover_extensions = ['png', 'jpeg', 'jpg'];
+
+            if (in_array($pdf_extension, $allowed_pdf_extensions) && in_array($cover_extension, $allowed_cover_extensions)) {
+                $time = time();
+                $new_pdf_name = $time . '_' . $pdf;
+                $pdf_folder = 'articles/' . $new_pdf_name;
+                $new_cover_name = $time . '_' . $cover;
+                $cover_folder = 'cover_folder/' . $new_cover_name;
+
+                if (move_uploaded_file($pdf_tmp_name, $pdf_folder) && move_uploaded_file($cover_tmp_name, $cover_folder)) {
+                    $sql = "INSERT INTO articles_table (id, title, writer, type, publish_date, description, image, pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                    $stmt = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($stmt, "ssssssss", $newNoticeID, $title, $writer, $type, $date, $description, $new_cover_name, $new_pdf_name);
+                    $result = mysqli_stmt_execute($stmt);
+
+                    if ($result) {
+                      
+                        ?>
+                        <script>
+                            Swal.fire({
+                            title: "Good job!",
+                            text: "You clicked the button!",
+                            icon: "success"
+                            });
+                         </script>;
+                      <?php
+                    } else {
+                        echo "<script>alert('Add Failed');</script>";
+                    }
+                } else {
+                    echo "<script>alert('File upload failed');</script>";
+                }
             } else {
-                echo "<script>alert('Add Failed');</script>";
+                echo "<script>alert('Invalid file type');</script>";
             }
         } else {
             echo "<script>alert('Please fill in all fields');</script>";
         }
     }
+?>

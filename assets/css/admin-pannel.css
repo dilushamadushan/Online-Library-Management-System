@@ -5,8 +5,8 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
- }
- body{
+}
+body{
     background-image: url(../media/admin-page/background1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,8 +14,7 @@
     background-position: center;
     height: 100vh;
     width: 100%;
-     
- }
+}
 .container{
     height: 100%;
     width: 100%;
@@ -25,8 +24,6 @@
     justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
-   
-    
 }
 .admin-pannel-container{
     height: 100%;
@@ -175,7 +172,6 @@ a.sidebar-link:hover {
     justify-content: center;
     background-color: #eee;
     opacity: 0.95;
-
 }
 .profile-info {
     padding: 10px;
@@ -183,9 +179,8 @@ a.sidebar-link:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-   
 }
- h1, .books h1{
+h1, .books h1{
     font-size: xx-large;
     text-align: center;
     font-weight: bold;
@@ -193,7 +188,6 @@ a.sidebar-link:hover {
 .profile-info h2{
     font-size: larger;
     margin:10px 10px;
-    
 }
 .profile-info input{
     background-color: #d1d1d1;
@@ -291,7 +285,6 @@ a.sidebar-link:hover {
     padding: 0 10px;
     font-size: medium;
     color: #000000;
-
 }
 .search #btn-search{
     background-color:rgb(255, 217, 0) ;
@@ -309,19 +302,16 @@ a.sidebar-link:hover {
     width: fit-content;
     border-collapse: collapse;
     background-color: white;
-    
 }
 .book-listed table thead{
     background: rgb(255, 217, 0);
     color:black;
-    
 }
 .book-listed table thead tr th{
     font-size: 0.9rem;
     padding: 0.5rem;
     vertical-align: top;
     border: 1px solid #aab7b8;
-
 }
 .book-listed table tbody tr td{
     font-size: 1rem;
@@ -333,7 +323,6 @@ a.sidebar-link:hover {
 .book-listed table tbody tr:nth-child(even){
     background-color: #eee;
     cursor: pointer;
-    
 }
 .book-listed table tbody tr:hover td{
     background-color: #839192;
@@ -450,6 +439,11 @@ body {
     flex-direction: row;
     backdrop-filter: blur(10px);
 }
+
+.full-width-form {
+    width: 100%;
+}
+
 .success-popup {
     display: none;
     position: fixed;

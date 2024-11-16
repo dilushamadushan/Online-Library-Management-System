@@ -67,6 +67,9 @@
             <p>&copy; 2024 Public Library. All rights reserved.</p>
         </div>
     </div>
+    <div class="footer">
+        <p>&copy; 2023 Online Library Management System. All rights reserved.</p>
+    </div>
 </footer>
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/jquery-3.7.1.js"></script>

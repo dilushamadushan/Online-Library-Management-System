@@ -1,6 +1,7 @@
 <?php
     include("header.php");
     include("config.php");
+   
 ?>
 <head>
     <meta charset="UTF-8">
@@ -11,6 +12,20 @@
     <link rel="stylesheet" href="assets/css/admin-pannel.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script defer src="assets/js/admin-pannel.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .rounded-image {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .scrollable-table {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+       
+    </style>
 </head>
 
 <div class="container">
@@ -75,17 +90,34 @@
         <div class="profile-info" id="menue1">
             <h1>Personal Information</h1>
             <div class="profile-image">
-                <img src="assets/media/admin-page/avatar.png" alt="avatar">
+                <img src="assets/media/admin-page/avatar.png" alt="avatar" class="rounded-image">
             </div> 
-            <h2>Admin Name:</h2>
-            <input type="text" name="name" id="name" value="Hajith">
-            <h2>Admin email:</h2>
-            <input type="e-mail" name="mail" id="mail" value="hanoufaatif@gmail.com">
-            <h2>Mobile No:</h2>
-            <input type="text" name="mobile" id="mobile" value="0740523954">
-            <h2>Address:</h2>
-            <input type="text" name="addr" id="addr" value="Central Beach Road, Palamunai-11,Arayampathy, Batticaloa.">
-            <input type="submit" value="Update" name="btn" id="btn">
+            <?php
+                $admin_sql = "SELECT * FROM user_table WHERE user_role='admin' LIMIT 1";
+                $admin_result = mysqli_query($conn, $admin_sql);
+                $admin_data = mysqli_fetch_assoc($admin_result);
+            ?>
+            <form method="post" class="w-100">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Admin Name:</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo htmlspecialchars($admin_data['User_Nmae']); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="mail" class="form-label">Admin email:</label>
+                    <input type="email" name="mail" id="mail" class="form-control" value="<?php echo htmlspecialchars($admin_data['User_Emaiil']); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile No:</label>
+                    <input type="text" name="mobile" id="mobile" class="form-control" value="<?php echo htmlspecialchars($admin_data['User_Mobile']); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="addr" class="form-label">Address:</label>
+                    <input type="text" name="addr" id="addr" class="form-control" value="<?php echo htmlspecialchars($admin_data['User_Address']); ?>">
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Update" name="btn" id="btn" class="btn btn-primary">
+                </div>
+            </form>
             <?php 
                 if(isset($_POST['btn'])){
                     $name = $_POST['name'];
@@ -93,16 +125,25 @@
                     $mobile = $_POST['mobile'];
                     $addr = $_POST['addr'];
 
-                    // Prepare SQL statement to prevent SQL injection
-                    $sql = "UPDATE user_table SET User_Nmae =?, User_Emaiil=?, User_Mobile=?, User_Address=? WHERE user_id='A001'";
-                    $stmt = mysqli_prepare($conn, $sql);
-                    mysqli_stmt_bind_param($stmt, "ssss", $name, $mail, $mobile, $addr);
-                    $result = mysqli_stmt_execute($stmt);
+                    $check_sql = "SELECT * FROM user_table WHERE (User_Nmae=? OR User_Emaiil=? OR User_Mobile=?) AND user_id != ?";
+                    $check_stmt = mysqli_prepare($conn, $check_sql);
+                    mysqli_stmt_bind_param($check_stmt, "ssss", $name, $mail, $mobile, $admin_data['user_id']);
+                    mysqli_stmt_execute($check_stmt);
+                    $check_result = mysqli_stmt_get_result($check_stmt);
 
-                    if($result){
-                        echo "<script>alert('Updated Successfully');</script>";
+                    if(mysqli_num_rows($check_result) > 0){
+                        echo "<script>alert('Details already exist');</script>";
                     } else {
-                        echo "<script>alert('Update Failed');</script>";
+                        $sql = "UPDATE user_table SET User_Nmae =?, User_Emaiil=?, User_Mobile=?, User_Address=? WHERE user_id=?";
+                        $stmt = mysqli_prepare($conn, $sql);
+                        mysqli_stmt_bind_param($stmt, "sssss", $name, $mail, $mobile, $addr, $admin_data['user_id']);
+                        $result = mysqli_stmt_execute($stmt);
+
+                        if($result){
+                            echo "<script>alert('Updated Successfully');</script>";
+                        } else {
+                            echo "<script>alert('Update Failed');</script>";
+                        }
                     }
                 }
             ?>
@@ -110,12 +151,12 @@
 
             <div class="users" id="menue2">
                 <h1>Users' Informations</h1>
-                <div class="book-listed" style="display: block;" id="user2">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter user name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                <div class="book-listed scrollable-table" style="display: block;" id="user2">
+                    <div class="search input-group mb-3">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Enter user name">
+                        <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                     </div>
-                    <table>
+                    <table class="table-responsive">
                         <thead>
                             <tr>
                                 <th>User ID</th>
@@ -123,27 +164,29 @@
                                 <th>E-mail</th>
                                 <th>Mobile No</th>
                                 <th>Address</th>
+                                <th>Image</th>
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                $sql = "SELECT * FROM user_table";
-                                $result = mysqli_query($conn, $sql);
-                                if(mysqli_num_rows($result) > 0){
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        echo "<tr>";
-                                        echo "<td>".$row['user_id']."</td>";
-                                        echo "<td>".$row['User_Nmae']."</td>";
-                                        echo "<td>".$row['User_Emaiil']."</td>";
-                                        echo "<td>".$row['User_Mobile']."</td>";
-                                        echo "<td>".$row['User_Address']."</td>";
-                                        echo "<td><a href='#'>Edit</a></td>";
-                                        echo "<td><a href='#'>Delete</a></td>";
-                                        echo "</tr>";
-                                    }
+                            $sql = "SELECT * FROM user_table";
+                            $result = mysqli_query($conn, $sql);
+                            if(mysqli_num_rows($result) > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                                    echo "<tr>";
+                                    echo "<td>".$row['user_id']."</td>";
+                                    echo "<td>".$row['User_Nmae']."</td>";
+                                    echo "<td>".$row['User_Emaiil']."</td>";
+                                    echo "<td>".$row['User_Mobile']."</td>";
+                                    echo "<td>".$row['User_Address']."</td>";
+                                    echo "<td><img src='profile/".$row['User_profile']."' alt='User Image' width='50' class='rounded-image'></td>";
+                                    echo "<td><button class='btn btn-primary'>Edit</button></td>";
+                                    echo "<td><button class='btn btn-danger'>Delete</button></td>";
+                                    echo "</tr>";
                                 }
-                                ?>
+                            }
+                            ?>
                         </tbody>
                     </table>
                     <div class="button-for-more">
@@ -152,17 +195,31 @@
                 </div>
                 <div class="add-new-popup" id="popup2">
                     <h1>Add New User</h1>
-                    <form action="add-new.php" method="post" id="new-popup">
-                    <div class="error"></div>
-                        <input type="text" name="name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="mail" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" >
-                        <input type="submit" value="Add New " id="new-btn" name="new-btn">
+                    <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
+                        <div class="error">
+                            <?php
+                            if (isset($_SESSION['message'])) {
+                                echo "<script>
+                                        Swal.fire({
+                                            icon: 'info',
+                                            title: 'Message',
+                                            text: '".$_SESSION['message']."'
+                                        });
+                                    </script>";
+                                unset($_SESSION['message']);
+                            }
+                            ?>
+                        </div>
+                        <input type="text" name="name" id="name" placeholder="Enter User Name:" required>
+                        <input type="email" name="mail" id="mail" placeholder="Enter Email" required>
+                        <input type="text" name="mobile" id="mobile" placeholder="Enter Your Mobile No:" required>
+                        <input type="text" name="addr" id="addr" placeholder="Enter User Address" required>
+                        <input type="file" name="image" id="image" accept="image/*" required>
+                        <input type="submit" value="Add New" id="new-btn" name="new-btn">
                     </form>
-
                 </div> 
             </div>
+
 
             <div class="books" id="menue3">
                 <h1>Book Information</h1>
@@ -185,13 +242,13 @@
                     <div class="bookbtn" onclick="showBooklist(2,5)">
                         <i class="fa-solid fa-list"></i>
                         <p id="count">9</p>
-                        <h4>Listed Cotegories</h4>
+                        <h4>Listed Categories</h4>
                     </div>
                 </div>
-                <div class="book-listed" id="list1">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                <div class="book-listed scrollable-table" id="list1">
+                    <div class="search input-group mb-3">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                        <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                     </div>
                     <table>
                         <thead>
@@ -199,8 +256,9 @@
                                 <th>Number</th>
                                 <th>Book Name</th>
                                 <th>ISBN Number</th>
-                                <th>Subject of Book</th>
+                                <th>Subject</th>
                                 <th>Author</th>
+                                <th>Category</th>
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
@@ -211,11 +269,12 @@
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
-                                        echo "<td>".$row['book_id	']."</td>";
-                                        echo "<td>".$row['book_name']."</td>";
+                                        echo "<td>".$row['Number']."</td>";
+                                        echo "<td>".$row['Book_Name']."</td>";
                                         echo "<td>".$row['ISBN_no']."</td>";
-                                        echo "<td>".$row['subject']."</td>";
+                                        echo "<td>".$row['Subject']."</td>";
                                         echo "<td>".$row['Author']."</td>";
+                                        echo "<td>".$row['category']."</td>";
                                         echo "<td><a href='#'>Edit</a></td>";
                                         echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
@@ -229,32 +288,34 @@
                         <button class="button" onclick="exit(2,2)">Back <i class="fa-solid fa-backward"></i></button>
                     </div>
                 </div>
-                <div class="book-listed" id="list2">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                <div class="book-listed scrollable-table" id="list2">
+                    <div class="search input-group mb-3">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                        <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Book Name</th>
-                                <th>User Name</th>
-                                <th>Subject of Book</th>
-                                <th>Date of return</th>
+                                <th>Book ID</th>
+                                <th>User ID</th>
+                                <th>Borrowed Date</th>
+                                <th>Return Date</th>
+                                <th>Action</th>
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                $sql = "SELECT * FROM book_table";
+                                $sql = "SELECT * FROM book_user_table";
                                 $result = mysqli_query($conn, $sql);
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
                                         echo "<tr>";
-                                        echo "<td>".$row['book_name']."</td>";
-                                        echo "<td>".$row['user_name']."</td>";
-                                        echo "<td>".$row['subject']."</td>";
-                                        echo "<td>".$row['date_of_return']."</td>";
+                                        echo "<td>".$row['b_id']."</td>";
+                                        echo "<td>".$row['user_id']."</td>";
+                                        echo "<td>".$row['barrowed_date']."</td>";
+                                        echo "<td>".$row['return_date']."</td>";
+                                        echo "<td>".$row['action']."</td>";
                                         echo "<td><a href='#'>Edit</a></td>";
                                         echo "<td><a href='#'>Delete</a></td>";
                                         echo "</tr>";
@@ -269,10 +330,10 @@
                     </div>
                 </div>
                 
-                <div class="book-listed" id="list5">
-                    <div class="search">
-                        <input type="text" name="search" id="search" placeholder="Enter the book name">
-                        <input type="button" name="btn-search" id="btn-search" value="Search">
+                <div class="book-listed scrollable-table" id="list5">
+                    <div class="search input-group mb-3">
+                        <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                        <a href="../Online-Library-Management-System/add_new_pages/users.php" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                     </div>
                     <table>
                         <thead>
@@ -352,12 +413,12 @@
             </div>
             <div class="resources" id="menue4">
                     <h1>E-resorces</h1>
-                    <div class="book-listed" style="display: block;" id="user4">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                    <div class="book-listed scrollable-table" style="display: block;" id="user4">
+                        <div class="search input-group mb-3">
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                            <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                         </div>
-                        <table>
+                        <table class="table-responsive">
                             <thead>
                                 <tr>
                                     <th>Book Id</th>
@@ -365,8 +426,9 @@
                                     <th>ISBN Number</th>
                                     <th>Subject</th>
                                     <th>Author</th>
-                                    <th>Name</th>
+                                    <th>Publish Year</th>
                                     <th>Image</th>
+                                    <th>PDF</th>
                                     <th colspan="2">Actions</th>
                                 </tr>
                             </thead>
@@ -377,15 +439,16 @@
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
+                                            echo "<td>".$row['e_book_id']."</td>";
                                             echo "<td>".$row['e_book_name']."</td>";
                                             echo "<td>".$row['ISBN_no']."</td>";
                                             echo "<td>".$row['subject']."</td>";
                                             echo "<td>".$row['author']."</td>";
-                                            echo "<td>".$row['	publish_year']."</td>";
-                                            echo "<td>".$row['image']."</td>";
-                                            echo "<td>".$row['pdf']."</td>";
-                                            echo "<td><a href='#'>Edit</a></td>";
-                                            echo "<td><a href='#'>Delete</a></td>";
+                                            echo "<td>".$row['publish_year']."</td>";
+                                            echo "<td><img src='cover_folder/".$row['image']."' alt='Book Image' width='50' class='rounded-image'></td>";
+                                            echo "<td><a class='btn btn-success' href='E_books/".$row['pdf']."' download>Download PDF</a></td>";
+                                            echo "<td><button class='btn btn-primary'>Edit</button></td>";
+                                            echo "<td><button class='btn btn-danger'>Delete</button></td>";
                                             echo "</tr>";
                                         }
                                     }
@@ -400,25 +463,25 @@
                     <h1>Add New User</h1>
                     <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                     <div class="error"></div>
-                        <input type="text" name="eb-name" id="name" placeholder="Enter User Name:" >
-                        <input type="text" name="ISB-no" id="mail" placeholder="Enter Email" >
-                        <input type="text" name="subject" id="mobile" placeholder="Enter Your Mobile No:" >
-                        <input type="text" name="year" id="addr" placeholder="Enter User Address" >
-                        <input type="file" name="image" id="addr" placeholder="Enter User Address" >
-                        <input type="file" name="pdf" id="addr" placeholder="Enter User Address" >
-                        <input type="submit" value="Add New" id="new-btn" name="new-btn4">
+                        <input type="text" name="eb-name" id="name" placeholder="Enter E-book Name:" >
+                        <input type="text" name="ISB-no" id="mail" placeholder="Enter ISBN Number" >
+                        <input type="text" name="subject" id="mobile" placeholder="Subject" >
+                        <input type="text" name="year" id="addr" placeholder="Year" >
+                        <input type="file" name="image" id="addr">
+                        <input type="file" name="pdf" id="addr">
+                        <input type="submit" value="Add New" id="new-btn" name="add-new-ebook">
                     </form>
                 </div> 
             </div>
 
             <div class="resources" id="menue5">
                 <h1>Past Papers</h1>
-                <div class="book-listed" style="display: block;" id="user5">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                <div class="book-listed scrollable-table" style="display: block;" id="user5">
+                        <div class="search input-group mb-3">
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                            <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                         </div>
-                        <table>
+                        <table class="table-responsive">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -436,43 +499,40 @@
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
+                                            echo "<td>".$row['p_id']."</td>";
                                             echo "<td>".$row['subject']."</td>";
-                                            echo "<td>".$row['exam']."</td>";
+                                            echo "<td>".$row['examination_typ']."</td>";
                                             echo "<td>".$row['year']."</td>";
-                                            echo "<td>".$row['pdf']."</td>";
-                                            echo "<td><a href='add-new.php'>Edit</a></td>";
-                                            echo "<td><a href='#'>Delete</a></td>";
+                                            echo "<td><a class='btn btn-success' href='Past_papers/".$row['pdf']."' download>Download PDF</a></td>";
+                                            echo "<td><button class='btn btn-primary'>Edit</button></td>";
+                                            echo "<td><button class='btn btn-danger'>Delete</button></td>";
                                             echo "</tr>";
                                         }
                                     }
                                     ?>
-                            </tbody>
-                        </table>
-                        <div class="button-for-more">
-                            <button class="button" onclick="add_new_user(5)">Add New</button>
                         </div>
                     </div>
                     <div class="add-new-popup" id="popup5">
                     <h1>Add New Past Paper</h1>
-                    <form action="#" id="new-popup">
+                    <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                     <div class="error"></div>
                         <input type="text" name="p-subject" id="p-subject" placeholder="Enter Subject of Past paper:" >
                         <input type="text" name="exam" id="exam" placeholder="Enter Examination" >
                         <input type="text" name="year" id="year" placeholder="Enter the year" >
-                        <input type="text" name="lag" id="lan" placeholder="Enter the language" >
-                        <input type="submit" value="Add New" id="new-btn">
+                        <input type="file" name="pdf" id="pdf" accept="pdf/*">
+                        <input type="submit" value="Add New" id="new-btn" name="add-new-paper">
                     </form>
                 </div> 
                 </div>
-
-                <div class="resources" id="menue6">
+            </div> <!-- Missing closing div tag added here -->
+            <div class="resources" id="menue6">
                     <h1>Article and Megazine</h1>
-                    <div class="book-listed" style="display: block;" id="user6">
-                        <div class="search">
-                            <input type="text" name="search" id="search" placeholder="Enter the book name">
-                            <input type="button" name="btn-search" id="btn-search" value="Search">
+                    <div class="book-listed scrollable-table" style="display: block;" id="user6">
+                        <div class="search input-group mb-3">
+                            <input type="text" class="form-control" name="search" id="search" placeholder="Enter the book name">
+                            <a href="#" class="btn btn-outline-secondary ms-2" id="btn-search">Search</a>
                         </div>
-                        <table>
+                        <table class="table-responsive">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -486,25 +546,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    $sql = "SELECT * FROM articles_table";
-                                    $result = mysqli_query($conn, $sql);
-                                    if(mysqli_num_rows($result) > 0){
-                                        while($row = mysqli_fetch_assoc($result)){
-                                            echo "<tr>";
-                                            echo "<td>".$row['id	']."</td>";
-                                            echo "<td>".$row['title']."</td>";
-                                            echo "<td>".$row['writer	']."</td>";
-                                            echo "<td>".$row['type	']."</td>";
-                                            echo "<td>".$row['publish_date']."</td>";
-                                            echo "<td>".$row['description']."</td>";
-                                            echo "<td>".$row['image']."</td>";
-                                            echo "<td><a href='#'>Edit</a></td>";
-                                            echo "<td><a href='#'>Delete</a></td>";
-                                            echo "</tr>";
-                                        }
-                                    }
-                                    ?>
+                            <?php
+                                $sql = "SELECT * FROM articles_table";
+                                $stmt = mysqli_prepare($conn, $sql);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['writer']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['type']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['publish_date']) . "</td>";
+                                    echo "<td>" . htmlspecialchars($row['description']) . "</td>";
+                                    echo "<td><img src='cover_folder/".$row['image']."' alt='Article Image' width='50' class='rounded-image'></td>";
+                                    echo "<td><button class='btn btn-primary'>Edit</button></td>";
+                                    echo "<td><button class='btn btn-danger'>Delete</button></td>";
+                                    echo "</tr>";
+                                }
+                                }
+                                ?>
                             </tbody>
                         </table>
                         <div class="button-for-more">
@@ -513,12 +576,16 @@
                     </div>
                     <div class="add-new-popup" id="popup6">
                         <h1>Add New Article/Megazine</h1>
-                        <form action="#" id="new-popup">
+                        <form action="add-new.php" method="post" id="new-popup" enctype="multipart/form-data">
                             <div class="error"></div>
                             <input type="text" name="art-name" id="art-name" placeholder="Enter Name:" >
                             <input type="text" name="type" id="type" placeholder="Enter Type" >
-                            <input type="text" name="subject" id="subject" placeholder="Subject" >
-                            <input type="submit" value="Add New" id="new-btn">
+                            <input type="text" name="writer" id="subject" placeholder="Writer Name" >
+                            <input type="date" name="date" id="subject" placeholder="Date" >
+                            <textarea name="description" id="description"></textarea>
+                            <input type="file" name="image" id="image" accept="image/*">
+                            <input type="file" name="pdf" id="pdf" accept="pdf/*">
+                            <input type="submit" value="Add New" id="new-btn" name="add-new-notice">
                         </form>
                     </div> 
                 </div>
@@ -548,6 +615,7 @@
     };
     window.onload = function() {
         showMenues(1);
+        document.querySelector("#sidebar").classList.add("expand");
     };
 
     const showBooklist= function (num1,num2) {
@@ -606,6 +674,8 @@
         books.style.display="flex"
         list.style.display="none"
     }
+
+
 
 </script>
 

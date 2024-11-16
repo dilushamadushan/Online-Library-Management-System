@@ -5,8 +5,8 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
- }
- body{
+}
+body{
     background-image: url(../media/admin-page/background1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,8 +14,7 @@
     background-position: center;
     height: 100vh;
     width: 100%;
-     
- }
+}
 .container{
     height: 100%;
     width: 100%;
@@ -25,8 +24,6 @@
     justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
-   
-    
 }
 .admin-pannel-container{
     height: 100%;
@@ -175,7 +172,6 @@ a.sidebar-link:hover {
     justify-content: center;
     background-color: #eee;
     opacity: 0.95;
-
 }
 .profile-info {
     padding: 10px;
@@ -183,9 +179,8 @@ a.sidebar-link:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-   
 }
- h1, .books h1{
+h1, .books h1{
     font-size: xx-large;
     text-align: center;
     font-weight: bold;
@@ -193,7 +188,6 @@ a.sidebar-link:hover {
 .profile-info h2{
     font-size: larger;
     margin:10px 10px;
-    
 }
 .profile-info input{
     background-color: #d1d1d1;
@@ -291,7 +285,6 @@ a.sidebar-link:hover {
     padding: 0 10px;
     font-size: medium;
     color: #000000;
-
 }
 .search #btn-search{
     background-color:rgb(255, 217, 0) ;
@@ -306,21 +299,19 @@ a.sidebar-link:hover {
     padding: 20px;
 }
 .book-listed table{
-    width: 100%;
+    width: fit-content;
     border-collapse: collapse;
     background-color: white;
 }
 .book-listed table thead{
     background: rgb(255, 217, 0);
     color:black;
-    
 }
 .book-listed table thead tr th{
     font-size: 0.9rem;
     padding: 0.5rem;
     vertical-align: top;
     border: 1px solid #aab7b8;
-
 }
 .book-listed table tbody tr td{
     font-size: 1rem;
@@ -332,7 +323,6 @@ a.sidebar-link:hover {
 .book-listed table tbody tr:nth-child(even){
     background-color: #eee;
     cursor: pointer;
-    
 }
 .book-listed table tbody tr:hover td{
     background-color: #839192;
@@ -409,97 +399,152 @@ a.sidebar-link:hover {
 .add-new-popup #new-popup #new-btn:hover{
     box-shadow: 2px 5px 5px rgba(0,0,0 ,0.5);
 }
-/* Base responsive settings for smaller screens */
-@media (max-width: 1200px) {
-    .admin-pannel-container {
-        flex-direction: column; /* Stack panels vertically */
-        width: 90vw; /* Adjust width */
-    }
-    .show-details {
-        width: 100%; /* Ensure content uses full width */
-    }
-    .book-info .bookbtn, .user-info .userbtn {
-        width: 45%; /* Adjust button size */
-    }
+/* Base styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
 }
 
+body {
+    background-image: url(../media/admin-page/background1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.admin-pannel-container {
+    height: 100%;
+    width: 70vw;
+    box-shadow: 0 5px 10px rgb(8, 8, 8);
+    display: flex;
+    flex-direction: row;
+    backdrop-filter: blur(10px);
+}
+
+.full-width-form {
+    width: 100%;
+}
+
+.success-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup {
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.popup p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.popup .button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup .button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
-    /* Smaller tablets and large mobile devices */
-    .container {
+    .admin-pannel-container {
         flex-direction: column;
-        margin-top: 10%;
-        margin-left: 0;
+        width: 90vw;
     }
 
-    .admin-pannel-container {
-        width: 95vw;
+    #sidebar {
+        width: 100%;
+        min-width: 100%;
     }
-    
+
     .show-details {
-        padding: 15px; /* Reduce padding for smaller screens */
-    }
-    
-    .book-info .bookbtn, .user-info .userbtn {
-        width: 90%; /* Adjust button size for small screens */
+        width: 100%;
+        padding: 10px;
     }
 
-    .profile-info input, .profile-info #btn {
-        width: 100%; /* Make inputs full width */
+    .profile-info input,
+    .search #search,
+    .search #btn-search,
+    .book-listed .button-for-more .button,
+    .add-new-popup #new-popup input,
+    .add-new-popup #new-popup #new-btn {
+        width: 100%;
     }
 
-    .profile-image img {
-        height: 150px;
-        width: 150px; /* Adjust image size for smaller screens */
+    .book-info .bookbtn,
+    .user-info .userbtn {
+        width: 100%;
+        height: auto;
     }
 }
 
-@media (max-width: 576px) {
-    /* Mobile phones */
-    .admin-pannel-container {
-        width: 100vw;
-        box-shadow: none; /* Remove shadow for simplicity on small screens */
-    }
-
+@media (max-width: 480px) {
     .toggle-btn i {
-        font-size: 1.25rem; /* Adjust icon size */
+        font-size: 1.2rem;
     }
 
-    .book-info .bookbtn, .user-info .userbtn {
-        width: 100%; /* Full width buttons */
+    .sidebar-logo a {
+        font-size: 1.2rem;
     }
 
-    .profile-info h2 {
-        font-size: 1rem; /* Adjust heading size */
-    }
-
-    .profile-info #btn {
-        width: 100%; /* Full width button */
-    }
-
-    .book-listed table thead tr th, .book-listed table tbody tr td {
-        font-size: 0.8rem; /* Adjust font size for readability */
-    }
-    
-    .profile-image img {
-        height: 100px;
-        width: 100px; /* Reduce image size on mobile */
-    }
-}
-
-@media (max-width: 375px) {
-    /* Very small mobile screens */
-    .book-info .bookbtn, .user-info .userbtn {
-        width: 100%; /* Ensure full width on smallest screens */
-        height: 20vh; /* Adjust height */
-    }
-
-    .profile-info input {
+    a.sidebar-link {
         font-size: 0.9rem;
     }
 
+    .profile-info h2 {
+        font-size: medium;
+    }
+
+    .profile-info input {
+        font-size: small;
+    }
+
+    .book-listed table thead tr th,
     .book-listed table tbody tr td {
-        font-size: 0.7rem; /* Further reduce text size */
-        padding: 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.3rem;
     }
 }
-

@@ -1,7 +1,85 @@
 <?php
-    include("header.php");
+    session_start();
+    include("header.php"); 
     include("config.php");
-   
+?>
+
+<?php
+     
+    
+
+    $admin_sql = "SELECT * FROM user_table WHERE user_role='admin' LIMIT 1";
+    $admin_result = mysqli_query($conn, $admin_sql);
+    $admin_data = mysqli_fetch_assoc($admin_result);
+
+    if ($admin_data) {
+        $_SESSION['id'] = $admin_data['user_id']; // Ensure session id is set
+        $_SESSION['User_profile'] = $admin_data['User_profile']; // Ensure session profile image is set
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload'])) {
+        if (isset($_FILES["profile_image"]["name"]) && isset($_SESSION['id'])) {
+            $id = $_SESSION['id'];
+            $src = $_FILES["profile_image"]["tmp_name"];
+            $imageName = uniqid() . "_" . basename($_FILES["profile_image"]["name"]);
+            $target = __DIR__ . "/profile/" . $imageName;
+
+            if (move_uploaded_file($src, $target)) {
+                $query = "UPDATE user_table SET User_profile = ? WHERE user_id = ?";
+                $stmt = mysqli_prepare($conn, $query);
+                mysqli_stmt_bind_param($stmt, "si", $imageName, $id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+                $_SESSION['User_profile'] = $imageName; // Update session with new profile image
+            } else {
+                echo "<script>alert('Failed to upload image.');</script>";
+            }
+        }
+    }
+
+    if (isset($_GET['delete_user_id'])) {
+        $delete_user_id = $_GET['delete_user_id'];
+        $delete_sql = "DELETE FROM user_table WHERE user_id = ?";
+        $stmt = mysqli_prepare($conn, $delete_sql);
+        mysqli_stmt_bind_param($stmt, "i", $delete_user_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: admin-pannel.php");
+        exit();
+    }
+
+    if (isset($_GET['delete_book_id'])) {
+        $delete_book_id = $_GET['delete_book_id'];
+        $delete_sql = "DELETE FROM book_table WHERE Number = ?";
+        $stmt = mysqli_prepare($conn, $delete_sql);
+        mysqli_stmt_bind_param($stmt, "i", $delete_book_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: admin-pannel.php");
+        exit();
+    }
+
+    if (isset($_GET['delete_issued_book_id'])) {
+        $delete_issued_book_id = $_GET['delete_issued_book_id'];
+        $delete_sql = "DELETE FROM book_user_table WHERE b_id = ?";
+        $stmt = mysqli_prepare($conn, $delete_sql);
+        mysqli_stmt_bind_param($stmt, "i", $delete_issued_book_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: admin-pannel.php");
+        exit();
+    }
+
+    if (isset($_GET['delete_article_id'])) {
+        $delete_article_id = $_GET['delete_article_id'];
+        $delete_sql = "DELETE FROM articles_table WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $delete_sql);
+        mysqli_stmt_bind_param($stmt, "i", $delete_article_id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: admin-pannel.php");
+        exit();
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -90,13 +168,21 @@
         <div class="profile-info" id="menue1">
             <h1>Personal Information</h1>
             <div class="profile-image">
-                <img src="assets/media/admin-page/avatar.png" alt="avatar" class="rounded-image">
+                <img src="profile/<?php echo htmlspecialchars($_SESSION['User_profile']); ?>" alt="admin-avatar">
+                <form method="post" enctype="multipart/form-data" class="w-100">
+                    <div class="rightRound" id="upload">
+                        <input type="file" name="profile_image" id="profile_image" accept="image/*">
+                        <i class="fa fa-camera"></i>
+                    </div>
+                    <div class="leftRound" id="cancel" style="display: none;">
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <div class="rightRound" id="confirm" style="display: none;">
+                        <input type="submit" value="Upload" name="upload">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </form>
             </div> 
-            <?php
-                $admin_sql = "SELECT * FROM user_table WHERE user_role='admin' LIMIT 1";
-                $admin_result = mysqli_query($conn, $admin_sql);
-                $admin_data = mysqli_fetch_assoc($admin_result);
-            ?>
             <form method="post" class="w-100">
                 <div class="mb-3">
                     <label for="name" class="form-label">Admin Name:</label>
@@ -124,10 +210,11 @@
                     $mail = $_POST['mail'];
                     $mobile = $_POST['mobile'];
                     $addr = $_POST['addr'];
+                    $id = $_SESSION['id'];
 
                     $check_sql = "SELECT * FROM user_table WHERE (User_Nmae=? OR User_Emaiil=? OR User_Mobile=?) AND user_id != ?";
                     $check_stmt = mysqli_prepare($conn, $check_sql);
-                    mysqli_stmt_bind_param($check_stmt, "ssss", $name, $mail, $mobile, $admin_data['user_id']);
+                    mysqli_stmt_bind_param($check_stmt, "ssss", $name, $mail, $mobile, $id);
                     mysqli_stmt_execute($check_stmt);
                     $check_result = mysqli_stmt_get_result($check_stmt);
 
@@ -136,7 +223,7 @@
                     } else {
                         $sql = "UPDATE user_table SET User_Nmae =?, User_Emaiil=?, User_Mobile=?, User_Address=? WHERE user_id=?";
                         $stmt = mysqli_prepare($conn, $sql);
-                        mysqli_stmt_bind_param($stmt, "sssss", $name, $mail, $mobile, $addr, $admin_data['user_id']);
+                        mysqli_stmt_bind_param($stmt, "sssss", $name, $mail, $mobile, $addr, $id);
                         $result = mysqli_stmt_execute($stmt);
 
                         if($result){
@@ -182,7 +269,7 @@
                                     echo "<td>".$row['User_Address']."</td>";
                                     echo "<td><img src='profile/".$row['User_profile']."' alt='User Image' width='50' class='rounded-image'></td>";
                                     echo "<td><button class='btn btn-primary'>Edit</button></td>";
-                                    echo "<td><button class='btn btn-danger'>Delete</button></td>";
+                                    echo "<td><a href='admin-pannel.php?delete_user_id=".$row['user_id']."' class='btn btn-danger'>Delete</a></td>";
                                     echo "</tr>";
                                 }
                             }
@@ -276,7 +363,7 @@
                                         echo "<td>".$row['Author']."</td>";
                                         echo "<td>".$row['category']."</td>";
                                         echo "<td><a href='#'>Edit</a></td>";
-                                        echo "<td><a href='#'>Delete</a></td>";
+                                        echo "<td><a href='admin-pannel.php?delete_book_id=".$row['Number']."' class='btn btn-danger'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -317,7 +404,7 @@
                                         echo "<td>".$row['return_date']."</td>";
                                         echo "<td>".$row['action']."</td>";
                                         echo "<td><a href='#'>Edit</a></td>";
-                                        echo "<td><a href='#'>Delete</a></td>";
+                                        echo "<td><a href='admin-pannel.php?delete_issued_book_id=".$row['b_id']."' class='btn btn-danger'>Delete</a></td>";
                                         echo "</tr>";
                                     }
                                 }
@@ -524,6 +611,7 @@
                     </form>
                 </div> 
                 </div>
+    </div>
             </div> <!-- Missing closing div tag added here -->
             <div class="resources" id="menue6">
                     <h1>Article and Megazine</h1>
@@ -563,7 +651,7 @@
                                     echo "<td>" . htmlspecialchars($row['description']) . "</td>";
                                     echo "<td><img src='cover_folder/".$row['image']."' alt='Article Image' width='50' class='rounded-image'></td>";
                                     echo "<td><button class='btn btn-primary'>Edit</button></td>";
-                                    echo "<td><button class='btn btn-danger'>Delete</button></td>";
+                                    echo "<td><a href='admin-pannel.php?delete_article_id=".$row['id']."' class='btn btn-danger'>Delete</a></td>";
                                     echo "</tr>";
                                 }
                                 }
@@ -674,9 +762,24 @@
         books.style.display="flex"
         list.style.display="none"
     }
+    document.getElementById("profile_image").onchange = function() {
+        document.querySelector(".profile-image img").src = URL.createObjectURL(profile_image.files[0]); // Preview new image
 
+        document.getElementById("cancel").style.display = "block";
+        document.getElementById("confirm").style.display = "block";
 
+        document.getElementById("upload").style.display = "none";
+    }
 
+    var userImage = document.querySelector(".profile-image img").src;
+    document.getElementById("cancel").onclick = function() {
+        document.querySelector(".profile-image img").src = userImage; // Back to previous image
+
+        document.getElementById("cancel").style.display = "none";
+        document.getElementById("confirm").style.display = "none";
+
+        document.getElementById("upload").style.display = "block";
+    }
 </script>
 
 <?php

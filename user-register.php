@@ -41,8 +41,8 @@ if (isset($_POST['btn'])) {
                                     $row = mysqli_fetch_assoc($result);
                                     $lastUserID = (int)str_replace('U', '', $row['last_id']);
                                     $newUserID = generateUserID($lastUserID + 1);
-                                    $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp) 
-                                    VALUES ('$newUserID','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp')");
+                                    $sql2 = mysqli_query($conn, "INSERT INTO user_table (user_id, User_Nmae, User_Emaiil, User_Mobile, User_Address, User_Password, User_Profile, varification_status, user_otp, role) 
+                                    VALUES ('$newUserID','$username', '$email', '$mobile', '$address', '$hashed_pwd', '$new_image_name', '$verification_status', '$otp', '$role')");
 
                                 if ($sql2) {
                                     $_SESSION['otp'] = $otp;
@@ -64,7 +64,7 @@ if (isset($_POST['btn'])) {
 
                                    
                                     $mail->Subject = 'OTP verification';
-                                    $mail->Body = 'This is your four digit OTP ' . $otp;
+                                    $mail->Body = 'This is your four digit OTP ' . $otp . ".\nYour User ID is " . $newUserID . '. Please use this User ID for login.';
 
                                     if(!$mail->send()){
                                         ?>

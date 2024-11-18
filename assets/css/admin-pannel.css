@@ -163,6 +163,19 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+
+.profile-image{
+    width: 140px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+.profile-image img{
+    border-radius: 50%;
+    border: 8px solid #DCDCDC;
+    width: 125px;
+    height: 125px;
+}
 .show-details {
     width: 70vw;
     margin-left: 0; 
@@ -173,6 +186,43 @@ a.sidebar-link:hover {
     background-color: #eee;
     opacity: 0.95;
 }
+ .rightRound{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #00B4FF;
+    width: 32px;
+    height: 32px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+   .leftRound{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: red;
+    width: 32px;
+    height: 32px;
+    line-height: 33px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .profile-image .fa{
+    color: white;
+  }
+  .profile-image input{
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+  }
+  .profile-image input::-webkit-file-upload-button, .upload input[type=submit]{
+    cursor: pointer;
+  }
 .profile-info {
     padding: 10px;
     width: 100%; 
@@ -216,15 +266,7 @@ h1, .books h1{
 .profile-info #bookbtn{
     height: 150px;
 }
-.profile-image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.profile-image img{
-    height: 200px;
-    width: 200px;
-}
+
 .book-info, .user-info {
     display:flex;
     flex-wrap: wrap;
